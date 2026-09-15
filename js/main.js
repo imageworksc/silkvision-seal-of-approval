@@ -4,7 +4,8 @@
  *   1. Hamburger (#menu-push) opens/closes the mobile nav + language switcher.
  *   2. Top-level "expanded" menu links toggle their sub-menu on mobile
  *      (and, as on the live site, do not navigate on click).
- *   3. On desktop the header becomes fixed ("anchored") once you scroll past it.
+ *   3. Floating seal badge (bottom-right) appears on first scroll, hides over the footer.
+ *   4. On desktop the header becomes fixed ("anchored") once you scroll past it.
  */
 (function () {
   'use strict';
@@ -89,7 +90,37 @@
       });
     });
 
-    /* 3. Anchored header on desktop */
+    /* 3. Floating seal badge: shows on the visitor's first scroll and stays,
+          except while the footer is on screen (so it never covers footer
+          links). See floating-seal-badge.md. */
+    var badge = document.getElementById('yrBadge');
+    if (badge) {
+      var foot = document.querySelector('footer');
+      var footVisible = false;
+      var hasScrolled = (window.pageYOffset || document.documentElement.scrollTop) > 0;
+
+      var syncBadge = function () {
+        badge.classList.toggle('show', hasScrolled && !footVisible);
+      };
+
+      if (foot && 'IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          footVisible = entries[0].isIntersecting;
+          syncBadge();
+        }, { threshold: 0 }).observe(foot);
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!hasScrolled) {
+          hasScrolled = true;
+          syncBadge();
+        }
+      }, { passive: true });
+
+      syncBadge();
+    }
+
+    /* 4. Anchored header on desktop */
     if (header && headerWrap) {
       var scrollPast = header.getBoundingClientRect().top + window.pageYOffset;
       var onScroll = function () {
