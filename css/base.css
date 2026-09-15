@@ -1,0 +1,317 @@
+/* ==========================================================================
+   base.css — design tokens, normalize subset, typography, lists, layout
+   primitives and shared utilities. Loaded first.
+   Source: imageworks Drupal theme (style.css), rules that apply site-wide.
+   ========================================================================== */
+
+/* ---------- Design tokens ---------- */
+
+:root {
+	--purple:        #800080;
+	--purple-text:   #6a006a;
+	--purple-dark:   #5c005c;
+	--purple-bg:     #f9f0f9;
+	--purple-border: #dda8dd;
+	--navy:       #1a2d5a;
+	--navy-dark:  #112244;
+	--white:      #ffffff;
+	--off-white:  #f7f8fc;
+	--tinted:     #f0f3fa;
+	--gray-light: #e8ecf3;
+	--text-body:  #3d4a63;
+	--text-muted: #6b7a96;
+}
+
+/* ---------- Normalize (subset of what Drupal core loads) ---------- */
+
+html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+a { background-color: transparent; }
+b, strong { font-weight: bolder; }
+img { border-style: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+td, th { padding: 0; }
+
+/* ---------- Page shell ---------- */
+
+html,
+body,
+#page {
+	height: 100%;
+}
+
+#page-wrapper {
+	min-height: 100%;
+	min-width: 975px;
+	background-color: #718286;
+	overflow-x: hidden;
+}
+
+#main-wrapper {
+	background-color: #fff;
+	position: relative;
+	z-index: 1;
+}
+
+/* ---------- Typography ---------- */
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	line-height: 1.5;
+	font-size: 10px; /* base font 10px, so 1.6em = 16px */
+	word-wrap: break-word;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	color: #45575b;
+	font-family: 'Poppins', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover,
+a:active,
+a:focus {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 1.4em 0 0.5em;
+	font-weight: normal;
+}
+h1, #title-section h2, .h1-style {
+	font-size: 3.6em;
+	color: #005895;
+	margin: 0 0 20px;
+	line-height: 1.2;
+	font-weight: normal;
+}
+h2, .h2-style {
+	font-size: 2.4em;
+	color: #005894;
+	margin-top: 10px;
+	line-height: 1.2;
+}
+h3, h4, .h3-style {
+	font-weight: bold;
+	font-size: 1.8em;
+}
+p {
+	margin: 0 0 1.2em;
+	font-size: 1.6em;
+}
+
+li a.active {
+	color: inherit;
+}
+
+/* ---------- Content lists, images, links ---------- */
+
+#block-imageworks-content ul, .block ul, #block-imageworks-content ol, .block ol, .item-list ul, ul.list {
+	padding-left: 0;
+	margin: 20px 0 30px;
+	text-align: left;
+}
+
+#block-imageworks-content ol, .block ol {
+	margin-left: 40px;
+}
+
+#block-imageworks-content ul li, .block ul li, .item-list ul li, ul.list li {
+	font-size: 1.6em;
+	margin-bottom: 12px;
+	list-style-type: none;
+	padding-left: 20px;
+	background: url('../images/bullet.png') no-repeat 0 8px;
+	margin-left: 0;
+}
+
+#block-imageworks-content ol li {
+	font-size: 1.6em;
+	margin-bottom: 12px;
+}
+
+#block-imageworks-content ul li ul li, .block ul li ul li, #block-imageworks-content ol li ol li, .block ol li ol li {
+	font-size: 1em;
+}
+
+#block-imageworks-content img {
+	max-width: 100%;
+	height: auto !important;
+}
+
+#block-imageworks-content a {
+	color: #005894;
+}
+
+#main-wrapper a {
+	color: #005894;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.paragraph {
+	padding: 40px 0;
+}
+
+.paragraph .field :first-child {
+	margin-top: 0;
+}
+
+.paragraph .field :last-child {
+	margin-bottom: 0;
+}
+
+.section, #main {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.left, .right {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+}
+
+.left {
+	margin-right: 30px;
+}
+
+/* ---------- Shared components ---------- */
+
+/* Pipe-separated inline links (top bar, CTA strip, copyright line) */
+.divide {
+	display: inline-block;
+	padding: 0 15px;
+	border-left: 1px solid #bcc4c6;
+}
+
+.divide:first-child {
+	padding-left: 0 !important;
+	border: none;
+}
+
+/* Generic CTA button (the header "Contact" link inherits from it) */
+a.cta-btn {
+	background-color: #005894;
+	padding: 15px 30px;
+	text-align: center;
+	color: #fff !important;
+	font-size: 16px;
+	display: inline-block;
+	border: 1px solid #005894;
+	font-weight: bold;
+	border-radius: 5px;
+}
+
+a.cta-btn::after {
+	font-family: FontAwesome;
+	margin-left: 5px;
+	font-weight: normal;
+}
+
+a.cta-btn:hover {
+	color: #005894 !important;
+	background-color: #fff;
+}
+
+/* ---------- Utilities (Drupal core classes used by the markup) ---------- */
+
+.clearfix::after {
+	display: table;
+	clear: both;
+	content: '';
+}
+
+.visually-hidden {
+	position: absolute !important;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	word-wrap: normal;
+}
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+	position: static !important;
+	overflow: visible;
+	clip: auto;
+	width: auto;
+	height: auto;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media screen and (max-width: 1023px) {
+
+	body {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0;
+		overflow-x: hidden !important;
+	}
+
+	.section, #main {
+		max-width: 93%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	#page-wrapper {
+		min-width: 0;
+	}
+
+	#page-wrapper img {
+		max-width: 100%;
+		height: auto !important;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	h1, #title-section h2, #title-section .h1-style {
+		font-size: 3em;
+	}
+
+	.divide {
+		padding: 0 10px;
+	}
+
+	#block-imageworks-content ul li, .block ul li, .item-list ul li, ul.list li {
+		margin-bottom: 20px;
+	}
+
+}
+
+@media screen and (max-width: 567px) {
+
+	h1, #title-section h2, #title-section .h1-style {
+		font-size: 2.7em;
+	}
+
+}

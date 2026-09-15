@@ -18,7 +18,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/v4-shims.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" media="all" href="css/style.css" />
+    <!-- Fonts offered by the Cherry estimator widget (was inlined in the footer on the live page) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200..900&family=Slabo+27px:wght@200..900&family=Lato:wght@200..900&family=Raleway:wght@200..900&family=Montserrat:wght@200..900&family=Oswald:wght@200..900&family=Poppins:wght@200..900&family=Source+Sans+Pro:wght@200..900&family=PT+Sans:wght@200..900&family=Open+Sans:wght@200..900&display=swap" rel="stylesheet" />
+
+    <!-- Stylesheets, in cascade order -->
+    <link rel="stylesheet" media="all" href="css/base.css" />
+    <link rel="stylesheet" media="all" href="css/header.css" />
+    <link rel="stylesheet" media="all" href="css/page-obs.css" />
+    <link rel="stylesheet" media="all" href="css/footer.css" />
+    <link rel="stylesheet" media="all" href="css/seal-badge.css" />
+
+    <!-- Scripts (deferred: run after the DOM is parsed, in this order) -->
+    <script src="js/main.js" defer></script>
+    <script src="js/cherry-widget.js" defer></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -321,7 +333,7 @@ Annandale, VA 22003</p>
             <div class="clearfix text-formatted"><h4>Office Hours</h4><p>Monday – Friday<br>8:30am – 4:30pm</p></div>
   </div>
 <div id="block-footersocial">
-            <div class="clearfix text-formatted"><div class="logo"><img src="images/logo-white.png" alt="Logo" width="200" height="50"></div><div class="social"><a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-facebook"><span class="social">&nbsp;</span></i></em></a><a style="display:none;" href="#" target="_blank"><em><i class="fa-brands fa-google-plus"><span class="social">&nbsp;</span></i><i class="fa fa-linkedin"><span class="social">&nbsp;</span></i></em></a><a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener"><em><i class="fa-brands fa-x-twitter"><span class="social">&nbsp;</span></i></em></a><a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-youtube"><span class="social">&nbsp;</span></i></em></a><a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener"><em><i class="fa-brands fa-instagram"><span class="social">&nbsp;</span></i></em></a><a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener"><em><i class="fa-brands fa-tiktok"><span class="social">&nbsp;</span></i></em></a></div></div>
+            <div class="clearfix text-formatted"><div class="logo"><img src="images/logo-white.png" alt="Logo" width="200" height="50"></div><div class="social"><a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-facebook"><span class="social">&nbsp;</span></i></em></a><a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener"><em><i class="fa-brands fa-x-twitter"><span class="social">&nbsp;</span></i></em></a><a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-youtube"><span class="social">&nbsp;</span></i></em></a><a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener"><em><i class="fa-brands fa-instagram"><span class="social">&nbsp;</span></i></em></a><a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener"><em><i class="fa-brands fa-tiktok"><span class="social">&nbsp;</span></i></em></a></div></div>
   </div>
 
   </div>
@@ -336,57 +348,12 @@ Annandale, VA 22003</p>
 
 <p><span class="divide">Copyright © 2026 Silk Vision &amp; Surgical Center</span><span class="divide">All Rights Reserved.</span><span class="divide"><a href="https://www.silkvision.net/sitemap">Sitemap</a>.</span></p>
 
-<p style="text-align: center;"><strong><a href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web Design by ImageWorks Creative</a></strong></p>
+<p class="text-align-center"><strong><a href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web Design by ImageWorks Creative</a></strong></p>
 </div>
   </div>
 <div id="block-imageworks-cherryfloatingbutton">
-            <div class="clearfix text-formatted"><!-- CHERRY WIDGET BEGIN -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200..900&family=Slabo+27px:wght@200..900&family=Lato:wght@200..900&family=Raleway:wght@200..900&family=Montserrat:wght@200..900&family=Oswald:wght@200..900&family=Poppins:wght@200..900&family=Source+Sans+Pro:wght@200..900&family=PT+Sans:wght@200..900&family=Open+Sans:wght@200..900&display=swap" rel="stylesheet" />
-<script>
-    (function (w, d, s, o, f, js, fjs) {
-        w[o] = w[o] || function () {
-            (w[o].q = w[o].q || []).push(arguments);
-        };
-        (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
-        js.id = o;
-        js.src = f;
-        js.async = 1;
-        fjs.parentNode.insertBefore(js, fjs);
-    })(window, document, "script", "_hw", "https://files.withcherry.com/widgets/widget.js");
-    _hw("init", {
-        debug: false,
-        variables: {
-            slug: 'silk-vision-and-surgical-center',
-            name: 'Silk Vision LASIK Surgical Center',
-            images: [85],
-            customLogo: '',
-            defaultPurchaseAmount: 1500,
-            customImage: '',
-            imageCategory: 'vision',
-            language: 'en',
-        },
-        styles: {
-            primaryColor: '#005894',
-            secondaryColor: '#00589410',
-            fontFamily: 'Montserrat',
-            headerFontFamily: 'Montserrat',
-            floatingEstimator: {
-                position: 'bottom-left',
-                offset: {
-                    x: '0px',
-                    y: '0px'
-                },
-                zIndex: 9999,
-                ctaFontFamily: 'Montserrat',
-                bodyFontFamily: 'Montserrat',
-                ctaColor: '#005894',
-                ctaTextColor: '#FFFFFF'
-            }
-        }
-    }, ['floatingEstimator']);
-</script>
-<div id="floatingEstimator"></div>
-<!-- CHERRY WIDGET END --></div>
+            <div class="clearfix text-formatted"><!-- Cherry "Pay over time" estimator mounts here; config in js/cherry-widget.js -->
+<div id="floatingEstimator"></div></div>
   </div>
 
   </div>
@@ -403,17 +370,14 @@ Annandale, VA 22003</p>
       this staging copy (they would report staging traffic to the client's
       production accounts): Google Tag Manager, Google Analytics, Meta Pixel,
       TikTok Pixel, Microsoft Clarity, Mailchimp and the Cloudflare beacon.
-      The Cherry "Pay over time" floating estimator IS included (see the
-      block inside <footer>).
+      The Cherry "Pay over time" floating estimator IS included
+      (js/cherry-widget.js, mounts inside <footer>).
     -->
 
-    <!-- Floating seal badge (see floating-seal-badge.md). Fixed bottom-right;
-         hidden until the visitor first scrolls, hidden again over the footer. -->
+    <!-- Floating seal badge: css/seal-badge.css + js/main.js (spec: floating-seal-badge.md) -->
     <a class="yr-badge" id="yrBadge" href="#page"
        aria-label="The Joint Commission National Quality Approval — Silk Vision &amp; Surgical Center accreditation seal">
       <img src="images/seal-badge.png" alt="" width="240" height="240">
     </a>
-
-    <script src="js/main.js"></script>
   </body>
 </html>

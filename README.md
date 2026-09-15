@@ -8,13 +8,25 @@ for staging on GitHub Pages.
 
 | Path | What it is |
 | --- | --- |
-| `index.html` | Same markup, IDs and classes as the live Drupal page (node/243). |
-| `css/style.css` | The rules from the `imageworks` theme that apply to this page, in original cascade order, plus the Drupal core utilities the markup uses (`clearfix`, `visually-hidden`, `text-align-center`). |
-| `js/main.js` | The theme behaviours ported from jQuery to vanilla JS: hamburger menu, mobile sub-menus, fixed ("anchored") header on desktop scroll. |
-| `images/` | Logos, hero / section backgrounds, list bullets, table checkmark. |
-| `floating-seal-badge.md`, `joint-commission-accreditation.png` | Seal-badge component spec and artwork for the next iteration. |
+| `index.html` | Same markup, IDs and classes as the live Drupal page (node/243). No inline styles or scripts. |
+| `css/base.css` | Design tokens, normalize subset, typography, lists, layout primitives, shared components (`.divide`, `a.cta-btn`) and Drupal utilities (`clearfix`, `visually-hidden`, `text-align-center`). |
+| `css/header.css` | Top utility bar, header, logo, main menu (dropdowns, megamenu, mobile push menu), language switcher. |
+| `css/page-obs.css` | The page's sections: hero, two-column intro, patient benefits, surgery-day steps, advantages table, closing CTA. |
+| `css/footer.css` | Contact CTA strip, pre-footer (offices, hours, logo, social) and footer. |
+| `css/seal-badge.css` | Floating accreditation seal (bottom-right). |
+| `js/main.js` | Page behaviours (ES2015+, `const`/`let`, arrow functions, loaded with `defer`): hamburger menu, mobile sub-menus, seal badge show/hide, anchored header on desktop scroll. |
+| `js/cherry-widget.js` | Loader + configuration for the Cherry "Pay over time" estimator. |
+| `images/` | Logos, hero / section backgrounds, list bullets, table checkmark, seal badge (240 px). |
+| `floating-seal-badge.md`, `joint-commission-accreditation.png` | Seal-badge component spec and the original seal artwork. |
+
+Stylesheets are split by responsibility and linked in cascade order (base → header → page → footer → badge); each file keeps its own responsive block at the end. Rules were extracted from the `imageworks` theme's `style.css` preserving the original order.
 
 External resources: Google Fonts (Poppins, Montserrat) and Font Awesome 6.7.2 from cdnjs.
+
+## Conventions
+
+- CSS lives in the stylesheets under `css/`, organised by component; no `style=""` attributes or `<style>` blocks in the HTML.
+- JavaScript is modern (ES2015+): `const`/`let` only (no `var`), arrow functions, template literals; scripts are external files loaded with `defer`.
 
 ## Intentional differences from the live page
 
