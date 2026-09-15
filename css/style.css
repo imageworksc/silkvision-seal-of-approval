@@ -1385,7 +1385,6 @@ ul.menu a.is-active {
 	transform: translateY(6px) scale(.98);
 	pointer-events: none;
 	transition: opacity .5s ease-out, transform .5s ease-out;
-	filter: drop-shadow(0 1px 3px rgba(0,0,0,.08));
 }
 .yr-badge img{
 	width: 100%;
@@ -1401,8 +1400,7 @@ ul.menu a.is-active {
 .yr-badge.show:hover,
 .yr-badge.show:focus-visible{
 	transform: translateY(-1px) scale(1.01);
-	filter: drop-shadow(0 2px 5px rgba(0,0,0,.1));
-	transition: transform .3s ease-out, filter .3s ease-out;
+	transition: transform .3s ease-out;
 }
 .yr-badge:focus-visible{
 	outline: 3px solid #fff;
