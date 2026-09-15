@@ -18,6 +18,7 @@ for staging on GitHub Pages.
 | `js/cherry-widget.js` | Loader + configuration for the Cherry "Pay over time" estimator. |
 | `images/` | Logos, hero / section backgrounds, list bullets, table checkmark, seal badge (240 px). |
 | `floating-seal-badge.md`, `joint-commission-accreditation.png` | Seal-badge component spec and the original seal artwork. |
+| `hero-office-based-surgery.jpg` | Full-size copy of the hero background (same file as `images/obs-bg2.jpg`, 1920×1201). |
 
 Stylesheets are split by responsibility and linked in cascade order (base → header → page → footer → badge); each file keeps its own responsive block at the end. Rules were extracted from the `imageworks` theme's `style.css` preserving the original order.
 
