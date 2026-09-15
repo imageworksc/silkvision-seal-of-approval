@@ -1382,10 +1382,10 @@ ul.menu a.is-active {
 	display: block;
 	border-radius: 50%;
 	opacity: 0;                              /* hidden until JS adds .show */
-	transform: translateY(14px) scale(.92);
+	transform: translateY(6px) scale(.98);
 	pointer-events: none;
-	transition: opacity .4s ease, transform .4s ease;
-	filter: drop-shadow(0 3px 8px rgba(0,0,0,.16));
+	transition: opacity .5s ease-out, transform .5s ease-out;
+	filter: drop-shadow(0 1px 3px rgba(0,0,0,.08));
 }
 .yr-badge img{
 	width: 100%;
@@ -1400,9 +1400,9 @@ ul.menu a.is-active {
 }
 .yr-badge.show:hover,
 .yr-badge.show:focus-visible{
-	transform: translateY(-2px) scale(1.02);
-	filter: drop-shadow(0 5px 12px rgba(0,0,0,.2));
-	transition: transform .25s ease, filter .25s ease;
+	transform: translateY(-1px) scale(1.01);
+	filter: drop-shadow(0 2px 5px rgba(0,0,0,.1));
+	transition: transform .3s ease-out, filter .3s ease-out;
 }
 .yr-badge:focus-visible{
 	outline: 3px solid #fff;
