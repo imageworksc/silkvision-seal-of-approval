@@ -20,7 +20,7 @@ External resources: Google Fonts (Poppins, Montserrat) and Font Awesome 6.7.2 fr
 
 - All internal links point to `https://www.silkvision.net/...` so they work from this host.
 - `<meta name="robots" content="noindex, nofollow">` so this copy is never indexed as a duplicate of the live page.
-- Third-party embeds are left out (they would report staging traffic to production accounts): Google Tag Manager / Analytics, Meta Pixel, TikTok Pixel, Microsoft Clarity, Mailchimp, Cloudflare beacon and the Cherry "Pay over time" floating estimator.
+- Tracking embeds are left out (they would report staging traffic to production accounts): Google Tag Manager / Analytics, Meta Pixel, TikTok Pixel, Microsoft Clarity, Mailchimp and the Cloudflare beacon. The Cherry "Pay over time" floating estimator widget is included, with the same configuration as the live page.
 
 ## Local preview
 
