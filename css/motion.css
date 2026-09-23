@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Motion — keyframes, scroll reveals, and the reduced-motion contract
+   ==========================================================================
+   Loaded last so it can switch everything above off in one place.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Keyframes
+   -------------------------------------------------------------------------- */
+
+/* The hero headline comes into focus. This is the page's one idea: it is
+   what the procedure does. Blur only, no travel — moving a headline while
+   somebody is trying to read it defeats the point. The keyframes run FROM
+   the blurred state, so the finished frame is the element's normal one and
+   the text can never be left soft. */
+@keyframes resolve {
+  from { opacity: 0; filter: blur(1.25rem); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes sheen {
+  from { inset-inline-start: -60%; opacity: 1; }
+  to   { inset-inline-start: 120%; opacity: 0; }
+}
+
+@keyframes drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: .9;  transform: translate(-50%, -50%) scale(1.035); }
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(.3rem); }
+}
+
+@keyframes drop {
+  from { opacity: 0; transform: translateY(-.5rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-.4rem); }
+}
+
+/* --------------------------------------------------------------------------
+   The hero's load sequence
+   -------------------------------------------------------------------------- */
+
+/* The index rides in the attribute rather than an inline custom property, so
+   the markup carries no style of its own. */
+.hero [data-seq] { animation: rise .75s var(--ease) backwards; }
+.hero [data-seq="0"] { animation-delay: .15s; }
+.hero [data-seq="1"] { animation-delay: .3s; }
+.hero [data-seq="2"] { animation-delay: .42s; }
+.hero [data-seq="3"] { animation-delay: .54s; }
+.hero [data-seq="4"] { animation-delay: .66s; }
+
+/* The headline is the exception: it resolves rather than rises. */
+.hero h1[data-seq] {
+  animation-name: resolve;
+  animation-duration: 1s;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll reveals
+   The flag goes on <html> from script, so nothing is ever left hidden when
+   the script does not run.
+   -------------------------------------------------------------------------- */
+
+[data-anim="on"] [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity var(--t-slow) var(--ease),
+              transform var(--t-slow) var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+[data-anim="on"] [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Stagger a row of children without an inline style on each one. */
+.stagger > *:nth-child(1) { --d: 0ms; }
+.stagger > *:nth-child(2) { --d: 70ms; }
+.stagger > *:nth-child(3) { --d: 140ms; }
+.stagger > *:nth-child(4) { --d: 210ms; }
+.stagger > *:nth-child(5) { --d: 280ms; }
+.stagger > *:nth-child(6) { --d: 350ms; }
+.stagger > *:nth-child(7) { --d: 420ms; }
+.stagger > *:nth-child(8) { --d: 490ms; }
+
+.seal.is-in { animation: float 5s ease-in-out infinite; }
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   Everything above goes. Colour and tint changes stay, because they carry
+   state — only travel and looping ambience are removed, and nothing is
+   allowed to end on a frame that hides content.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .hero::before,
+  .hero::after,
+  .closing::before,
+  .scroll-cue .ico,
+  .seal.is-in { animation: none; }
+
+  [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
+
+  .btn:hover,
+  .card:hover,
+  .step:hover,
+  .stat:hover,
+  .feature:hover,
+  .social a:hover,
+  .strip a:hover,
+  .seal.is-in:hover { transform: none; }
+}

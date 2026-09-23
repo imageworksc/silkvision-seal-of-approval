@@ -1,0 +1,244 @@
+/* ==========================================================================
+   Sections — hero, steps, closing call, footer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero
+   Four layers: the photograph, a navy scrim, a drifting aurora, and a
+   Placido disc — the concentric rings a corneal topographer projects onto
+   an eye to read its shape. The rings are the one motif taken from the
+   instrument room rather than from a mood board.
+   -------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-block-size: min(46rem, 100svh);
+  /* The extra block-end clears the scroll cue, which is absolutely
+     positioned and would otherwise sit on top of the last stat pill. */
+  padding-block: var(--s-10) var(--s-11);
+  background:
+    linear-gradient(104deg,
+      rgb(0 19 37 / .97) 0%,
+      rgb(1 42 71 / .93) 40%,
+      rgb(1 53 89 / .68) 72%,
+      rgb(0 73 123 / .46) 100%),
+    url('../images/obs-bg2.jpg') 50% 50% / cover no-repeat;
+  color: var(--on-dark-soft);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The aurora. Two soft pools of brand light that drift very slowly. */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  z-index: -2;
+  background:
+    radial-gradient(38rem circle at 22% 18%, rgb(53 167 224 / .3), transparent 60%),
+    radial-gradient(34rem circle at 78% 82%, rgb(166 38 166 / .26), transparent 62%);
+  animation: drift 26s var(--ease) infinite alternate;
+}
+
+/* The Placido disc. Drawn in CSS, so it costs nothing and stays sharp at 4K. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 74%;
+  z-index: -1;
+  inline-size: 80rem;
+  block-size: 80rem;
+  translate: -50% -50%;
+  border-radius: var(--r-pill);
+  background: repeating-radial-gradient(
+    circle at center,
+    rgb(204 222 234 / .13) 0 1px,
+    transparent 1px 2.75rem);
+  mask-image: radial-gradient(circle at center, #000 38%, transparent 72%);
+  animation: breathe 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero h1 { color: var(--white); max-width: 15ch; }
+.hero .lead { color: var(--pale-200); max-width: 38ch; }
+.hero p:not(.lead) { color: var(--on-dark-soft); max-width: 54ch; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-pill);
+  background: rgb(255 255 255 / .1);
+  border: 1px solid rgb(255 255 255 / .22);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.hero-badge .ico { color: var(--cyan-300); }
+
+.hero-stats {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  inline-size: 100%;
+  max-inline-size: 52rem;
+  margin: 0;
+}
+
+/* The scroll cue. Hidden once the visitor has scrolled — it has done its job. */
+.scroll-cue {
+  position: absolute;
+  inset-block-end: var(--s-5);
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  gap: var(--s-1);
+  color: var(--on-dark-faint);
+  font-size: var(--t-xs);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  transition: opacity var(--t-mid) var(--ease);
+}
+.scroll-cue .ico { animation: nudge 2.2s ease-in-out infinite; }
+[data-scrolled="true"] .scroll-cue { opacity: 0; }
+@media (max-width: 61.99rem) { .scroll-cue { display: none; } }
+
+/* --------------------------------------------------------------------------
+   Steps — the sequence on surgery day
+   -------------------------------------------------------------------------- */
+
+.steps {
+  display: grid;
+  gap: var(--s-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr));
+  counter-reset: step;
+  inline-size: 100%;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border-radius: var(--r-md);
+  border: 1px solid var(--hairline-dark);
+  background: rgb(255 255 255 / .04);
+  counter-increment: step;
+  transition: background-color var(--t-mid) var(--ease),
+              border-color var(--t-mid) var(--ease),
+              transform var(--t-mid) var(--ease);
+}
+.step:hover {
+  background: rgb(255 255 255 / .09);
+  border-color: rgb(108 197 240 / .45);
+  transform: translateY(-3px);
+}
+.step:hover .ico-well { transform: rotate(-8deg) scale(1.08); }
+
+/* The number rides on the corner of the icon well. */
+.step-mark { position: relative; flex: none; }
+.step-mark::after {
+  content: counter(step);
+  position: absolute;
+  inset-block-start: -.5rem;
+  inset-inline-start: -.5rem;
+  display: grid;
+  place-items: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  border-radius: var(--r-pill);
+  background: var(--white);
+  color: var(--ink-700);
+  font-size: var(--t-xs);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.step p { font-size: var(--t-sm); color: var(--on-dark-soft); }
+.step strong { color: var(--white); }
+
+/* --------------------------------------------------------------------------
+   Closing call
+   -------------------------------------------------------------------------- */
+
+.closing { position: relative; overflow: hidden; isolation: isolate; }
+.closing::before {
+  content: '';
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  background:
+    radial-gradient(32rem circle at 18% 25%, rgb(166 38 166 / .32), transparent 60%),
+    radial-gradient(32rem circle at 82% 78%, rgb(53 167 224 / .28), transparent 60%);
+  animation: drift 24s var(--ease) infinite alternate-reverse;
+}
+
+/* --------------------------------------------------------------------------
+   Contact strip, offices, footer
+   -------------------------------------------------------------------------- */
+
+.strip a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-block-size: var(--tap);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--heading);
+  transition: color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.strip a:hover { color: var(--plum-600); transform: translateY(-2px); }
+.strip .ico { color: var(--cyan-400); }
+
+.office h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--t-body);
+  color: var(--white);
+  padding-block-end: var(--s-2);
+  border-block-end: 1px solid var(--hairline-dark);
+}
+.office p { font-size: var(--t-sm); color: var(--on-dark-soft); }
+.office a:not(.btn) { color: var(--cyan-300); font-weight: 600; }
+.office a:not(.btn):hover { text-decoration: underline; }
+
+.social { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--tap);
+  min-inline-size: var(--tap);
+  padding-inline: var(--s-4);
+  border-radius: var(--r-pill);
+  border: 1px solid var(--hairline-dark);
+  color: var(--white);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  transition: background-color var(--t-fast) var(--ease),
+              border-color var(--t-fast) var(--ease),
+              transform var(--t-fast) var(--ease);
+}
+.social a:hover {
+  background: rgb(255 255 255 / .12);
+  border-color: var(--cyan-300);
+  transform: translateY(-3px);
+}
+
+.site-footer {
+  background: var(--ink-900);
+  color: var(--on-dark-faint);
+  font-size: var(--t-sm);
+}
+.site-footer a { color: var(--on-dark-soft); text-decoration: underline; }
+.site-footer a:hover { color: var(--cyan-300); }
+.site-footer p { color: inherit; }
