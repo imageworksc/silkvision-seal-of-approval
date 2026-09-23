@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=10">
-<link rel="stylesheet" href="css/tokens.css?v=10">
-<link rel="stylesheet" href="css/base.css?v=10">
-<link rel="stylesheet" href="css/components.css?v=10">
-<link rel="stylesheet" href="css/sections.css?v=10">
-<link rel="stylesheet" href="css/motion.css?v=10">
+<link rel="stylesheet" href="css/fonts.css?v=12">
+<link rel="stylesheet" href="css/tokens.css?v=12">
+<link rel="stylesheet" href="css/base.css?v=12">
+<link rel="stylesheet" href="css/components.css?v=12">
+<link rel="stylesheet" href="css/sections.css?v=12">
+<link rel="stylesheet" href="css/motion.css?v=12">
 
-<script src="js/main.js?v=10" defer></script>
-<script src="js/cherry-widget.js?v=10" defer></script>
+<script src="js/main.js?v=12" defer></script>
+<script src="js/cherry-widget.js?v=12" defer></script>
 </head>
 <body>
 
@@ -459,21 +459,31 @@
   </div>
 </section>
 
-<!-- ===== OFFICES =========================================================== -->
-<section class="band band--snug band--deep" aria-labelledby="offices-title">
-  <div class="wrap stack stack--loose">
-    <h2 class="sr-only" id="offices-title">Our offices</h2>
+<!-- ===== FOOTER ============================================================
+     The offices used to be a separate <section> above the footer; they are
+     the footer. One element, two bars: contact above, legal below.
+     ========================================================================= -->
+<footer class="site-footer" aria-labelledby="footer-title">
+  <h2 class="sr-only" id="footer-title">Silk Vision &amp; Surgical Center</h2>
 
-    <div class="grid grid--4 stagger full" data-reveal>
+  <div class="wrap footer-main">
+    <div class="footer-brand">
+      <img src="images/logo-white.png" width="200" height="50" alt="Silk Vision &amp; Surgical Center">
+      <a class="footer-phone" href="tel:+17038769700">
+        <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>(703)&nbsp;876-9700
+      </a>
+    </div>
+
+    <div class="footer-offices">
       <div class="office">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Annandale office</h3>
-        <p>3301 Woodburn Rd<br>Suite 308<br>Annandale, VA 22003<br>
-          <a href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener">Review us on Google</a></p>
+        <p>3301 Woodburn Rd<br>Suite 308<br>Annandale, VA 22003</p>
+        <a href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener">Review us on Google</a>
       </div>
       <div class="office">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Manassas office</h3>
-        <p>8405 Dorsey Circle<br>Suite 101<br>Manassas, VA 20110<br>
-          <a href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener">Review us on Google</a></p>
+        <p>8405 Dorsey Circle<br>Suite 101<br>Manassas, VA 20110</p>
+        <a href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener">Review us on Google</a>
       </div>
       <div class="office">
         <h3><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg>LASIK center</h3>
@@ -485,27 +495,31 @@
       </div>
     </div>
 
-    <div class="cluster cluster--between full">
-      <img src="images/logo-white.png" width="200" height="50" alt="Silk Vision &amp; Surgical Center">
-      <div class="social">
-        <a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener">X</a>
-        <a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener">YouTube</a>
-        <a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener">TikTok</a>
-      </div>
+    <!-- Its own row across both columns: five pills in the brand column's
+         width wrapped onto three ragged lines. -->
+    <div class="social">
+      <a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener">X</a>
+      <a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener">TikTok</a>
     </div>
   </div>
-</section>
 
-<footer class="band band--snug site-footer">
-  <div class="wrap stack">
-    <p>The material contained on this site is for informational purposes only and is not
-      intended to be a substitute for professional medical advice, diagnosis or treatment.
-      Always seek the advice of your physician or other qualified healthcare provider.</p>
-    <p>Copyright © 2026 Silk Vision &amp; Surgical Center. All rights reserved.
-      <a href="https://www.silkvision.net/sitemap">Sitemap</a>.</p>
-    <p><a class="tap" href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web design by ImageWorks Creative</a></p>
+  <!-- The legal bar. Its text runs the full width of the shell rather than
+       stopping at the 62ch measure, which is what p carries by default. -->
+  <div class="footer-legal">
+    <div class="wrap">
+      <p class="footer-disclaimer">The material contained on this site is for informational
+        purposes only and is not intended to be a substitute for professional medical advice,
+        diagnosis or treatment. Always seek the advice of your physician or other qualified
+        healthcare provider.</p>
+      <div class="footer-meta">
+        <p>Copyright © 2026 Silk Vision &amp; Surgical Center. All rights reserved.</p>
+        <p><a href="https://www.silkvision.net/sitemap">Sitemap</a></p>
+        <p><a href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web design by ImageWorks Creative</a></p>
+      </div>
+    </div>
   </div>
 </footer>
 
