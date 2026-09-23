@@ -1,0 +1,349 @@
+/* ==========================================================================
+   Page block — Office-Based Surgery
+   ==========================================================================
+
+   This page's own sizes, behind the `sv-` prefix, every one declared once as
+   a token at the head of the block. Loaded AFTER brand.css.
+
+   Nothing here may restate what system.css already says. What is here is
+   what the system has no primitive for: a hero with an image behind it, the
+   site chrome, a numbered step list, a comparison table, and the floating
+   accreditation seal.
+   ========================================================================== */
+
+:root {
+  /* Sizes this page needs and the system has no token for. In rem, so they
+     rise with the root at 1800/2400/3200 like everything else. */
+  --sv-logo-w: 12.5rem;         /* 200px — the logo ships at 200×50        */
+  --sv-logo-w-sm: 9.375rem;     /* 150px on a small phone                   */
+  --sv-hero-min: 30rem;         /* 480px — h1 + lead + buttons, no more    */
+  --sv-step-well: 3.25rem;      /* 52px — the numbered well                */
+  --sv-table-min: 40rem;        /* 640px — below this the table scrolls in
+                                   its own box, never the page              */
+  --sv-badge: 10.625rem;        /* 170px */
+  --sv-badge-sm: 8.25rem;       /* 132px */
+  --sv-rail: .1875rem;          /* 3px — the rail beside a step group      */
+
+  /* The hero scrim. The photograph is a bright, low-contrast operating
+     suite; white type on it unscrimmed measures about 2:1. Weighted to the
+     left, where the type sits, so the room is still visible on the right. */
+  --sv-hero-scrim: linear-gradient(
+    100deg,
+    rgb(0 73 123 / .94) 0%,
+    rgb(0 73 123 / .88) 40%,
+    rgb(0 73 123 / .58) 72%,
+    rgb(0 73 123 / .38) 100%
+  );
+}
+
+/* --------------------------------------------------------------------------
+   1 · SITE CHROME — the utility bar and the header
+   -------------------------------------------------------------------------- */
+
+.sv-utility {
+  background: var(--brand-deep);
+  color: var(--white);
+  padding-block: var(--space-2);
+  font-size: var(--text-sm);
+}
+.sv-utility a { color: var(--white); }
+.sv-utility .cluster { justify-content: space-between; }
+
+/* Below 640px the utility bar is three wrapped rows of small links above the
+   logo — noise before the page has said anything. The phone number and the
+   booking link both repeat in the header and the closing band. */
+@media (max-width: 39.99rem) {
+  .sv-utility { display: none; }
+}
+
+.sv-header {
+  border-block-end: var(--hairline) solid var(--border-hairline);
+  padding-block: var(--space-4);
+}
+.sv-header > .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.sv-logo { display: block; flex: none; }
+.sv-logo img { width: var(--sv-logo-w); height: auto; }
+
+.sv-nav { display: flex; align-items: center; gap: var(--space-5); }
+
+.sv-nav a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-heading);
+}
+.sv-nav a:not(.btn):hover { color: var(--color-action-text); }
+
+/* The toggle only exists below the nav breakpoint. */
+.sv-nav-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--control-gap);
+  min-height: var(--touch-min);
+  min-width: var(--touch-min);
+  padding-inline: var(--space-3);
+  border: var(--hairline) solid var(--border-hairline);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-heading);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 59.99rem) {   /* 960px — where the nav row stops fitting */
+  .sv-nav-toggle { display: inline-flex; }
+
+  .sv-nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    z-index: 100;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-4) var(--gutter) var(--space-6);
+    background: var(--surface-page);
+    border-block-end: var(--hairline) solid var(--border-hairline);
+    box-shadow: 0 14px 34px rgb(0 0 0 / .1);
+  }
+  .sv-nav[data-open="true"] { display: flex; }
+  .sv-nav a:not(.btn) { border-block-end: var(--hairline) solid var(--border-hairline); }
+  .sv-nav .btn { margin-block-start: var(--space-4); }
+
+  .sv-header > .wrap { position: static; }
+  .sv-header { position: relative; }
+}
+
+/* --------------------------------------------------------------------------
+   2 · HERO
+   -------------------------------------------------------------------------- */
+
+.sv-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--sv-hero-min);
+  background-image: var(--sv-hero-scrim), url('../images/obs-bg2.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  color: var(--color-text);
+}
+.sv-hero > .wrap { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   3 · NUMBERED STEPS — "Surgery Day: What to Expect"
+   A counter, not eight hand-written numbers: reorder the copy and the
+   numbering follows.
+   -------------------------------------------------------------------------- */
+
+.sv-steps { counter-reset: sv-step; }
+
+.sv-steps > li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  counter-increment: sv-step;
+}
+
+.sv-steps > li::before {
+  content: counter(sv-step);
+  flex: none;
+  inline-size: var(--sv-step-well);
+  block-size: var(--sv-step-well);
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-round);
+  background: var(--white);
+  color: var(--brand-deep);
+  font-size: var(--text-lead);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.sv-steps p { color: var(--color-text); }
+.sv-steps strong { color: var(--color-heading); }
+
+/* --------------------------------------------------------------------------
+   4 · COMPARISON TABLE
+   Scrolls inside its own box below --sv-table-min. The page never scrolls
+   sideways, at any width.
+   -------------------------------------------------------------------------- */
+
+.sv-compare-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* position:relative is load-bearing, not decoration. The Yes/No text in
+     each cell is .visually-hidden, which is position:absolute; with no
+     positioned ancestor its containing block is the viewport, so it is laid
+     out at its static x — up to 640px — and is NOT clipped by this
+     scroller. The page then reports a scrollWidth of 536 on a 360px phone
+     and scrolls sideways, with nothing visible to explain why. Making this
+     box the containing block puts them back inside it. */
+  position: relative;
+}
+
+.sv-compare {
+  inline-size: 100%;
+  min-inline-size: var(--sv-table-min);
+  border-collapse: collapse;
+  background: var(--surface-card);
+  text-align: start;
+}
+
+.sv-compare th,
+.sv-compare td {
+  padding: var(--space-4);
+  border-block-end: var(--hairline) solid var(--border-hairline);
+  /* --text-base, not --text-sm: what is in these cells is the comparison
+     itself, which is body copy and holds to the 16px floor. Below 640px the
+     table scrolls inside its own box rather than shrinking the type. */
+  font-size: var(--text-base);
+  font-weight: var(--weight-body);
+  text-align: start;
+  vertical-align: middle;
+}
+
+.sv-compare thead th {
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  vertical-align: bottom;
+  line-height: var(--leading-heading);
+}
+.sv-compare thead th:first-child { background: var(--surface-band); }
+.sv-compare thead th:nth-child(2) { background: var(--brand-action-ink); }
+.sv-compare thead th:nth-child(3) { background: var(--brand-deep); }
+
+/* The two compared columns keep their ground all the way down, so the eye
+   follows a column rather than hunting across a row. */
+.sv-compare tbody td:nth-of-type(1) { background: var(--brand-action-ink); color: var(--white); text-align: center; }
+.sv-compare tbody td:nth-of-type(2) { background: var(--brand-deep); color: var(--white); text-align: center; }
+
+.sv-compare tbody th { color: var(--color-text); font-weight: var(--weight-body); }
+
+.sv-compare .sv-group th {
+  background: var(--grey-200);
+  color: var(--color-heading);
+  font-weight: 700;
+  font-size: var(--text-xs);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.sv-compare .icon { margin-inline: auto; }
+
+/* The system's [data-tap] supplies the 44px minimums. An inline box ignores
+   min-height, so the marked links also need a box that does not. Carried by
+   links that are a target on their own; a link inside a running sentence is
+   exempt from the minimum and is left alone. */
+:where(a)[data-tap] {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   5 · PRE-FOOTER AND FOOTER
+   -------------------------------------------------------------------------- */
+
+.sv-offices h3 {
+  color: var(--white);
+  font-size: var(--text-base);
+  font-weight: 700;
+  padding-block-end: var(--space-2);
+  border-block-end: var(--hairline) solid rgb(255 255 255 / .45);
+}
+.sv-offices p { color: rgb(255 255 255 / .82); }
+.sv-offices a { text-decoration: underline; }
+
+.sv-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-min);
+  /* "X" is a one-character label: 44px tall but 10px wide without this. */
+  min-width: var(--touch-min);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--white);
+}
+.sv-social a:hover { text-decoration: underline; }
+
+.sv-footer {
+  background: var(--grey-900);
+  color: rgb(255 255 255 / .78);
+}
+.sv-footer a { color: var(--white); text-decoration: underline; }
+.sv-footer p { color: inherit; }
+.sv-footer .sv-legal { max-width: var(--measure); }
+
+/* The contact strip: one row of links, wrapping rather than overflowing. */
+.sv-contact-strip a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   6 · FLOATING ACCREDITATION SEAL
+   Fixed bottom-right. Shows on the visitor's first scroll and hides again
+   over the footer, so it never covers the legal text. Spec and behaviour
+   notes in floating-seal-badge.md; the script is js/main.js.
+   -------------------------------------------------------------------------- */
+
+.sv-badge {
+  position: fixed;
+  right: var(--space-6);
+  bottom: var(--space-6);
+  z-index: 70;
+  inline-size: var(--sv-badge);
+  block-size: var(--sv-badge);
+  display: block;
+  border-radius: var(--radius-round);
+  opacity: 0;                                 /* until the script adds .is-shown */
+  transform: translateY(.375rem) scale(.98);
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease),
+              transform var(--duration-slow) var(--ease);
+}
+.sv-badge img { inline-size: 100%; block-size: 100%; border-radius: var(--radius-round); }
+
+.sv-badge.is-shown { opacity: 1; transform: none; pointer-events: auto; }
+
+.sv-badge.is-shown:hover,
+.sv-badge.is-shown:focus-visible {
+  transform: translateY(-.0625rem) scale(1.01);
+  transition: transform var(--duration) var(--ease);
+}
+
+@media (max-width: 43.75rem) {   /* 700px */
+  .sv-badge {
+    inline-size: var(--sv-badge-sm);
+    block-size: var(--sv-badge-sm);
+    right: var(--space-3);
+  }
+}
+
+/* Below 640px the seal and the financing widget — which is fixed
+   bottom-left and about 250px wide — no longer clear each other on a
+   360px phone. Lifting the seal one control-height stacks them instead. */
+@media (max-width: 39.99rem) {
+  .sv-badge { bottom: calc(var(--space-3) + var(--control-h)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-badge.is-shown:hover,
+  .sv-badge.is-shown:focus-visible { transform: none; }
+}

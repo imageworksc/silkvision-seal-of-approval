@@ -1,145 +1,82 @@
-/*
- * main.js — page behaviours (loaded with `defer`, so the DOM is ready).
- * Ported from the imageworks Drupal theme script (jQuery) to modern,
- * dependency-free JS.
- *
- *   1. Hamburger (#menu-push) opens/closes the mobile nav + language switcher.
- *   2. Top-level "expanded" menu links toggle their sub-menu on mobile
- *      (and, as on the live site, do not navigate on click).
- *   3. Floating seal badge (bottom-right) appears on the visitor's first
- *      scroll and hides while the footer is on screen.
- *   4. On desktop the header becomes fixed ("anchored") once you scroll past it.
- */
-(() => {
-  'use strict';
+/* ==========================================================================
+   Page behaviour — two things, and neither of them is layout.
 
-  const MOBILE_MAX = 1023;
-  const SLIDE_MS = 600; // jQuery 'slow'
+   1. The header's menu toggle below 960px.
+   2. The floating accreditation seal: in on the first scroll, out over the
+      footer so it never sits on top of the legal text.
 
-  const winWidth = () => window.innerWidth || document.documentElement.clientWidth;
-  const scrollTop = () => window.pageYOffset || document.documentElement.scrollTop;
-  const isMobile = () => winWidth() <= MOBILE_MAX;
+   Loaded with `defer`, so the document is parsed by the time this runs.
+   Entrance reveals are js/reveal.js, which ships with the design system.
+   ========================================================================== */
 
-  /* ---------- slideDown / slideUp (height animation, then display toggle) ---------- */
+'use strict';
 
-  const slideDown = (el) => {
-    if (!el || el.classList.contains('is-open')) return;
-    el.classList.add('is-open');
-    const target = el.scrollHeight;
-    el.style.overflow = 'hidden';
-    el.style.height = '0px';
-    el.style.transition = `height ${SLIDE_MS}ms ease`;
-    void el.offsetHeight; // force reflow so the transition starts from 0
-    el.style.height = `${target}px`;
-    setTimeout(() => {
-      el.style.transition = '';
-      el.style.height = '';
-      el.style.overflow = '';
-    }, SLIDE_MS);
+/* -------------------------------------------------------------------------
+   1 · MENU TOGGLE
+   A button with aria-expanded rather than a native <details>: the panel has
+   to be a plain row above 960px, and forcing a closed <details> open in CSS
+   means fighting the UA's own hiding of its content.
+   ------------------------------------------------------------------------- */
+function setupMenu() {
+  const toggle = document.querySelector('.sv-nav-toggle');
+  const nav = document.getElementById('sv-nav');
+  if (!toggle || !nav) return;
+
+  const setOpen = (open) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.dataset.open = String(open);
   };
 
-  const slideUp = (el) => {
-    if (!el || !el.classList.contains('is-open')) return;
-    el.style.overflow = 'hidden';
-    el.style.height = `${el.scrollHeight}px`;
-    el.style.transition = `height ${SLIDE_MS}ms ease`;
-    void el.offsetHeight;
-    el.style.height = '0px';
-    setTimeout(() => {
-      el.classList.remove('is-open');
-      el.style.transition = '';
-      el.style.height = '';
-      el.style.overflow = '';
-    }, SLIDE_MS);
-  };
+  toggle.addEventListener('click', () => {
+    setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+  });
 
-  /* ---------- 1. Hamburger ---------- */
+  /* Escape closes it and puts focus back on the control that opened it —
+     otherwise focus is left inside a panel that is no longer on screen. */
+  nav.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    setOpen(false);
+    toggle.focus();
+  });
 
-  const initMobileMenu = () => {
-    const menuPush = document.getElementById('menu-push');
-    if (!menuPush) return;
+  /* Following a link inside the panel leaves it open behind the new page in
+     a back-navigation restore. Close on activation. */
+  nav.addEventListener('click', (event) => {
+    if (event.target.closest('a')) setOpen(false);
+  });
+}
 
-    const nav = document.querySelector('#header nav');
-    const langSwitcher = document.getElementById('block-imageworks-languageswitchercontent');
+/* -------------------------------------------------------------------------
+   2 · THE FLOATING SEAL
+   Shown once the visitor has scrolled at all, then held — it is an
+   accreditation mark, not an alert, so it should not flicker with the
+   scroll direction. Hidden again while the footer is on screen.
+   ------------------------------------------------------------------------- */
+function setupBadge() {
+  const badge = document.getElementById('sv-badge');
+  if (!badge) return;
 
-    menuPush.addEventListener('click', () => {
-      const open = menuPush.classList.toggle('active');
-      const slide = open ? slideDown : slideUp;
-      slide(nav);
-      slide(langSwitcher);
-    });
-  };
+  const footer = document.querySelector('footer');
+  let footerVisible = false;
+  let scrolled = window.scrollY > 0;
 
-  /* ---------- 2. Expanded top-level items ---------- */
+  const sync = () => badge.classList.toggle('is-shown', scrolled && !footerVisible);
 
-  const initExpandedItems = () => {
-    const links = document.querySelectorAll(
-      '#block-imageworks-main-menu > ul.menu > li.menu-item.menu-item--expanded > a'
-    );
-
-    for (const link of links) {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        const sub = link.parentNode.querySelector(':scope > ul.menu');
-        const open = link.classList.toggle('open');
-        if (isMobile()) (open ? slideDown : slideUp)(sub);
-      });
-    }
-  };
-
-  /* ---------- 3. Floating seal badge ---------- */
-
-  const initSealBadge = () => {
-    const badge = document.getElementById('yrBadge');
-    if (!badge) return;
-
-    const footer = document.querySelector('footer');
-    let footerVisible = false;
-    let hasScrolled = scrollTop() > 0;
-
-    const sync = () => badge.classList.toggle('show', hasScrolled && !footerVisible);
-
-    if (footer && 'IntersectionObserver' in window) {
-      new IntersectionObserver(([entry]) => {
-        footerVisible = entry.isIntersecting;
-        sync();
-      }, { threshold: 0 }).observe(footer);
-    }
-
-    window.addEventListener('scroll', () => {
-      if (hasScrolled) return;
-      hasScrolled = true;
+  if (footer && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      footerVisible = entry.isIntersecting;
       sync();
-    }, { passive: true });
+    }, { threshold: 0 }).observe(footer);
+  }
 
+  window.addEventListener('scroll', () => {
+    if (scrolled) return;
+    scrolled = true;
     sync();
-  };
+  }, { passive: true });
 
-  /* ---------- 4. Anchored header on desktop ---------- */
+  sync();
+}
 
-  const initAnchoredHeader = () => {
-    const header = document.getElementById('header');
-    const headerWrap = document.getElementById('header-wrap');
-    if (!header || !headerWrap) return;
-
-    const scrollPast = header.getBoundingClientRect().top + scrollTop();
-
-    const setAnchored = (anchored) => {
-      header.classList.toggle('anchored', anchored);
-      headerWrap.classList.toggle('push-down', anchored);
-    };
-
-    const onScroll = () => {
-      if (isMobile()) return;
-      setAnchored(scrollTop() > scrollPast);
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', () => (isMobile() ? setAnchored(false) : onScroll()));
-  };
-
-  initMobileMenu();
-  initExpandedItems();
-  initSealBadge();
-  initAnchoredHeader();
-})();
+setupMenu();
+setupBadge();

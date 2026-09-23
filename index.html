@@ -1,383 +1,499 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="description" content="Your doctor has decided that you are a candidate for office-based surgery (OBS)." />
-    <!-- Staging copy: keep search engines from indexing a duplicate of the live page -->
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="MobileOptimized" content="width" />
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>You are a candidate for office-based surgery. | Silk Vision</title>
+<title>Office-Based Surgery | Silk Vision &amp; Surgical Center</title>
+<meta name="description" content="Your doctor has determined you are a candidate for office-based surgery — your procedure in our own surgical suite, with local anesthetic and no hospital visit.">
+<meta name="theme-color" content="#00497b">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- This is a staging rebuild. The canonical stays on the live page, and the
+     copy is kept out of the index so it never competes with it. -->
+<link rel="canonical" href="https://www.silkvision.net/you-are-candidate-office-based-surgery">
+<meta name="robots" content="noindex, nofollow">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/v4-shims.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Silk Vision &amp; Surgical Center">
+<meta property="og:title" content="Office-Based Surgery">
+<meta property="og:description" content="Your procedure in our own surgical suite, with local anesthetic and no hospital visit.">
+<meta property="og:url" content="https://www.silkvision.net/you-are-candidate-office-based-surgery">
+<!-- og:image is deliberately absent: no confirmed 1200×630 asset exists.
+     See "Before this goes live" in README.md. -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Office-Based Surgery">
+<meta name="twitter:description" content="Your procedure in our own surgical suite, with local anesthetic and no hospital visit.">
 
-    <!-- Fonts offered by the Cherry estimator widget (was inlined in the footer on the live page) -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200..900&family=Slabo+27px:wght@200..900&family=Lato:wght@200..900&family=Raleway:wght@200..900&family=Montserrat:wght@200..900&family=Oswald:wght@200..900&family=Poppins:wght@200..900&family=Source+Sans+Pro:wght@200..900&family=PT+Sans:wght@200..900&family=Open+Sans:wght@200..900&display=swap" rel="stylesheet" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://www.silkvision.net/#organization",
+      "name": "Silk Vision & Surgical Center",
+      "url": "https://www.silkvision.net/",
+      "telephone": "+1-703-876-9700",
+      "faxNumber": "+1-703-876-9701",
+      "logo": "https://www.silkvision.net/sites/default/files/logo.png",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "3301 Woodburn Rd, Suite 308",
+          "addressLocality": "Annandale",
+          "addressRegion": "VA",
+          "postalCode": "22003",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "8405 Dorsey Circle, Suite 101",
+          "addressLocality": "Manassas",
+          "addressRegion": "VA",
+          "postalCode": "20110",
+          "addressCountry": "US"
+        }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:30",
+        "closes": "16:30"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.silkvision.net/you-are-candidate-office-based-surgery",
+      "url": "https://www.silkvision.net/you-are-candidate-office-based-surgery",
+      "name": "Office-Based Surgery",
+      "isPartOf": { "@id": "https://www.silkvision.net/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.silkvision.net/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.silkvision.net/trusted-eye-physicians-and-surgeons-northern-virginia" },
+          { "@type": "ListItem", "position": 3, "name": "Office-Based Surgery", "item": "https://www.silkvision.net/you-are-candidate-office-based-surgery" }
+        ]
+      }
+    }
+  ]
+}
+</script>
 
-    <!-- Stylesheets, in cascade order -->
-    <link rel="stylesheet" media="all" href="css/base.css" />
-    <link rel="stylesheet" media="all" href="css/header.css" />
-    <link rel="stylesheet" media="all" href="css/page-obs.css" />
-    <link rel="stylesheet" media="all" href="css/footer.css" />
-    <link rel="stylesheet" media="all" href="css/seal-badge.css" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-    <!-- Scripts (deferred: run after the DOM is parsed, in this order) -->
-    <script src="js/main.js" defer></script>
-    <script src="js/cherry-widget.js" defer></script>
+<!-- Geometry first, then paint, then this page's own block. Never another order. -->
+<link rel="stylesheet" href="css/system.css">
+<link rel="stylesheet" href="css/brand.css">
+<link rel="stylesheet" href="css/page.css">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <meta name="msapplication-TileColor" content="#005795">
-    <meta name="theme-color" content="#ffffff">
-  </head>
-  <body class="page-node-243">
-    <a href="#main-content" class="visually-hidden focusable">
-      Skip to main content
+<script src="js/reveal.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/cherry-widget.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link btn btn--solid" href="#main">Skip to content</a>
+
+<!-- ==========================================================================
+     ICONS — one symbol sheet, strokes in currentColor so each icon takes the
+     colour of whatever it sits in.
+     ========================================================================== -->
+<svg width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 16 16">
+      <path d="M3 8.6l3.1 3.1L13 4.8" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 006.5 6.5L17 13l4 1.5v3a2 2 0 01-2.2 2A17 17 0 013.5 5.2 2 2 0 015.5 3z"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24">
+      <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ==========================================================================
+     SITE CHROME
+     ========================================================================== -->
+<div class="sv-utility">
+  <div class="wrap cluster">
+    <div class="cluster cluster--tight">
+      <a data-tap href="https://www.mypatientvisit.com/#/login?practiceID=FCPGUL" target="_blank" rel="noopener">Pay&nbsp;Bill Online</a>
+      <a data-tap href="https://www.silkvision.net/special-offers">Special Offers</a>
+    </div>
+    <a data-tap href="tel:+17038769700">
+      <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+      Call or Text: (703)&nbsp;876-9700
+    </a>
+  </div>
+</div>
+
+<header class="sv-header">
+  <div class="wrap">
+    <a class="sv-logo" href="https://www.silkvision.net/">
+      <img src="images/logo.png" width="200" height="50" alt="Silk Vision &amp; Surgical Center — home">
     </a>
 
-    <div class="dialog-off-canvas-main-canvas">
-    <div id="page-wrapper">
-  <div id="page">
-	<div id="header-wrap">
-		<div id="top"><div class="section">  <div class="region region-top">
-    <div id="block-top">
-            <div class="clearfix text-formatted"><div class="left-links">
-<p><a class="divide" href="https://www.mypatientvisit.com/#/login?practiceID=FCPGUL" target="_blank" rel="noopener">Pay Bill Online</a><a class="divide" href="https://www.silkvision.net/special-offers">Special Offers</a></p>
-</div>
-<span class="top-right-button"><a href="https://www.mypatientvisit.com/onlinescheduling/#/scheduler/schedule?practiceid=b46123f5-99ee-4f66-969c-fe650949c344" target="_blank" rel="noopener">Book Your Free LASIK, EVO &amp; RLE Consultation</a></span>
-<div class="phone-social">
-<p><span><i class="fa fa-phone">&nbsp;</i> Call or Text: <a href="tel:7038769700">(703) 876-9700</a></span></p>
-</div></div>
+    <button class="sv-nav-toggle" type="button" aria-expanded="false" aria-controls="sv-nav">
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      Menu
+    </button>
+
+    <nav class="sv-nav" id="sv-nav" aria-label="Main">
+      <a href="https://www.silkvision.net/silk-vision-lasik-eye-surgery-center">Vision Correction</a>
+      <a href="https://www.silkvision.net/cataract-surgery-and-cataract-removal">Eye Care</a>
+      <a href="https://www.silkvision.net/trusted-eye-physicians-and-surgeons-northern-virginia">About</a>
+      <a href="https://www.silkvision.net/registration-consent-forms">Patients</a>
+      <a class="btn btn--solid btn--sm" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 1 · HERO ------------------------------------------------------------ -->
+  <section class="band sv-hero band--dark" aria-labelledby="hero-title">
+    <div class="wrap stack stack--loose" data-reveal>
+      <div class="stack">
+        <h1 id="hero-title">Office-Based Surgery</h1>
+        <p class="lead">A New, Advanced Option for Convenient and Affordable Eye Care</p>
+      </div>
+      <p>Your doctor has determined that you are an excellent candidate for office-based
+        surgery (OBS). This means that your procedure can be performed in our
+        state-of-the-art surgical suite right here in our office, utilizing local
+        anesthetics—no need for a hospital or ambulatory surgery center (ASC).</p>
+      <div class="cluster cluster--buttons">
+        <a class="btn btn--solid" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--quiet" href="tel:+17038769700">Call (703)&nbsp;876-9700</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · THE DIFFERENCE, BESIDE THE CLAIMS — .split --------------------- -->
+  <div class="band">
+    <div class="wrap split split--sidebar" data-reveal>
+
+      <section class="stack" aria-labelledby="difference-title">
+        <h2 id="difference-title">Experience the Silk Vision Difference with OBS</h2>
+        <p>At Silk Vision &amp; Surgical Center, we take pride in delivering a superior
+          surgical experience tailored to your needs. By performing procedures in-office,
+          we provide a more personalized, comfortable, and convenient option than
+          traditional hospital settings or multi-specialty surgery centers.</p>
+      </section>
+
+      <section class="stack" aria-labelledby="apart-title">
+        <h2 id="apart-title">What Sets OBS Apart?</h2>
+        <ul class="rule-list w-full">
+          <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <span><strong>Safety:</strong> Our suite meets the highest safety standards,
+              minimizing exposure to unfamiliar environments.</span></li>
+          <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <span><strong>Comfort:</strong> Receive care from the team you know and trust,
+              in a familiar setting.</span></li>
+          <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <span><strong>Streamlined Care:</strong> Enjoy greater scheduling flexibility
+              and reduced stress with shorter recovery times.</span></li>
+          <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+            <span><strong>One Location Convenience:</strong> On-site surgery reduces the
+              need for travel.</span></li>
+        </ul>
+      </section>
+
+    </div>
   </div>
 
+  <!-- 3 · WHY PATIENTS CHOOSE IT — .grid--3 ------------------------------ -->
+  <section class="band band--tint" aria-labelledby="benefits-title">
+    <div class="wrap stack" data-reveal>
+      <h2 id="benefits-title">Why Patients Choose Office-Based Surgery</h2>
+      <p class="lead">Patients who opt for OBS enjoy these outstanding benefits:</p>
+
+      <div class="grid grid--3 w-full">
+        <article class="card">
+          <h3>No Fasting</h3>
+          <p>Eat before your surgery—no need for extended fasting.</p>
+        </article>
+        <article class="card">
+          <h3>No IV Required</h3>
+          <p>Say goodbye to the discomfort of an IV.</p>
+        </article>
+        <article class="card">
+          <h3>Convenient Location</h3>
+          <p>All services are provided in one location—our office.</p>
+        </article>
+        <article class="card">
+          <h3>More Scheduling Options</h3>
+          <p>Get the procedure done on a timeline that works for you.</p>
+        </article>
+        <article class="card">
+          <h3>Faster Recovery</h3>
+          <p>Less time in the recovery area means you’re on your way home sooner.</p>
+        </article>
+        <article class="card">
+          <h3>Less Stress</h3>
+          <p>A simpler process, designed to make you feel at ease.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · WHAT WE PERFORM ------------------------------------------------- -->
+  <section class="band" aria-labelledby="options-title">
+    <div class="wrap wrap--content stack" data-reveal>
+      <h2 id="options-title">Advanced Surgical Options Available at Silk Vision</h2>
+      <p class="lead">We offer a range of advanced eye surgeries, with a focus on
+        delivering exceptional results for your vision:</p>
+
+      <article class="card w-full">
+        <h3><a data-tap href="https://www.silkvision.net/cataract-surgery-and-cataract-removal">Cataract Surgery</a></h3>
+        <p>Regain clear vision with this life-changing procedure that replaces your
+          clouded natural lens with an artificial intraocular lens (IOL).</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5 · SURGERY DAY — a counter, not eight hand-written numbers -------- -->
+  <section class="band band--dark" aria-labelledby="day-title">
+    <div class="wrap stack stack--loose" data-reveal>
+      <div class="stack">
+        <h2 id="day-title">Surgery Day: What to Expect</h2>
+        <p class="lead">Your entire visit will take approximately <strong>90 minutes</strong>.
+          Here’s how to prepare and what you can expect:</p>
+      </div>
+
+      <ol class="sv-steps grid grid--2 w-full">
+        <li><p><strong>Have a friend or family member drive you to our office.</strong></p></li>
+        <li><p><strong>Wear loose, comfortable clothing.</strong></p></li>
+        <li><p><strong>Check-in:</strong> Our staff will review the details with you.</p></li>
+        <li><p><strong>Preparation:</strong> Get prepped for surgery by our caring team.</p></li>
+        <li><p><strong>Procedure:</strong> Your surgery will take only <strong>a few minutes</strong>.</p></li>
+        <li><p><strong>Recovery:</strong> Rest in our recovery area before heading home.</p></li>
+        <li><p><strong>Aftercare Instructions:</strong> Receive detailed guidance on caring for your eye.</p></li>
+        <li><p><strong>Go home:</strong> Once you feel ready, your friend or family member can drive you home.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6 · THE COMPARISON --------------------------------------------------
+       A real table with real header cells, so a screen reader announces
+       "Type of Anesthesia, Office-Based Surgery Suite, Oral and Topical"
+       instead of three loose values. The ticks carry a visually-hidden
+       Yes/No: an empty cell means "no" to a sighted reader and nothing at
+       all to anyone else.
+       ------------------------------------------------------------------- -->
+  <section class="band band--tint" aria-labelledby="compare-title">
+    <div class="wrap stack" data-reveal>
+      <h2 id="compare-title">Advantages of Office-Based Surgery</h2>
+
+      <!-- tabindex + role: a region that scrolls has to be reachable by
+           keyboard, or the right-hand column is unreadable without a mouse. -->
+      <div class="sv-compare-scroll w-full" tabindex="0" role="region"
+           aria-labelledby="compare-title">
+        <table class="sv-compare">
+          <caption class="visually-hidden">
+            Office-based surgery at Silk Vision compared with a multi-specialty
+            ambulatory surgery center or hospital.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col"><span class="visually-hidden">Feature</span></th>
+              <th scope="col">Office-Based<br>Surgery Suite</th>
+              <th scope="col">Multi-Specialty<br>ASC or Hospital</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="sv-group"><th scope="colgroup" colspan="3">Safety &amp; Outcomes</th></tr>
+            <tr>
+              <th scope="row">Excellent Vision Outcomes</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Highest Safety Standards</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Minimized Exposure to Others</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><span class="visually-hidden">No</span></td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr class="sv-group"><th scope="colgroup" colspan="3">Anesthesia</th></tr>
+            <tr>
+              <th scope="row">Type of Anesthesia</th>
+              <td>Oral and Topical</td>
+              <td>IV</td>
+            </tr>
+            <tr>
+              <th scope="row">Pre-surgery requirements</th>
+              <td>None</td>
+              <td>No food or drink 12 hours before surgery</td>
+            </tr>
+            <tr>
+              <th scope="row">Pre-surgery testing</th>
+              <td>Minimal</td>
+              <td>Extensive</td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr class="sv-group"><th scope="colgroup" colspan="3">Patient Experience</th></tr>
+            <tr>
+              <th scope="row">Hassle-Free Scheduling &amp; Flexibility</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><span class="visually-hidden">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">One Location Convenience</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td>In some locations</td>
+            </tr>
+            <tr>
+              <th scope="row">Streamlined Patient Care</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><span class="visually-hidden">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Familiar Staff &amp; Setting</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td><span class="visually-hidden">No</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Surgical Staff Specialized in IOL Procedures</th>
+              <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
+              <td>In some locations</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · THE CLOSING CALL — one per page, at the end -------------------- -->
+  <section class="band band--dark" aria-labelledby="next-title" id="contact">
+    <div class="wrap stack stack--loose" data-reveal>
+      <div class="stack">
+        <h2 id="next-title">Ready to Take the Next Step?</h2>
+        <p class="lead">At Silk Vision &amp; Surgical Center, we’re committed to restoring
+          your vision and improving your quality of life.</p>
+      </div>
+
+      <ul class="rule-list w-full">
+        <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span><strong>Schedule a Consultation:</strong> Book a one-on-one appointment to
+            discuss your options.</span></li>
+        <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span><strong>Contact Us Today:</strong> Have questions? Our experienced staff is
+            here to help.</span></li>
+        <li><span class="chip"><svg aria-hidden="true"><use href="#i-check"/></svg></span>
+          <span><strong>Explore Financing Options:</strong> Flexible plans make advanced eye
+            care more accessible than ever.</span></li>
+      </ul>
+
+      <p>Let Silk Vision guide you on your journey to clear, comfortable vision.</p>
+
+      <div class="cluster cluster--buttons">
+        <a class="btn btn--solid btn--lg" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--quiet btn--lg" href="tel:+17038769700">Or call (703)&nbsp;876-9700</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================================
+     CONTACT STRIP, OFFICES AND FOOTER
+     ========================================================================== -->
+<section class="band band--snug band--tint sv-contact-strip" aria-labelledby="reach-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="reach-title">Ways to reach us</h2>
+    <div class="cluster">
+      <a href="tel:+17038769700">Call: (703)&nbsp;876-9700</a>
+      <a href="tel:+17038769701">Fax: (703)&nbsp;876-9701</a>
+      <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment</a>
+      <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Ask a Question</a>
+      <a href="https://www.silkvision.net/financing">Financing</a>
+    </div>
   </div>
-</div></div>
-		<header id="header" class="header" role="banner" aria-label="Site header">
-		<div class="section">
-			  <div class="region region-header">
-    <div id="block-logo">
-            <div class="clearfix text-formatted"><p><a href="https://www.silkvision.net/"><img alt="logo.png" height="50" src="images/logo.png" width="200"></a></p>
-</div>
-  </div>
-<div id="block-mobilemenupush">
-            <div class="clearfix text-formatted"><div id="mobile-call-now"><a href="tel:7038769700">Call Now</a></div>
-<div id="menu-push">
-<div class="icon-bar"></div>
-<div class="icon-bar"></div>
-<div class="icon-bar"></div>
-</div></div>
-  </div>
-<div class="language-switcher-language-url" id="block-imageworks-languageswitchercontent" role="navigation">
-      <ul class="links"><li hreflang="en" class="en is-active" aria-current="page"><a href="https://www.silkvision.net/you-are-candidate-office-based-surgery" class="language-link is-active" hreflang="en" aria-current="page">English</a></li><li hreflang="es" class="es"><a href="https://www.silkvision.net/es/cirugia-en-el-consultorio" class="language-link" hreflang="es">Español</a></li></ul>
-  </div>
-<nav role="navigation" aria-labelledby="block-imageworks-main-menu-menu" id="block-imageworks-main-menu" class="block block-menu navigation menu--main">
+</section>
 
-  <h2 class="visually-hidden" id="block-imageworks-main-menu-menu">Main navigation</h2>
+<section class="band band--snug band--dark" aria-labelledby="offices-title">
+  <div class="wrap stack stack--loose">
+    <h2 class="visually-hidden" id="offices-title">Our offices</h2>
 
-              <ul class="menu">
-                    <li class="menu-item menu-item--expanded">
-        <a href="https://www.silkvision.net/silk-vision-lasik-eye-surgery-center" class="lasik-center megamenu columns-3">Vision Correction</a>
-                                <ul class="menu">
-                    <li class="menu-item menu-item--expanded">
-        <span class="megamenu-column-parent">LASIK &amp; Laser Services</span>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://www.silkvision.net/silk-vision-lasik-eye-surgery-center">LASIK Services</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/vision-doesnt-depend-glasses-or-contacts">Is LASIK surgery right for you?</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/photorefractive-keratectomy-prk">Photorefractive Keratectomy (PRK)</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/cost-lasik-surgery-explained">Cost of LASIK</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/visual-rejuvenation">LASIK Touch-ups</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/lasik-resources">LASIK Resources</a>
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item menu-item--expanded">
-        <span class="megamenu-column-parent">Lens Replacement </span>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://www.silkvision.net/refractive-lens-surgery-alternative-lasik">Refractive Lens Surgery (RLE)</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/evo-icl-welcome-future-vision">EVO ICL</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/adjust-your-lens-your-lifestyle-after-cataract-surgery">Light Adjustable Lens</a>
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item menu-item--expanded">
-        <span class="megamenu-column-parent">Is It Right for You?</span>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://www.silkvision.net/lasik-self-evaluation-test">LASIK Self-Test</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/evo-icl-self-evaluation-test">EVO-ICL Self-Test</a>
-              </li>
-        </ul>
-
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item menu-item--expanded">
-        <a href="https://www.silkvision.net/cataract-surgery-and-cataract-removal" target="_self" class="eye-care" title="Cataract surgery today is safe, effective and quite common. In fact, if you have been told that you have a cataract, you are definitely not alone. Each year in the United States, more than 2.5 million people have cataract surgery.">Eye Care</a>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://www.silkvision.net/services-overview">Services Overview</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/cataract-surgery-and-cataract-removal">Cataract Surgery &amp; Removal</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/visual-rejuvenation">Cataract Touch-ups</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/adjust-your-lens-your-lifestyle-after-cataract-surgery">Light Adjustable Lens</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/advanced-cornea-care-northern-virginia">Cornea</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/glaucoma">Glaucoma</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/eye-care/dry-eyes">Dry Eyes</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/keratoconus">Keratoconus</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/pterygium">Pterygium</a>
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item menu-item--expanded menu-item--active-trail">
-        <a href="https://www.silkvision.net/dr-wesam-silk-trusted-lasik-cataract-cornea-surgeon-northern-virginia" target="_self" class="our-doctors">About</a>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://www.silkvision.net/trusted-eye-physicians-and-surgeons-northern-virginia">About Silk Vision</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/dr-wesam-silk-trusted-lasik-cataract-cornea-surgeon-northern-virginia">Wesam Silk, M.D.</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/testimonials" target="_self">Testimonials</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/blog">Blog</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/locations">Locations</a>
-              </li>
-                <li class="menu-item menu-item--active-trail">
-        <a href="#top" class="is-active" aria-current="page">Office-Based Surgery</a>
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item menu-item--expanded">
-        <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm" target="_self">Patients</a>
-                                <ul class="menu">
-                    <li class="menu-item">
-        <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm" target="_self">Request an Appointment</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/leave-review">Leave a Review</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/financing">Financing</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.mypatientvisit.com/#/login?practiceID=FCPGUL" target="_blank" rel="noopener">Patient Portal Login </a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/registration-consent-forms">Registration Forms</a>
-              </li>
-                <li class="menu-item">
-        <a href="https://www.silkvision.net/accepted-insurance">Accepted Insurance</a>
-              </li>
-        </ul>
-
-              </li>
-                <li class="menu-item">
-        <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm" class="cta-btn">Contact</a>
-              </li>
-        </ul>
-
-  </nav>
-
-  </div>
-
-		</div>
-		</header>
-	</div>
-    <div id="main-wrapper" class="layout-main-wrapper layout-container clearfix">
-      <div class="region region-content">
-    <a id="main-content" tabindex="-1"></a>
-<div id="block-imageworks-content">
-
-<article class="node node--type-page node--view-mode-full clearfix">
-  <div class="node__content clearfix">
-
+    <div class="grid grid--4 w-full sv-offices">
       <div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-118">
-	<div class="section">
-            <div class="clearfix text-formatted"><h1>Office-Based Surgery</h1><p class="candidate">A New, Advanced Option for Convenient and Affordable Eye Care</p><p>Your doctor has determined that you are an excellent candidate for office-based surgery (OBS). This means that your procedure can be performed in our state-of-the-art surgical suite right here in our office, utilizing local anesthetics—no need for a hospital or ambulatory surgery center (ASC).</p></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-119">
-	<div class="section">
-            <div class="clearfix text-formatted"><div class="left align-middle mobile-full"><h2>Experience the Silk Vision Difference with OBS</h2><p>At Silk Vision &amp; Surgical Center, we take pride in delivering a superior surgical experience tailored to your needs. By performing procedures in-office, we provide a more personalized, comfortable, and convenient option than traditional hospital settings or multi-specialty surgery centers.</p></div><div class="right align-middle mobile-full"><h2>What Sets OBS Apart?</h2><ul><li><strong>Safety:</strong> Our suite meets the highest safety standards, minimizing exposure to unfamiliar environments.</li><li><strong>Comfort:</strong> Receive care from the team you know and trust, in a familiar setting.</li><li><strong>Streamlined Care:</strong> Enjoy greater scheduling flexibility and reduced stress with shorter recovery times.</li><li><strong>One Location Convenience:</strong> On-site surgery reduces the need for travel.</li></ul></div></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-120">
-	<div class="section">
-            <div class="clearfix text-formatted"><h2>Why Patients Choose Office-Based Surgery</h2><p>Patients who opt for OBS enjoy these outstanding benefits:</p><ul><li class="x"><strong>No Fasting:</strong> Eat before your surgery—no need for extended fasting.</li><li class="x"><strong>No IV Required:</strong> Say goodbye to the discomfort of an IV.</li><li class="up"><strong>Convenient Location:</strong> All services are provided in one location—our office.</li><li class="up"><strong>More Scheduling Options:</strong> Get the procedure done on a timeline that works for you.</li><li class="down"><strong>Faster Recovery:</strong> Less time in the recovery area means you’re on your way home sooner.</li><li class="down"><strong>Less Stress:</strong> A simpler process, designed to make you feel at ease.</li></ul></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-133">
-	<div class="section">
-            <div class="clearfix text-formatted"><h2><span><strong>Advanced Surgical Options Available at Silk Vision</strong></span></h2><p dir="ltr"><span>We offer a range of advanced eye surgeries, with a focus on delivering exceptional results for your vision:</span></p><h4 dir="ltr"><a href="https://www.silkvision.net/content/cataract-surgery-and-removal-cataracts-treatment-specialist-va"><span><strong>Cataract Surgery</strong></span></a></h4><p dir="ltr"><span>Regain clear vision with this life-changing procedure that replaces your clouded natural lens with an artificial intraocular lens (IOL).</span></p></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-121">
-	<div class="section">
-            <div class="clearfix text-formatted"><h2 class="text-align-center">Surgery Day: What to Expect</h2><p class="text-align-center"><em>Your entire visit will take approximately <strong>90 minutes</strong>. Here’s how to prepare and what you can expect:</em></p><ol id="surgery-ol"><li><span class="text"><strong>Have a friend or family member drive you to our office.</strong></span></li><li><span class="text"><strong>Wear loose, comfortable clothing.</strong></span></li><li><span class="text"><strong>Check-in:</strong> Our staff will review the details with you.</span></li><li><span class="text"><strong>Preparation:</strong> Get prepped for surgery by our caring team.</span></li><li><span class="text"><strong>Procedure:</strong> Your surgery will take only <strong>a few minutes.</strong></span></li><li><span class="text"><strong>Recovery:</strong> Rest in our recovery area before heading home.</span></li><li><span class="text"><strong>Aftercare Instructions:</strong> Receive detailed guidance on caring for your eye.</span></li><li><span class="text"><strong>Go home:</strong> Once you feel ready, your friend or family member can drive you home.</span></li></ol></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-122">
-	<div class="section">
-            <div class="clearfix text-formatted"><h2>Advantages of Office Based Surgery</h2><table id="surgery-advantages"><tbody><tr><td>&nbsp;</td><td><p class="text-align-center">Office-Based&nbsp;<br>Surgery Suite</p></td><td><p class="text-align-center">Multi-Specialty&nbsp;<br>ASC or Hospital&nbsp;</p></td></tr><tr class="heading-row"><td><strong>Safety &amp; Outcomes</strong></td><td><p class="text-align-center">&nbsp;</p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>Excellent Vision Outcomes</td><td><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td></tr><tr><td>Highest Safety Standards&nbsp;</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td></tr><tr><td>Minimized Exposure to Others&nbsp;</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr class="heading-row"><td><strong>Anesthesia</strong></td><td><p class="text-align-center">&nbsp;</p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>Type of Anesthesia</td><td><p class="text-align-center">Oral and Topical</p></td><td><p class="text-align-center">IV</p></td></tr><tr><td>Pre-surgery requirements</td><td><p class="text-align-center">None</p></td><td><p class="text-align-center">No food or drink 12&nbsp;<br>hours before surgery</p></td></tr><tr><td>Pre-surgery testing</td><td><p class="text-align-center">Minimal</p></td><td><p class="text-align-center">Extensive</p></td></tr><tr class="heading-row"><td><strong>Patient Experience</strong></td><td><p class="text-align-center">&nbsp;</p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>Hassle-Free Scheduling &amp; Flexibility&nbsp;</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>One Location Convenience</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">In some locations</p></td></tr><tr><td>Streamlined Patient Care</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>Familiar Staff &amp; Setting</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">&nbsp;</p></td></tr><tr><td>Surgical Staff Specialized in IOL Procedures</td><td><p class="text-align-center"><img src="images/white-check.png" alt="checkmark" width="24" height="18" loading="lazy"></p></td><td><p class="text-align-center">In some locations</p></td></tr></tbody></table></div>
-      </div></div>
-</div>
-              <div>
-
-	<div class="paragraph paragraph--type--simple-text paragraph--view-mode--default" id="paragraph-123">
-	<div class="section">
-            <div class="clearfix text-formatted"><h2><strong>Ready to Take the Next Step?</strong></h2><p>At Silk Vision &amp; Surgical Center, we’re committed to restoring your vision and improving your quality of life.</p><ul><li><strong>Schedule a Consultation:</strong> Book a one-on-one appointment to discuss your options.</li><li><strong>Contact Us Today: </strong>Have questions? Our experienced staff is here to help.</li><li><strong>Explore Financing Options: </strong>Flexible plans make advanced eye care more accessible than ever.</li></ul><p>Let Silk Vision guide you on your journey to clear, comfortable vision.</p><p><a href="https://www.silkvision.net/content/contact-us">Contact us today!</a></p></div>
-      </div></div>
-</div>
-          </div>
-
-  </div>
-</article>
-
-  </div>
-
-  </div>
-
-    </div>
-	<div id="cta">
-      <div class="section">
-              <div class="region region-cta">
-    <div id="block-ctas">
-            <div class="clearfix text-formatted"><p><a class="divide" href="tel:7038769700">Call:&nbsp;(703) 876-9700</a><a class="divide">Fax:&nbsp;(703) 876-9701</a><a class="divide" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment</a><a class="divide" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Ask a Question</a><a class="divide" href="https://www.silkvision.net/financing">Financing</a></p></div>
-  </div>
-
-  </div>
-
+        <h3><a data-tap href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener">Annandale Office</a></h3>
+        <p>3301 Woodburn Rd<br>Suite 308<br>Annandale, VA 22003<br>
+          <a data-tap href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener">Review us on Google</a></p>
+      </div>
+      <div>
+        <h3><a data-tap href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener">Manassas Office</a></h3>
+        <p>8405 Dorsey Circle<br>Suite 101<br>Manassas, VA 20110<br>
+          <a data-tap href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener">Review us on Google</a></p>
+      </div>
+      <div>
+        <h3>LASIK Center</h3>
+        <p>3301 Woodburn Rd<br>Suite 210<br>Annandale, VA 22003</p>
+      </div>
+      <div>
+        <h3>Office Hours</h3>
+        <p>Monday – Friday<br>8:30am – 4:30pm</p>
       </div>
     </div>
-	<div id="pre-footer">
-      <div class="section">
-              <div class="region region-prefooter">
-    <div id="block-annandaleoffice">
-            <div class="clearfix text-formatted"><h4><a href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener">Annandale Office</a></h4><p>3301 Woodburn Rd<br>Suite 308<br>Annandale, VA 22003<br><a href="https://maps.app.goo.gl/pcg77yQvGUgRG6GPA" target="_blank" rel="noopener"><strong>Review us on Google</strong></a></p></div>
-  </div>
-<div id="block-manassasoffice">
-            <div class="clearfix text-formatted"><h4><a href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener">Manassas Office</a></h4><p>8405 Dorsey Circle<br>Suite 101<br>Manassas, VA 20110<br><a href="https://g.page/r/CWlAzNggLTwJEBA" target="_blank" rel="noopener"><strong>Review us on Google</strong></a></p></div>
-  </div>
-<div id="block-lasikcenter">
-            <div class="clearfix text-formatted"><h4>LASIK Center</h4>
 
-<p>3301 Woodburn Rd<br />
-Suite 210<br />
-Annandale, VA 22003</p>
-</div>
-  </div>
-<div id="block-alexandriaoffice">
-            <div class="clearfix text-formatted"><h4>Office Hours</h4><p>Monday – Friday<br>8:30am – 4:30pm</p></div>
-  </div>
-<div id="block-footersocial">
-            <div class="clearfix text-formatted"><div class="logo"><img src="images/logo-white.png" alt="Logo" width="200" height="50"></div><div class="social"><a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-facebook"><span class="social">&nbsp;</span></i></em></a><a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener"><em><i class="fa-brands fa-x-twitter"><span class="social">&nbsp;</span></i></em></a><a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener"><em><i class="fa-brands fa-youtube"><span class="social">&nbsp;</span></i></em></a><a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener"><em><i class="fa-brands fa-instagram"><span class="social">&nbsp;</span></i></em></a><a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener"><em><i class="fa-brands fa-tiktok"><span class="social">&nbsp;</span></i></em></a></div></div>
-  </div>
-
-  </div>
-
+    <div class="cluster cluster--between w-full sv-social">
+      <img src="images/logo-white.png" width="200" height="50" alt="Silk Vision &amp; Surgical Center">
+      <div class="cluster">
+        <a href="https://www.facebook.com/SVSurgicalCenter" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://twitter.com/Silk_Vision" target="_blank" rel="noopener">X</a>
+        <a href="https://www.youtube.com/@SilkVisionSurgicalCenter" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/silkvision_surgery_center/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@silkvisionandsurgical" target="_blank" rel="noopener">TikTok</a>
       </div>
     </div>
-    <footer id="footer">
-      <div class="section">
-              <div class="region region-footer">
-    <div id="block-copyright">
-            <div class="clearfix text-formatted"><p>The material contained on this site is for informational purposes only and is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified healthcare provider.</p>
-
-<p><span class="divide">Copyright © 2026 Silk Vision &amp; Surgical Center</span><span class="divide">All Rights Reserved.</span><span class="divide"><a href="https://www.silkvision.net/sitemap">Sitemap</a>.</span></p>
-
-<p class="text-align-center"><strong><a href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web Design by ImageWorks Creative</a></strong></p>
-</div>
   </div>
-<div id="block-imageworks-cherryfloatingbutton">
-            <div class="clearfix text-formatted"><!-- Cherry "Pay over time" estimator mounts here; config in js/cherry-widget.js -->
-<div id="floatingEstimator"></div></div>
+</section>
+
+<footer class="band band--snug sv-footer">
+  <div class="wrap stack">
+    <p class="sv-legal">The material contained on this site is for informational purposes
+      only and is not intended to be a substitute for professional medical advice,
+      diagnosis, or treatment. Always seek the advice of your physician or other
+      qualified healthcare provider.</p>
+    <p>Copyright © 2026 Silk Vision &amp; Surgical Center. All Rights Reserved.
+      <a href="https://www.silkvision.net/sitemap">Sitemap</a>.</p>
+    <p><a data-tap href="https://www.imageworkscreative.com" target="_blank" rel="noopener">Web Design by ImageWorks Creative</a></p>
   </div>
+</footer>
 
-  </div>
+<!-- The floating accreditation seal. Hidden until the first scroll, hidden
+     again over the footer — see css/page.css §6 and js/main.js. -->
+<a class="sv-badge" id="sv-badge" href="#top"
+   aria-label="The Joint Commission National Quality Approval — back to top">
+  <img src="images/seal-badge.png" width="340" height="340" alt="">
+</a>
 
-      </div>
-    </footer>
-  </div>
-</div>
+<!-- Not carried over from the live page: Google Tag Manager, Google Analytics,
+     Meta Pixel, TikTok Pixel, Microsoft Clarity, Mailchimp and the Cloudflare
+     beacon. A staging copy must not report traffic to production accounts. -->
 
-  </div>
-
-    <!--
-      Third-party embeds present on the live page but intentionally left out of
-      this staging copy (they would report staging traffic to the client's
-      production accounts): Google Tag Manager, Google Analytics, Meta Pixel,
-      TikTok Pixel, Microsoft Clarity, Mailchimp and the Cloudflare beacon.
-      The Cherry "Pay over time" floating estimator IS included
-      (js/cherry-widget.js, mounts inside <footer>).
-    -->
-
-    <!-- Floating seal badge: css/seal-badge.css + js/main.js (spec: floating-seal-badge.md) -->
-    <a class="yr-badge" id="yrBadge" href="#page"
-       aria-label="The Joint Commission National Quality Approval — Silk Vision &amp; Surgical Center accreditation seal">
-      <img src="images/seal-badge.png" alt="" width="340" height="340">
-    </a>
-  </body>
+</body>
 </html>
