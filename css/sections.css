@@ -103,24 +103,26 @@
 @media (max-width: 61.99rem) { .scroll-cue { display: none; } }
 
 /* --------------------------------------------------------------------------
-   Surgery day — a timeline
-   Eight boxes in a grid said "here are eight things". A spine says "this is
-   the order they happen in", which is the whole point of the section. The
-   filled part of the spine tracks the reader's own progress through it.
+   Surgery day
+   The steps are the same component as the claims in the difference section:
+   a small icon well, a title, a line of copy. Only the numbering is added,
+   because unlike those claims these happen in an order.
    -------------------------------------------------------------------------- */
 
-/* The heading runs full width above; the eight steps sit in two columns of
-   four, filled top-to-bottom rather than left-to-right so the sequence still
-   reads down a column. */
-.day-head { max-width: 46ch; }
+/* No cap on the heading block, or the h2 wraps: `46ch` here resolves against
+   the block's own 17px font, not the 50px heading inside it. The lead takes
+   its own cap instead, set to land in two lines. */
+.day-head .lead { max-width: 52ch; }
 
 .timeline {
   display: grid;
-  gap: var(--s-7) var(--s-8);
+  gap: var(--s-2) var(--s-8);
   counter-reset: tl;
   inline-size: 100%;
 }
 
+/* Two columns of four, filled top-to-bottom, so the sequence still reads
+   down a column. */
 @media (min-width: 48rem) {
   .timeline {
     grid-template-columns: 1fr 1fr;
@@ -129,88 +131,16 @@
   }
 }
 
-.tl-step {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3.5rem 1fr;
-  gap: var(--s-5);
-  align-items: start;
-  counter-increment: tl;
-}
+/* .feature carries its own top margin for stacked use; here the grid gap
+   does that job. */
+.timeline .feature { counter-increment: tl; }
+.timeline .feature + .feature { margin-block-start: 0; }
 
-/* One spine down the middle cannot serve two columns, so each step draws its
-   own connector to the node below it. The segment grows as the step reveals,
-   which keeps the sense of a line being travelled. */
-.tl-step::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 3.75rem;
-  inset-block-end: calc(var(--s-7) * -1);
-  inset-inline-start: calc(1.75rem - 1.5px);
-  inline-size: 3px;
-  border-radius: var(--r-pill);
-  background: linear-gradient(to bottom, var(--cyan-400), rgb(108 197 240 / .2));
-  transform-origin: top;
-  transition: transform var(--t-slow) var(--ease);
-  transition-delay: var(--d, 0ms);
-}
-/* Collapsed only while the page is in a position to bring it back, the same
-   contract as [data-reveal]: with no script the connectors are simply drawn. */
-[data-anim="on"] .tl-step::before { transform: scaleY(0); }
-[data-anim="on"] .tl-step.is-in::before { transform: scaleY(1); }
-
-/* The last step in a column has nothing below it to connect to. */
-.tl-step:last-child::before { content: none; }
-@media (min-width: 48rem) {
-  .tl-step:nth-child(4)::before { content: none; }
-}
-
-/* The node carries the icon, opaque and filled so it reads as an object on
-   a dark ground rather than an outline floating over it. */
-.tl-node {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  inline-size: 3.5rem;
-  block-size: 3.5rem;
-  border-radius: var(--r-pill);
-  background: var(--grad-cool);
-  color: var(--white);
-  box-shadow: var(--glow-cyan);
-  transition: transform var(--t-mid) var(--ease-spring),
-              box-shadow var(--t-mid) var(--ease);
-}
-.tl-node .ico { inline-size: 1.4rem; block-size: 1.4rem; }
-.tl-step:hover .tl-node { transform: scale(1.09) rotate(-6deg); }
-
-/* The number is a label over the title, not a badge pinned to the node —
-   two overlapping circles at this size was fussy and hard to read. */
-.tl-step h3 {
-  font-size: var(--t-body);
-  color: var(--white);
-  margin-block-end: var(--s-1);
-}
-.tl-step h3::before {
-  content: 'Step ' counter(tl);
-  display: block;
-  font-size: var(--t-xs);
-  font-weight: 800;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
+/* The step number, small enough not to compete with the title it prefixes. */
+.timeline .feature h3::before {
+  content: counter(tl) '. ';
   color: var(--cyan-300);
-  margin-block-end: var(--s-1);
-}
-.tl-step p { font-size: var(--t-sm); color: var(--on-dark-soft); }
-
-@media (max-width: 29.99rem) {
-  .tl-step { grid-template-columns: 2.75rem 1fr; gap: var(--s-4); }
-  .tl-node { inline-size: 2.75rem; block-size: 2.75rem; }
-  .tl-node .ico { inline-size: 1.15rem; block-size: 1.15rem; }
-  .tl-step::before {
-    inset-block-start: 3rem;
-    inset-inline-start: calc(1.375rem - 1.5px);
-  }
+  font-weight: 800;
 }
 
 /* --------------------------------------------------------------------------

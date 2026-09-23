@@ -121,14 +121,11 @@
   .scroll-cue .ico,
   .seal.is-in { animation: none; }
 
-  /* The connectors are drawn in full rather than growing in. */
-  [data-anim="on"] .tl-step::before { transform: scaleY(1); }
 
   [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
 
   .btn:hover,
   .card:hover,
-  .tl-step:hover .tl-node,
   .stat:hover,
   .feature:hover,
   .social a:hover,
