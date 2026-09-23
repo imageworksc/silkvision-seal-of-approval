@@ -109,30 +109,49 @@
    filled part of the spine tracks the reader's own progress through it.
    -------------------------------------------------------------------------- */
 
+/* Heading on the left, the sequence on the right. As a single column the
+   timeline left two thirds of a full-width dark band empty; beside its own
+   heading it fills the band and the steps get a sane measure. The heading
+   sticks while the steps scroll past it, which is what the filling spine is
+   measuring. */
+.day-split { display: grid; gap: var(--s-8); }
+
+@media (min-width: 60rem) {
+  .day-split {
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--s-10);
+    align-items: start;
+  }
+  /* 7rem clears the sticky site header. */
+  .day-intro { position: sticky; top: 7rem; }
+}
+
 .timeline {
   position: relative;
   display: grid;
-  gap: var(--s-2);
+  gap: var(--s-6);
   counter-reset: tl;
   inline-size: 100%;
-  max-inline-size: 58rem;
 }
 
 /* The spine, and the part of it already travelled. Both sit behind the nodes
    and stop short at each end so the line does not overshoot the first and
    last node. */
+/* The spine, and the part of it already travelled. Both run behind the
+   nodes, which are opaque, so the line is hidden where a node sits. */
 .timeline::before,
 .timeline::after {
   content: '';
   position: absolute;
-  inset-block: 2.25rem;
-  inset-inline-start: calc(1.5rem - 1px);
-  inline-size: 2px;
+  inset-block: 1.5rem;
+  inset-inline-start: calc(1.75rem - 1.5px);
+  inline-size: 3px;
   border-radius: var(--r-pill);
 }
-.timeline::before { background: rgb(255 255 255 / .16); }
+.timeline::before { background: rgb(255 255 255 / .13); }
 .timeline::after {
   background: linear-gradient(to bottom, var(--cyan-400), var(--plum-400));
+  box-shadow: 0 0 16px rgb(53 167 224 / .45);
   transform: scaleY(var(--fill, 0));
   transform-origin: top;
   transition: transform .12s linear;
@@ -141,68 +160,56 @@
 .tl-step {
   position: relative;
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: 3.5rem 1fr;
   gap: var(--s-5);
-  align-items: center;
-  padding: var(--s-3) var(--s-4);
-  margin-inline-start: calc(var(--s-4) * -1);
-  border-radius: var(--r-md);
+  align-items: start;
   counter-increment: tl;
-  transition: background-color var(--t-mid) var(--ease);
 }
-.tl-step:hover { background: rgb(255 255 255 / .06); }
 
-/* The node: icon inside, step number riding its top-left corner. */
+/* The node carries the icon, opaque and filled so it reads as an object on
+   a dark ground rather than an outline floating over it. */
 .tl-node {
   position: relative;
   z-index: 1;
   display: grid;
   place-items: center;
-  inline-size: 3rem;
-  block-size: 3rem;
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
   border-radius: var(--r-pill);
-  background: var(--ink-800);
-  border: 2px solid rgb(255 255 255 / .2);
-  color: var(--cyan-300);
-  transition: transform var(--t-mid) var(--ease-spring),
-              border-color var(--t-mid) var(--ease),
-              color var(--t-mid) var(--ease);
-}
-.tl-node::after {
-  content: counter(tl);
-  position: absolute;
-  inset-block-start: -.4rem;
-  inset-inline-start: -.4rem;
-  display: grid;
-  place-items: center;
-  inline-size: 1.35rem;
-  block-size: 1.35rem;
-  border-radius: var(--r-pill);
-  background: var(--white);
-  color: var(--ink-800);
-  font-size: .6875rem;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-.tl-step:hover .tl-node {
-  transform: scale(1.08);
-  border-color: var(--cyan-300);
+  background: var(--grad-cool);
   color: var(--white);
+  box-shadow: var(--glow-cyan);
+  transition: transform var(--t-mid) var(--ease-spring),
+              box-shadow var(--t-mid) var(--ease);
 }
+.tl-node .ico { inline-size: 1.4rem; block-size: 1.4rem; }
+.tl-step:hover .tl-node { transform: scale(1.09) rotate(-6deg); }
 
+/* The number is a label over the title, not a badge pinned to the node —
+   two overlapping circles at this size was fussy and hard to read. */
 .tl-step h3 {
   font-size: var(--t-body);
   color: var(--white);
   margin-block-end: var(--s-1);
 }
-.tl-step p { font-size: var(--t-sm); color: var(--on-dark-soft); max-width: 52ch; }
+.tl-step h3::before {
+  content: 'Step ' counter(tl);
+  display: block;
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--cyan-300);
+  margin-block-end: var(--s-1);
+}
+.tl-step p { font-size: var(--t-sm); color: var(--on-dark-soft); }
 
 @media (max-width: 29.99rem) {
-  .tl-step { grid-template-columns: 2.5rem 1fr; gap: var(--s-4); }
-  .tl-node { inline-size: 2.5rem; block-size: 2.5rem; }
+  .tl-step { grid-template-columns: 2.75rem 1fr; gap: var(--s-4); }
+  .tl-node { inline-size: 2.75rem; block-size: 2.75rem; }
+  .tl-node .ico { inline-size: 1.15rem; block-size: 1.15rem; }
   .timeline::before,
-  .timeline::after { inset-inline-start: calc(1.25rem - 1px); }
+  .timeline::after { inset-inline-start: calc(1.375rem - 1.5px); }
 }
 
 /* --------------------------------------------------------------------------

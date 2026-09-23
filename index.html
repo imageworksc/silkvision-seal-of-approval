@@ -298,48 +298,53 @@
 
   <!-- ===== SURGERY DAY ===================================================== -->
   <section class="band band--deep" aria-labelledby="day-title">
-    <div class="wrap stack stack--loose">
-      <div class="stack" data-reveal>
-        <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Surgery day</p>
-        <h2 id="day-title">What to expect, step by step</h2>
-        <span class="rule"></span>
-        <p class="lead">Your entire visit will take approximately <strong>90 minutes</strong>.
-          Here’s how to prepare and what you can expect.</p>
+    <div class="wrap day-split">
+      <!-- data-reveal sits on the inner stack, not on .day-intro: the reveal
+           animates a transform, and a transform on the sticky element's own
+           box would stop it sticking. -->
+      <div class="day-intro">
+        <div class="stack" data-reveal>
+          <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Surgery day</p>
+          <h2 id="day-title">What to expect, step by step</h2>
+          <span class="rule"></span>
+          <p class="lead">Your entire visit will take approximately <strong>90 minutes</strong>.
+            Here’s how to prepare and what you can expect.</p>
+        </div>
       </div>
 
       <!-- A timeline rather than a grid of boxes: the order is the content.
            The spine fills as the reader moves down it — see .timeline in
            sections.css and setupScroll in main.js. -->
-      <ol class="timeline stagger" data-reveal>
-        <li class="tl-step">
+      <ol class="timeline stagger">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>
           <div><h3>Your ride</h3><p>Have a friend or family member drive you to our office.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-shirt"/></svg></span>
           <div><h3>What to wear</h3><p>Wear loose, comfortable clothing.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
           <div><h3>Check in</h3><p>Our staff will review the details with you.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-sparkle"/></svg></span>
           <div><h3>Preparation</h3><p>Get prepped for surgery by our caring team.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg></span>
           <div><h3>The procedure</h3><p>Your surgery will take only a few minutes.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-chair"/></svg></span>
           <div><h3>Recovery</h3><p>Rest in our recovery area before heading home.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-notes"/></svg></span>
           <div><h3>Aftercare instructions</h3><p>Receive detailed guidance on caring for your eye.</p></div>
         </li>
-        <li class="tl-step">
+        <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></span>
           <div><h3>Go home</h3><p>Once you feel ready, your friend or family member can drive you home.</p></div>
         </li>
