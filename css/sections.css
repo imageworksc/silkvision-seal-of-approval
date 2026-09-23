@@ -65,10 +65,11 @@
 .hero h1 { color: var(--white); max-width: 15ch; }
 .hero .lead { color: var(--pale-200); max-width: 38ch; }
 
-/* Wider than the usual measure so the paragraph sets in three lines at the
-   design width. 72ch is past the comfortable 66, which is why only this one
-   paragraph gets it — the rest of the page keeps --measure. */
-.hero-intro { color: var(--on-dark-soft); max-width: 72ch; }
+/* Set to land in four lines at the design width. 68ch is a whisker past the
+   comfortable 66 and only this paragraph gets it; the rest of the page keeps
+   --measure. Pushing the same copy into three lines would have needed a
+   90-character line, which is well past readable. */
+.hero-intro { color: var(--on-dark-soft); max-width: 68ch; }
 
 .hero-stats {
   display: grid;
