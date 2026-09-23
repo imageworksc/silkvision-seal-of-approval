@@ -179,87 +179,37 @@
 .strip a:hover { color: var(--plum-600); transform: translateY(-2px); }
 .strip .ico { color: var(--cyan-400); }
 
-.office h3 {
-  display: flex;
-  align-items: center;
-  gap: var(--s-2);
-  font-size: var(--t-body);
-  color: var(--white);
-  padding-block-end: var(--s-2);
-  border-block-end: 1px solid var(--hairline-dark);
-}
-.office p { font-size: var(--t-sm); color: var(--on-dark-soft); }
-/* Standalone targets rather than words inside a sentence, so they carry the
-   44px minimum. An inline box ignores min-block-size. */
-.office a:not(.btn) {
-  display: inline-flex;
-  align-items: center;
-  min-block-size: var(--tap);
-  color: var(--cyan-300);
-  font-weight: 600;
-}
-.office a:not(.btn):hover { text-decoration: underline; }
-
-.social { display: flex; flex-wrap: wrap; gap: var(--s-2); }
-
-/* The social row spans both footer columns and sits under them, separated by
-   a hairline. */
-.footer-main .social {
-  grid-column: 1 / -1;
-  margin-block-start: var(--s-3);
-  padding-block-start: var(--s-6);
-  border-block-start: 1px solid var(--hairline-dark);
-}
-.social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-block-size: var(--tap);
-  min-inline-size: var(--tap);
-  padding-inline: var(--s-4);
-  border-radius: var(--r-pill);
-  border: 1px solid var(--hairline-dark);
-  color: var(--white);
-  font-size: var(--t-sm);
-  font-weight: 600;
-  transition: background-color var(--t-fast) var(--ease),
-              border-color var(--t-fast) var(--ease),
-              transform var(--t-fast) var(--ease);
-}
-.social a:hover {
-  background: rgb(255 255 255 / .12);
-  border-color: var(--cyan-300);
-  transform: translateY(-3px);
-}
-
 /* --------------------------------------------------------------------------
    Footer
-   Two bars in one element: contact above, legal below. The offices used to
-   live in their own <section>; they belong here.
+   One element, two bars: contact above, legal below.
+
+   The footer runs its own type scale, smaller than the page's. Body copy
+   upstairs holds a 16px floor because the reader is usually past sixty;
+   down here the content is contact details and legal, which is reference
+   material rather than reading, and at page sizes it shouted.
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  background: var(--grad-deep);
-  color: var(--on-dark-soft);
-  /* Dark context, same re-pointing as .band--deep. */
+  /* Flat, not the gradient the dark bands use — a footer that glows
+     competes with the closing call directly above it. */
+  background: var(--ink-900);
+  color: rgb(255 255 255 / .6);
+  font-size: .875rem;                /* 14px */
+  line-height: 1.6;
   --heading: var(--white);
-  --hairline: var(--hairline-dark);
+  --hairline: rgb(255 255 255 / .1);
 }
-.site-footer a { color: var(--on-dark-soft); }
-.site-footer a:hover { color: var(--cyan-300); }
+.site-footer a { color: rgb(255 255 255 / .72); }
+.site-footer a:hover { color: var(--white); }
 
 .footer-main {
   display: grid;
-  gap: var(--s-8);
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  gap: var(--s-7);
+  padding-block: var(--s-8) var(--s-7);
 }
-/* The brand column only has to hold a 12rem logo, so it yields the rest to
-   the offices — at a wider share each address column fell below the ~193px
-   that "Annandale office" and "Review us on Google" need to stay on one
-   line. */
 @media (min-width: 60rem) {
   .footer-main {
-    grid-template-columns: minmax(11rem, .85fr) 3fr;
+    grid-template-columns: minmax(10rem, .8fr) 3fr;
     gap: var(--s-8);
   }
 }
@@ -268,32 +218,26 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--s-5);
+  gap: var(--s-4);
 }
-.footer-brand img { inline-size: 12rem; block-size: auto; }
+.footer-brand img { inline-size: 9.5rem; block-size: auto; }
 
 .footer-phone {
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
   min-block-size: var(--tap);
-  font-size: var(--t-lead);
-  font-weight: 700;
+  font-size: .9375rem;               /* 15px */
+  font-weight: 600;
   color: var(--white);
 }
-.footer-phone .ico { color: var(--cyan-300); }
-.footer-phone:hover { color: var(--cyan-300); }
+.footer-phone .ico { inline-size: 1rem; block-size: 1rem; color: rgb(255 255 255 / .45); }
 
 .footer-offices {
   display: grid;
-  gap: var(--s-6);
-  grid-template-columns: repeat(auto-fit, minmax(min(10.5rem, 100%), 1fr));
+  gap: var(--s-6) var(--s-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(9.5rem, 100%), 1fr));
 }
-
-/* Four across only once each column can hold "3301 Woodburn Rd" and
-   "Review us on Google" without breaking them. Between the two-column phone
-   layout and that, a 2x2 — three across leaves Office hours alone on a row
-   of its own. */
 @media (min-width: 60rem) and (max-width: 74.99rem) {
   .footer-offices { grid-template-columns: repeat(2, 1fr); }
 }
@@ -301,39 +245,82 @@
   .footer-offices { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* The legal bar. A darker inset so it separates from the contact block
-   without needing a second colour. */
-.footer-legal {
-  background: rgb(0 0 0 / .28);
-  border-block-start: 1px solid var(--hairline-dark);
-  padding-block: var(--s-5);
+/* A tracked label, not a heading with a rule under it. The border under
+   every column was four horizontal lines fighting the four addresses. */
+.office h3 {
+  font-size: .6875rem;               /* 11px */
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / .42);
+  margin-block-end: var(--s-2);
 }
+.office p { font-size: .875rem; color: rgb(255 255 255 / .78); }
 
-/* max-width:none is the point of the bar: p carries the 62ch measure by
-   default, which left the disclaimer stopping halfway across the page. It
-   still stops at the shell's gutters like everything else. */
+.office a:not(.btn) {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--tap);        /* a standalone target, not a word in a sentence */
+  font-size: .8125rem;               /* 13px */
+  color: rgb(255 255 255 / .55);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.office a:not(.btn):hover { color: var(--white); }
+
+/* Plain text links with a hairline above, not bordered pills. Five pills
+   across a footer read as five buttons competing with the page's real one. */
+.social { display: flex; flex-wrap: wrap; gap: 0 var(--s-5); }
+.footer-main .social {
+  grid-column: 1 / -1;
+  padding-block-start: var(--s-5);
+  border-block-start: 1px solid var(--hairline);
+}
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--tap);
+  /* The pills used to supply this. Without it "X" is a 10px-wide target and
+     "TikTok" a 40px one; centring the label keeps it invisible. */
+  min-inline-size: var(--tap);
+  font-size: .8125rem;
+  color: rgb(255 255 255 / .6);
+  transition: color var(--t-fast) var(--ease);
+}
+.social a:hover { color: var(--white); }
+
+/* The legal bar. max-width:none is the point of it: p carries the 62ch
+   measure by default, which left the disclaimer stopping halfway across.
+   It still stops at the shell's gutters like everything else. */
+.footer-legal {
+  border-block-start: 1px solid var(--hairline);
+  padding-block: var(--s-5) var(--s-6);
+}
 .footer-disclaimer {
   max-width: none;
-  font-size: var(--t-sm);
-  color: var(--on-dark-faint);
+  font-size: .75rem;                 /* 12px */
+  line-height: 1.65;
+  color: rgb(255 255 255 / .38);
 }
-
 .footer-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--s-1) var(--s-6);
-  margin-block-start: var(--s-3);
-  padding-block-start: var(--s-3);
-  border-block-start: 1px solid var(--hairline-dark);
+  align-items: center;
+  gap: 0 var(--s-5);
+  margin-block-start: var(--s-2);
 }
 .footer-meta p {
   max-width: none;
-  font-size: var(--t-xs);
-  color: var(--on-dark-faint);
+  font-size: .75rem;
+  color: rgb(255 255 255 / .38);
 }
 .footer-meta a {
   display: inline-flex;
   align-items: center;
   min-block-size: var(--tap);
+  font-size: .75rem;
+  color: rgb(255 255 255 / .5);
   text-decoration: underline;
+  text-underline-offset: 3px;
 }

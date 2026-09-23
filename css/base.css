@@ -129,15 +129,6 @@ strong, b { font-weight: 700; }
 .band--deep .eyebrow,
 .hero .eyebrow { color: var(--cyan-300); }
 
-/* A short gradient rule, used once per section under the heading. */
-.rule {
-  inline-size: 3.5rem;
-  block-size: .25rem;
-  border-radius: var(--r-pill);
-  background: var(--grad-rule);
-  flex: none;
-}
-
 /* --------------------------------------------------------------------------
    Accessibility
    -------------------------------------------------------------------------- */
