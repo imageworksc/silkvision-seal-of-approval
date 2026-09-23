@@ -153,25 +153,7 @@ const setupCounters = () => {
 };
 
 /* --------------------------------------------------------------------------
-   5 · Pointer glow on cards
-   Feeds --mx/--my to the radial highlight in components.css. Pointer events
-   only, so it costs nothing on touch, and the CSS has a centred fallback if
-   this never runs.
-   -------------------------------------------------------------------------- */
-const setupGlow = () => {
-  if (reduced.matches || !window.matchMedia('(hover: hover)').matches) return;
-
-  for (const card of document.querySelectorAll('.card')) {
-    card.addEventListener('pointermove', (e) => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${((e.clientX - r.left) / r.width * 100).toFixed(1)}%`);
-      card.style.setProperty('--my', `${((e.clientY - r.top) / r.height * 100).toFixed(1)}%`);
-    });
-  }
-};
-
-/* --------------------------------------------------------------------------
-   6 · The floating seal
+   5 · The floating seal
    In on the first scroll and held — it is an accreditation mark, not an
    alert, so it should not flicker with the scroll direction. Out again over
    the footer so it never covers the legal text.
@@ -206,5 +188,4 @@ setupMenu();
 setupScroll();
 setupReveals();
 setupCounters();
-setupGlow();
 setupSeal();

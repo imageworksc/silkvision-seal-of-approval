@@ -135,45 +135,20 @@
   overflow: hidden;
   transition: transform var(--t-mid) var(--ease),
               box-shadow var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease);
+              border-color var(--t-mid) var(--ease),
+              background-color var(--t-mid) var(--ease);
 }
 
-/* A gradient hairline that wipes in along the top edge on hover. */
-.card::before {
-  content: '';
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: 3px;
-  background: var(--grad-rule);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--t-mid) var(--ease);
-}
-
-/* A soft pool of light that follows the pointer. --mx/--my are set by
-   js/main.js; with no script they stay at the card's centre and nothing
-   moves. */
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    18rem circle at var(--mx, 50%) var(--my, 50%),
-    rgb(53 167 224 / .1), transparent 62%);
-  opacity: 0;
-  transition: opacity var(--t-mid) var(--ease);
-  pointer-events: none;
-}
-
+/* Hover is four flat changes and nothing drawn on top: the card lifts, its
+   ground tints, its hairline becomes a real border, and the shadow deepens.
+   No gradient, no line along the edge. */
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
+  background: var(--paper);
+  border-color: var(--blue-400);
   box-shadow: var(--shadow-lg);
-  border-color: rgb(53 167 224 / .35);
 }
-.card:hover::before { transform: scaleX(1); }
-.card:hover::after { opacity: 1; }
-.card:hover .ico-well { transform: translateY(-2px) rotate(-6deg) scale(1.06); border-radius: var(--r-lg); }
+.card:hover .ico-well { transform: scale(1.05); }
 
 .card h3 { color: var(--heading); }
 .card p { color: var(--text-soft); font-size: var(--t-sm); }
