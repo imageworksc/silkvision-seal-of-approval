@@ -121,11 +121,14 @@
   .scroll-cue .ico,
   .seal.is-in { animation: none; }
 
+  /* The spine is drawn in full rather than tracking the scroll. */
+  .timeline::after { transform: scaleY(1); }
+
   [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
 
   .btn:hover,
   .card:hover,
-  .step:hover,
+  .tl-step:hover .tl-node,
   .stat:hover,
   .feature:hover,
   .social a:hover,

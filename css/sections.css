@@ -103,58 +103,107 @@
 @media (max-width: 61.99rem) { .scroll-cue { display: none; } }
 
 /* --------------------------------------------------------------------------
-   Steps — the sequence on surgery day
+   Surgery day — a timeline
+   Eight boxes in a grid said "here are eight things". A spine says "this is
+   the order they happen in", which is the whole point of the section. The
+   filled part of the spine tracks the reader's own progress through it.
    -------------------------------------------------------------------------- */
 
-.steps {
-  display: grid;
-  gap: var(--s-4);
-  grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr));
-  counter-reset: step;
-  inline-size: 100%;
-}
-
-.step {
+.timeline {
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  gap: var(--s-4);
-  padding: var(--s-5);
-  border-radius: var(--r-md);
-  border: 1px solid var(--hairline-dark);
-  background: rgb(255 255 255 / .04);
-  counter-increment: step;
-  transition: background-color var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease),
-              transform var(--t-mid) var(--ease);
+  display: grid;
+  gap: var(--s-2);
+  counter-reset: tl;
+  inline-size: 100%;
+  max-inline-size: 58rem;
 }
-.step:hover {
-  background: rgb(255 255 255 / .09);
-  border-color: rgb(108 197 240 / .45);
-  transform: translateY(-3px);
-}
-.step:hover .ico-well { transform: rotate(-8deg) scale(1.08); }
 
-/* The number rides on the corner of the icon well. */
-.step-mark { position: relative; flex: none; }
-.step-mark::after {
-  content: counter(step);
+/* The spine, and the part of it already travelled. Both sit behind the nodes
+   and stop short at each end so the line does not overshoot the first and
+   last node. */
+.timeline::before,
+.timeline::after {
+  content: '';
   position: absolute;
-  inset-block-start: -.5rem;
-  inset-inline-start: -.5rem;
+  inset-block: 2.25rem;
+  inset-inline-start: calc(1.5rem - 1px);
+  inline-size: 2px;
+  border-radius: var(--r-pill);
+}
+.timeline::before { background: rgb(255 255 255 / .16); }
+.timeline::after {
+  background: linear-gradient(to bottom, var(--cyan-400), var(--plum-400));
+  transform: scaleY(var(--fill, 0));
+  transform-origin: top;
+  transition: transform .12s linear;
+}
+
+.tl-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--s-5);
+  align-items: center;
+  padding: var(--s-3) var(--s-4);
+  margin-inline-start: calc(var(--s-4) * -1);
+  border-radius: var(--r-md);
+  counter-increment: tl;
+  transition: background-color var(--t-mid) var(--ease);
+}
+.tl-step:hover { background: rgb(255 255 255 / .06); }
+
+/* The node: icon inside, step number riding its top-left corner. */
+.tl-node {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
-  inline-size: 1.5rem;
-  block-size: 1.5rem;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: var(--r-pill);
+  background: var(--ink-800);
+  border: 2px solid rgb(255 255 255 / .2);
+  color: var(--cyan-300);
+  transition: transform var(--t-mid) var(--ease-spring),
+              border-color var(--t-mid) var(--ease),
+              color var(--t-mid) var(--ease);
+}
+.tl-node::after {
+  content: counter(tl);
+  position: absolute;
+  inset-block-start: -.4rem;
+  inset-inline-start: -.4rem;
+  display: grid;
+  place-items: center;
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
   border-radius: var(--r-pill);
   background: var(--white);
-  color: var(--ink-700);
-  font-size: var(--t-xs);
+  color: var(--ink-800);
+  font-size: .6875rem;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
-.step p { font-size: var(--t-sm); color: var(--on-dark-soft); }
-.step strong { color: var(--white); }
+.tl-step:hover .tl-node {
+  transform: scale(1.08);
+  border-color: var(--cyan-300);
+  color: var(--white);
+}
+
+.tl-step h3 {
+  font-size: var(--t-body);
+  color: var(--white);
+  margin-block-end: var(--s-1);
+}
+.tl-step p { font-size: var(--t-sm); color: var(--on-dark-soft); max-width: 52ch; }
+
+@media (max-width: 29.99rem) {
+  .tl-step { grid-template-columns: 2.5rem 1fr; gap: var(--s-4); }
+  .tl-node { inline-size: 2.5rem; block-size: 2.5rem; }
+  .timeline::before,
+  .timeline::after { inset-inline-start: calc(1.25rem - 1px); }
+}
 
 /* --------------------------------------------------------------------------
    Closing call

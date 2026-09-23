@@ -71,7 +71,7 @@
      16px, not 15. */
   --t-sm:    clamp(1rem, .15vw + .96rem, 1.0625rem);     /* 16 → 17 */
   --t-body:  clamp(1.0625rem, .22vw + 1.01rem, 1.1875rem); /* 17 → 19 */
-  --t-lead:  clamp(1.1875rem, .5vw + 1.07rem, 1.4375rem); /* 19 → 23 */
+  --t-lead:  clamp(1.0625rem, .5vw + .9625rem, 1.3125rem); /* 17 → 21 */
   --t-h3:    clamp(1.3125rem, .7vw + 1.15rem, 1.625rem);  /* 21 → 26 */
   --t-h2:    clamp(1.875rem, 2.4vw + 1.3rem, 3.125rem);   /* 30 → 50 */
   --t-h1:    clamp(2.25rem, 3.8vw + 1.15rem, 4.25rem);    /* 36 → 68 */

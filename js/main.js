@@ -52,7 +52,24 @@ const setupMenu = () => {
 const setupScroll = () => {
   const bar = document.getElementById('progress');
   const header = document.getElementById('siteHeader');
+  const timeline = document.querySelector('.timeline');
   let ticking = false;
+
+  // With motion off the spine is simply drawn in full: a timeline whose line
+  // never arrives reads as broken rather than as restrained.
+  if (timeline && reduced.matches) timeline.style.setProperty('--fill', '1');
+
+  const fillTimeline = () => {
+    if (!timeline || reduced.matches) return;
+    const r = timeline.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // Starts when the list reaches four fifths of the way up the viewport and
+    // completes as its end passes the one-third mark.
+    const from = vh * .8;
+    const to = vh * .34;
+    const p = (from - r.top) / (r.height + from - to);
+    timeline.style.setProperty('--fill', Math.min(Math.max(p, 0), 1).toFixed(3));
+  };
 
   const read = () => {
     const y = window.scrollY;
@@ -60,14 +77,20 @@ const setupScroll = () => {
     if (bar) bar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : '0');
     if (header) header.dataset.stuck = String(y > 8);
     root.dataset.scrolled = String(y > 40);
+    fillTimeline();
     ticking = false;
   };
 
-  window.addEventListener('scroll', () => {
+  const request = () => {
     if (ticking) return;
     ticking = true;
     requestAnimationFrame(read);
-  }, { passive: true });
+  };
+
+  window.addEventListener('scroll', request, { passive: true });
+  // The spine's fill is derived from the list's height, which changes when
+  // the copy reflows.
+  window.addEventListener('resize', request);
 
   read();
 };
