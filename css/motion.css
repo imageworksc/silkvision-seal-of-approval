@@ -131,4 +131,9 @@
   .social a:hover,
   .strip a:hover,
   .seal.is-in:hover { transform: none; }
+
+  /* The card's hover moves its icon, heading and copy as well as itself. */
+  .card:hover .ico-well,
+  .card:hover h3,
+  .card:hover p { transform: none; }
 }

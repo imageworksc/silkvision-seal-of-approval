@@ -133,22 +133,36 @@
   border: 1px solid var(--hairline);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: transform var(--t-mid) var(--ease),
+  transition: transform .45s var(--ease-spring),
               box-shadow var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease),
-              background-color var(--t-mid) var(--ease);
+              border-color var(--t-fast) var(--ease),
+              background-color var(--t-fast) var(--ease);
 }
 
-/* Hover is four flat changes and nothing drawn on top: the card lifts, its
-   ground tints, its hairline becomes a real border, and the shadow deepens.
-   No gradient, no line along the edge. */
+/* Hover moves four things in sequence rather than sliding the whole card as
+   one block: the card rises on a spring, then the icon swings up behind it,
+   then the heading and the copy follow. Nothing is painted on top — no
+   gradient, no line along the edge.
+
+   The delays live on the :hover rule only, so entering is orchestrated and
+   leaving snaps straight back. A staggered exit reads as lag. */
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-10px);
   background: var(--paper);
   border-color: var(--blue-400);
   box-shadow: var(--shadow-lg);
 }
-.card:hover .ico-well { transform: scale(1.05); }
+
+.card .ico-well,
+.card h3,
+.card p { transition: transform .45s var(--ease-spring); }
+
+.card:hover .ico-well {
+  transform: translateY(-6px) rotate(-10deg) scale(1.12);
+  transition-delay: 40ms;
+}
+.card:hover h3 { transform: translateX(6px); transition-delay: 90ms; }
+.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 
 .card h3 { color: var(--heading); }
 .card p { color: var(--text-soft); font-size: var(--t-sm); }
