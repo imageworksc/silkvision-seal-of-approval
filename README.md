@@ -40,6 +40,29 @@ wrong and belongs fixed in `system.css` for every client, not bent here.
 | `floating-seal-badge.md` | Component spec for the seal. |
 | `hero-office-based-surgery.jpg` | Full-size copy of the hero photograph. |
 
+## The visual direction
+
+The reader is usually over sixty, was told this week that they are a candidate
+for eye surgery, and does not see well. That rules out most of what "striking"
+normally means on a marketing page — small type, thin weights, low contrast,
+restless motion — and it points somewhere better: **legibility as the
+aesthetic**. Display type at 72px, body at 17px, and everything measured.
+
+Two devices carry the identity, both taken from the subject rather than from a
+mood board:
+
+- **The headline resolves out of blur** on load. That is what the procedure
+  does. It is the page's only authored motion — see
+  [decision 13](decisions/13-one-motion-idea-the-resolve.md).
+- **A Placido disc** behind the hero: the concentric ring pattern a corneal
+  topographer projects onto an eye to read its shape. Drawn in CSS, so it costs
+  nothing and stays sharp at 4K.
+
+Depth comes from the dark bands being a navy gradient rather than a flat fill,
+and the comparison table makes the page's argument visually: the office-based
+column carries the brand's action colour, the hospital column is stated plainly
+in a muted slate, and an empty cell now reads as a dash rather than a gap.
+
 ## Where the brand values came from
 
 `silkvision.net/themes/imageworks/css/style.css` — the live stylesheet, not a

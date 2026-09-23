@@ -163,27 +163,41 @@
 <main id="main">
 
   <!-- 1 · HERO ------------------------------------------------------------ -->
+  <!-- No data-reveal here: the hero is above the fold, so a scroll-triggered
+       entrance would never fire. It runs its own load sequence instead —
+       the headline resolving out of blur, then each line after it. -->
   <section class="band sv-hero band--dark" aria-labelledby="hero-title">
-    <div class="wrap stack stack--loose" data-reveal>
+    <div class="wrap stack stack--loose">
       <div class="stack">
         <h1 id="hero-title">Office-Based Surgery</h1>
         <p class="lead">A New, Advanced Option for Convenient and Affordable Eye Care</p>
       </div>
-      <p>Your doctor has determined that you are an excellent candidate for office-based
-        surgery (OBS). This means that your procedure can be performed in our
-        state-of-the-art surgical suite right here in our office, utilizing local
+      <p class="sv-intro">Your doctor has determined that you are an excellent candidate
+        for office-based surgery (OBS). This means that your procedure can be performed in
+        our state-of-the-art surgical suite right here in our office, utilizing local
         anesthetics—no need for a hospital or ambulatory surgery center (ASC).</p>
       <div class="cluster cluster--buttons">
-        <a class="btn btn--solid" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment
+        <a class="btn btn--solid btn--lg" href="https://w31qe7s2lq5.typeform.com/SilkVisionForm">Request an Appointment
           <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn--quiet" href="tel:+17038769700">Call (703)&nbsp;876-9700</a>
+        <a class="btn btn--quiet btn--lg" href="tel:+17038769700">Call (703)&nbsp;876-9700</a>
       </div>
+
+      <!-- The practice's own claims from further down the page, surfaced at
+           the point the decision actually gets made. -->
+      <ul class="sv-facts w-full">
+        <li><strong>Your visit</strong>About 90 minutes</li>
+        <li><strong>Anesthetic</strong>Oral and topical — no IV</li>
+        <li><strong>Beforehand</strong>Eat normally, no fasting</li>
+      </ul>
     </div>
   </section>
 
   <!-- 2 · THE DIFFERENCE, BESIDE THE CLAIMS — .split --------------------- -->
   <div class="band">
-    <div class="wrap split split--sidebar" data-reveal>
+    <!-- An even split, not --sidebar. At 2fr 1fr the four claims are squeezed
+         into a third of the width, wrap to three lines each and tower over a
+         single short paragraph, leaving a hole under the left column. -->
+    <div class="wrap split" data-reveal>
 
       <section class="stack" aria-labelledby="difference-title">
         <h2 id="difference-title">Experience the Silk Vision Difference with OBS</h2>
@@ -220,28 +234,28 @@
       <h2 id="benefits-title">Why Patients Choose Office-Based Surgery</h2>
       <p class="lead">Patients who opt for OBS enjoy these outstanding benefits:</p>
 
-      <div class="grid grid--3 w-full">
-        <article class="card">
+      <div class="grid grid--3 w-full sv-stagger">
+        <article class="card sv-benefit" data-reveal>
           <h3>No Fasting</h3>
           <p>Eat before your surgery—no need for extended fasting.</p>
         </article>
-        <article class="card">
+        <article class="card sv-benefit" data-reveal>
           <h3>No IV Required</h3>
           <p>Say goodbye to the discomfort of an IV.</p>
         </article>
-        <article class="card">
+        <article class="card sv-benefit" data-reveal>
           <h3>Convenient Location</h3>
           <p>All services are provided in one location—our office.</p>
         </article>
-        <article class="card">
+        <article class="card sv-benefit" data-reveal>
           <h3>More Scheduling Options</h3>
           <p>Get the procedure done on a timeline that works for you.</p>
         </article>
-        <article class="card">
+        <article class="card sv-benefit" data-reveal>
           <h3>Faster Recovery</h3>
           <p>Less time in the recovery area means you’re on your way home sooner.</p>
         </article>
-        <article class="card">
+        <article class="card sv-benefit" data-reveal>
           <h3>Less Stress</h3>
           <p>A simpler process, designed to make you feel at ease.</p>
         </article>
@@ -273,7 +287,7 @@
           Here’s how to prepare and what you can expect:</p>
       </div>
 
-      <ol class="sv-steps grid grid--2 w-full">
+      <ol class="sv-steps grid grid--2 w-full sv-stagger">
         <li><p><strong>Have a friend or family member drive you to our office.</strong></p></li>
         <li><p><strong>Wear loose, comfortable clothing.</strong></p></li>
         <li><p><strong>Check-in:</strong> Our staff will review the details with you.</p></li>
@@ -329,7 +343,7 @@
             <tr>
               <th scope="row">Minimized Exposure to Others</th>
               <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
-              <td><span class="visually-hidden">No</span></td>
+              <td class="sv-no"><span class="visually-hidden">No</span></td>
             </tr>
           </tbody>
 
@@ -357,7 +371,7 @@
             <tr>
               <th scope="row">Hassle-Free Scheduling &amp; Flexibility</th>
               <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
-              <td><span class="visually-hidden">No</span></td>
+              <td class="sv-no"><span class="visually-hidden">No</span></td>
             </tr>
             <tr>
               <th scope="row">One Location Convenience</th>
@@ -367,12 +381,12 @@
             <tr>
               <th scope="row">Streamlined Patient Care</th>
               <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
-              <td><span class="visually-hidden">No</span></td>
+              <td class="sv-no"><span class="visually-hidden">No</span></td>
             </tr>
             <tr>
               <th scope="row">Familiar Staff &amp; Setting</th>
               <td><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span class="visually-hidden">Yes</span></td>
-              <td><span class="visually-hidden">No</span></td>
+              <td class="sv-no"><span class="visually-hidden">No</span></td>
             </tr>
             <tr>
               <th scope="row">Surgical Staff Specialized in IOL Procedures</th>

@@ -67,8 +67,14 @@
      The brand's raw values, named literally. Nothing outside layer 3
      references these.
      ---------------------------------------------------------------------- */
+  --brand-ink: #013559;          /* their deepest navy. Gives the dark bands a
+                                    floor to fall to, so a full-bleed slab
+                                    reads as depth rather than as one flat
+                                    rectangle of colour                      */
   --brand-deep: #00497b;         /* the pre-footer and the comparison table's
                                     second column — the darkest brand blue  */
+  --brand-slate: #427699;        /* their muted blue. The comparison column
+                                    that is NOT the recommendation           */
   --brand-mid: #005894;          /* 54 uses in the live sheet: THE blue      */
   --brand-action: #800080;       /* the purple that carries a button         */
   --brand-action-ink: #6a006a;   /* the same hue, dark enough to carry text.
@@ -108,6 +114,11 @@
   --surface-page: var(--white);
   --surface-band: var(--grey-050);
   --surface-card: var(--white);
+  /* A dark band is a gradient, not a fill: ink at the top-left falling to the
+     brand blue. On a 4K panel a flat slab 900px tall shows its banding; a
+     gradient across it does not, and it gives the white type somewhere to
+     sit. */
+  --surface-deep: linear-gradient(155deg, var(--brand-ink) 0%, var(--brand-deep) 58%, #00568f 100%);
   --border-hairline: var(--grey-200);
   --border-hover: var(--brand-mid);
 
@@ -188,6 +199,13 @@ a { color: var(--color-link); }
   box-shadow: 0 1px 3px rgb(0 0 0 / .06), 0 14px 34px rgb(0 0 0 / .08);
 }
 
+/* Tinted bands sit at #f4f5f5, close enough to white that a card's shadow is
+   the only thing separating the two. Deepened so the cards still read as
+   lifted off that ground rather than floating in it. */
+.band--tint .card {
+  box-shadow: 0 1px 2px rgb(1 53 89 / .08), 0 18px 40px rgb(1 53 89 / .12);
+}
+
 .rule-list > li { border-color: var(--border-hairline); }
 
 .kicker { color: var(--color-action-text); }
@@ -229,7 +247,7 @@ a { color: var(--color-link); }
   --color-on-action: var(--brand-deep);
   --border-hover: var(--white);
 
-  background: var(--brand-deep);
+  background: var(--surface-deep);
   color: var(--color-text);
 }
 
