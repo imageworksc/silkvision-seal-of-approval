@@ -182,6 +182,14 @@
    the icon well stays hard left while the heading and copy sit centred. */
 .stack--center .card { align-items: center; text-align: center; }
 
+/* A compacter card, for a set that runs two rows deep. The reduction comes
+   out of padding, the icon well and the heading — never the copy, which
+   holds its 16px floor. */
+.cards--sm .card { padding: var(--s-6); gap: var(--s-3); }
+.cards--sm .ico-well { inline-size: 3rem; block-size: 3rem; }
+.cards--sm .ico--lg { inline-size: 1.4rem; block-size: 1.4rem; }
+.cards--sm .card h3 { font-size: var(--t-lead); }
+
 /* Cards on a dark band. */
 .band--deep .card {
   background: rgb(255 255 255 / .05);
