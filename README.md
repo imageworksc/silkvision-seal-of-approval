@@ -28,6 +28,19 @@ js/cherry-widget.js  loader and configuration for the "Pay over time" estimator
 No CSS in the HTML — no `style=""`, no `<style>` block. JavaScript is ES2015+:
 `const`/`let` only, arrow functions, external files loaded with `defer`.
 
+### Bump `?v=` when you change a stylesheet or a script
+
+Every asset link in `index.html` carries a version token: `css/base.css?v=8`.
+**Raise the number on every deploy that touches CSS or JS.**
+
+GitHub Pages serves assets with `Cache-Control: max-age=600`, so for ten
+minutes after a push a browser that has already loaded the page will use its
+cached stylesheet *without asking the server whether it changed*. The page
+then looks exactly as it did before the deploy, and the only fix is a hard
+reload — which nobody reviewing the work will think to do. Changing the query
+string makes it a different URL as far as the cache is concerned, so the new
+file is fetched immediately.
+
 ## The design
 
 The reader is usually past sixty, was told this week that they are a candidate
