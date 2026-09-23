@@ -62,8 +62,11 @@
   pointer-events: none;
 }
 
-.hero h1 { color: var(--white); max-width: 15ch; }
-.hero .lead { color: var(--pale-200); max-width: 38ch; }
+/* No measure cap on either: both are short enough to set on one line, and a
+   cap was the only thing breaking them. They still wrap on a phone, where
+   the line physically does not fit. */
+.hero h1 { color: var(--white); max-width: none; }
+.hero .lead { color: var(--pale-200); max-width: none; }
 
 /* Set to land in four lines at the design width. 68ch is a whisker past the
    comfortable 66 and only this paragraph gets it; the rest of the page keeps
