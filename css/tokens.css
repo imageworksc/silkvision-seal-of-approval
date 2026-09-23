@@ -74,7 +74,7 @@
   --t-lead:  clamp(1.1875rem, .5vw + 1.07rem, 1.4375rem); /* 19 → 23 */
   --t-h3:    clamp(1.3125rem, .7vw + 1.15rem, 1.625rem);  /* 21 → 26 */
   --t-h2:    clamp(1.875rem, 2.4vw + 1.3rem, 3.125rem);   /* 30 → 50 */
-  --t-h1:    clamp(2.375rem, 4.6vw + 1.2rem, 5rem);       /* 38 → 80 */
+  --t-h1:    clamp(2.25rem, 3.8vw + 1.15rem, 4.25rem);    /* 36 → 68 */
 
   --lh-tight: 1.06;
   --lh-head: 1.16;
