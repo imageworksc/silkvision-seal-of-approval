@@ -109,52 +109,24 @@
    filled part of the spine tracks the reader's own progress through it.
    -------------------------------------------------------------------------- */
 
-/* Heading on the left, the sequence on the right. As a single column the
-   timeline left two thirds of a full-width dark band empty; beside its own
-   heading it fills the band and the steps get a sane measure. The heading
-   sticks while the steps scroll past it, which is what the filling spine is
-   measuring. */
-.day-split { display: grid; gap: var(--s-8); }
-
-@media (min-width: 60rem) {
-  .day-split {
-    grid-template-columns: 1fr 1.2fr;
-    gap: var(--s-10);
-    align-items: start;
-  }
-  /* 7rem clears the sticky site header. */
-  .day-intro { position: sticky; top: 7rem; }
-}
+/* The heading runs full width above; the eight steps sit in two columns of
+   four, filled top-to-bottom rather than left-to-right so the sequence still
+   reads down a column. */
+.day-head { max-width: 46ch; }
 
 .timeline {
-  position: relative;
   display: grid;
-  gap: var(--s-6);
+  gap: var(--s-7) var(--s-8);
   counter-reset: tl;
   inline-size: 100%;
 }
 
-/* The spine, and the part of it already travelled. Both sit behind the nodes
-   and stop short at each end so the line does not overshoot the first and
-   last node. */
-/* The spine, and the part of it already travelled. Both run behind the
-   nodes, which are opaque, so the line is hidden where a node sits. */
-.timeline::before,
-.timeline::after {
-  content: '';
-  position: absolute;
-  inset-block: 1.5rem;
-  inset-inline-start: calc(1.75rem - 1.5px);
-  inline-size: 3px;
-  border-radius: var(--r-pill);
-}
-.timeline::before { background: rgb(255 255 255 / .13); }
-.timeline::after {
-  background: linear-gradient(to bottom, var(--cyan-400), var(--plum-400));
-  box-shadow: 0 0 16px rgb(53 167 224 / .45);
-  transform: scaleY(var(--fill, 0));
-  transform-origin: top;
-  transition: transform .12s linear;
+@media (min-width: 48rem) {
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+  }
 }
 
 .tl-step {
@@ -164,6 +136,33 @@
   gap: var(--s-5);
   align-items: start;
   counter-increment: tl;
+}
+
+/* One spine down the middle cannot serve two columns, so each step draws its
+   own connector to the node below it. The segment grows as the step reveals,
+   which keeps the sense of a line being travelled. */
+.tl-step::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 3.75rem;
+  inset-block-end: calc(var(--s-7) * -1);
+  inset-inline-start: calc(1.75rem - 1.5px);
+  inline-size: 3px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(to bottom, var(--cyan-400), rgb(108 197 240 / .2));
+  transform-origin: top;
+  transition: transform var(--t-slow) var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+/* Collapsed only while the page is in a position to bring it back, the same
+   contract as [data-reveal]: with no script the connectors are simply drawn. */
+[data-anim="on"] .tl-step::before { transform: scaleY(0); }
+[data-anim="on"] .tl-step.is-in::before { transform: scaleY(1); }
+
+/* The last step in a column has nothing below it to connect to. */
+.tl-step:last-child::before { content: none; }
+@media (min-width: 48rem) {
+  .tl-step:nth-child(4)::before { content: none; }
 }
 
 /* The node carries the icon, opaque and filled so it reads as an object on
@@ -208,8 +207,10 @@
   .tl-step { grid-template-columns: 2.75rem 1fr; gap: var(--s-4); }
   .tl-node { inline-size: 2.75rem; block-size: 2.75rem; }
   .tl-node .ico { inline-size: 1.15rem; block-size: 1.15rem; }
-  .timeline::before,
-  .timeline::after { inset-inline-start: calc(1.375rem - 1.5px); }
+  .tl-step::before {
+    inset-block-start: 3rem;
+    inset-inline-start: calc(1.375rem - 1.5px);
+  }
 }
 
 /* --------------------------------------------------------------------------

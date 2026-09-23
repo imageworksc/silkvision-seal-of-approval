@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=8">
-<link rel="stylesheet" href="css/tokens.css?v=8">
-<link rel="stylesheet" href="css/base.css?v=8">
-<link rel="stylesheet" href="css/components.css?v=8">
-<link rel="stylesheet" href="css/sections.css?v=8">
-<link rel="stylesheet" href="css/motion.css?v=8">
+<link rel="stylesheet" href="css/fonts.css?v=9">
+<link rel="stylesheet" href="css/tokens.css?v=9">
+<link rel="stylesheet" href="css/base.css?v=9">
+<link rel="stylesheet" href="css/components.css?v=9">
+<link rel="stylesheet" href="css/sections.css?v=9">
+<link rel="stylesheet" href="css/motion.css?v=9">
 
-<script src="js/main.js?v=8" defer></script>
-<script src="js/cherry-widget.js?v=8" defer></script>
+<script src="js/main.js?v=9" defer></script>
+<script src="js/cherry-widget.js?v=9" defer></script>
 </head>
 <body>
 
@@ -298,23 +298,17 @@
 
   <!-- ===== SURGERY DAY ===================================================== -->
   <section class="band band--deep" aria-labelledby="day-title">
-    <div class="wrap day-split">
-      <!-- data-reveal sits on the inner stack, not on .day-intro: the reveal
-           animates a transform, and a transform on the sticky element's own
-           box would stop it sticking. -->
-      <div class="day-intro">
-        <div class="stack" data-reveal>
-          <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Surgery day</p>
-          <h2 id="day-title">What to expect, step by step</h2>
-          <span class="rule"></span>
-          <p class="lead">Your entire visit will take approximately <strong>90 minutes</strong>.
-            Here’s how to prepare and what you can expect.</p>
-        </div>
+    <div class="wrap stack stack--loose">
+      <div class="stack day-head" data-reveal>
+        <p class="eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Surgery day</p>
+        <h2 id="day-title">What to expect, step by step</h2>
+        <span class="rule"></span>
+        <p class="lead">Your entire visit will take approximately <strong>90 minutes</strong>.
+          Here’s how to prepare and what you can expect.</p>
       </div>
 
-      <!-- A timeline rather than a grid of boxes: the order is the content.
-           The spine fills as the reader moves down it — see .timeline in
-           sections.css and setupScroll in main.js. -->
+      <!-- Two columns of four, filled top-to-bottom. Each step draws a
+           connector to the node below it — see .tl-step::before. -->
       <ol class="timeline stagger">
         <li class="tl-step" data-reveal>
           <span class="tl-node"><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg></span>

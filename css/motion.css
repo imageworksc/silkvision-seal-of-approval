@@ -121,8 +121,8 @@
   .scroll-cue .ico,
   .seal.is-in { animation: none; }
 
-  /* The spine is drawn in full rather than tracking the scroll. */
-  .timeline::after { transform: scaleY(1); }
+  /* The connectors are drawn in full rather than growing in. */
+  [data-anim="on"] .tl-step::before { transform: scaleY(1); }
 
   [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
 
