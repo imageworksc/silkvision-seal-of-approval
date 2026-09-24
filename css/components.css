@@ -510,18 +510,40 @@
 .compare tbody td:nth-of-type(1) { background: rgb(166 38 166 / .07); font-weight: 600; color: var(--plum-600); }
 .compare tbody td:nth-of-type(2) { background: rgb(0 73 123 / .05); }
 
-.compare tbody tr { transition: background-color var(--t-fast) var(--ease); }
-.compare tbody tr:hover { background: var(--pale-100); }
+/* The hover has to be declared per cell, not on the row. The two data columns
+   paint their own tint, and a background on <tr> sits under those — so the
+   row hover was lighting the label column only and stopping dead at the first
+   tinted cell. Each column deepens its own colour instead. */
+.compare tbody th,
+.compare tbody td { transition: background-color var(--t-fast) var(--ease); }
+.compare tbody tr:hover th { background: var(--pale-100); }
+.compare tbody tr:hover td:nth-of-type(1) { background: rgb(166 38 166 / .13); }
+.compare tbody tr:hover td:nth-of-type(2) { background: rgb(0 73 123 / .1); }
 
+/* The group row used to be a solid navy bar across all three columns, which
+   made it heavier than the table's own header — the row that matters most —
+   and cut the two tinted columns into thirds. Pale, with a rule above it, it
+   divides without outranking. */
 .compare .group th {
-  background: var(--ink-700);
-  color: var(--white);
+  background: var(--pale-100);
+  color: var(--heading);
   font-size: var(--t-xs);
   font-weight: 800;
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
   padding-block: var(--s-3);
+  border-block-start: 1px solid var(--hairline);
 }
+.compare tbody:first-of-type .group th { border-block-start: 0; }
+
+/* inline-flex on a span, not on the th: display:flex on a table cell drops it
+   out of the table's formatting context and the colspan stops spanning. */
+.group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+}
+.group-label .ico { color: var(--plum-600); }
 
 .tick {
   display: inline-grid;
