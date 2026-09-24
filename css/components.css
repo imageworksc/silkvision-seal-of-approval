@@ -20,15 +20,15 @@
 }
 .ico--lg { inline-size: 1.75rem; block-size: 1.75rem; }
 
-/* The well an icon sits in. Gradient ground, and it reacts to hover on the
-   card around it. */
+/* The well an icon sits in. Flat ground, and it reacts to hover on the card
+   around it. */
 .ico-well {
   display: grid;
   place-items: center;
   inline-size: 3.5rem;
   block-size: 3.5rem;
   border-radius: var(--r-md);
-  background: var(--grad-cool);
+  background: var(--fill-cool);
   color: var(--white);
   flex: none;
   box-shadow: var(--glow-cyan);
@@ -36,7 +36,7 @@
               box-shadow var(--t-mid) var(--ease),
               border-radius var(--t-mid) var(--ease);
 }
-.ico-well--plum { background: var(--grad-action); box-shadow: var(--glow-plum); }
+.ico-well--plum { background: var(--fill-action); box-shadow: var(--glow-plum); }
 .ico-well--sm { inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--r-sm); }
 .ico-well--ghost {
   background: rgb(255 255 255 / .1);
@@ -80,23 +80,8 @@
 .btn:hover { transform: translateY(-3px); }
 .btn:active { transform: translateY(-1px); }
 
-/* The sheen sweeps across on hover. Purely decorative, so it is hidden from
-   assistive tech and removed under reduced motion. */
-.btn::after {
-  content: '';
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: -60%;
-  inline-size: 55%;
-  background: var(--grad-sheen);
-  transform: skewX(-18deg);
-  opacity: 0;
-  z-index: -1;
-}
-.btn:hover::after { animation: sheen .75s var(--ease); }
-
 .btn--solid {
-  background: var(--grad-action);
+  background: var(--fill-action);
   color: var(--white);
   box-shadow: var(--glow-plum);
 }
@@ -326,7 +311,7 @@
   inset-inline: 0;
   block-size: 2px;
   border-radius: var(--r-pill);
-  background: var(--grad-rule);
+  background: var(--fill-accent);
   transform: scaleX(0);
   transition: transform var(--t-mid) var(--ease);
 }
@@ -387,7 +372,7 @@
   inset-inline: 0;
   block-size: 3px;
   z-index: 200;
-  background: var(--grad-rule);
+  background: var(--fill-accent);
   transform: scaleX(var(--p, 0));
   transform-origin: left;
   pointer-events: none;
@@ -431,7 +416,7 @@
   line-height: var(--lh-head);
 }
 .compare thead th:first-child { background: var(--white); }
-.compare thead th:nth-child(2) { background: var(--grad-action); }
+.compare thead th:nth-child(2) { background: var(--fill-action); }
 .compare thead th:nth-child(3) { background: var(--ink-600); }
 
 .compare tbody th { color: var(--text); font-weight: 600; }
@@ -458,7 +443,7 @@
   inline-size: 1.75rem;
   block-size: 1.75rem;
   border-radius: var(--r-pill);
-  background: var(--grad-action);
+  background: var(--fill-action);
   color: var(--white);
   transition: transform var(--t-mid) var(--ease-spring);
 }

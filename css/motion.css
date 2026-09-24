@@ -23,21 +23,6 @@
   to   { opacity: 1; transform: none; }
 }
 
-@keyframes sheen {
-  from { inset-inline-start: -60%; opacity: 1; }
-  to   { inset-inline-start: 120%; opacity: 0; }
-}
-
-@keyframes drift {
-  from { transform: translate3d(-2%, -1%, 0) scale(1); }
-  to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
-}
-
-@keyframes breathe {
-  0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(1); }
-  50%      { opacity: .9;  transform: translate(-50%, -50%) scale(1.035); }
-}
-
 @keyframes nudge {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(.3rem); }
@@ -115,12 +100,8 @@
     transition-duration: .01ms !important;
   }
 
-  .hero::before,
-  .hero::after,
-  .closing::before,
   .scroll-cue .ico,
   .seal.is-in { animation: none; }
-
 
   [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
 

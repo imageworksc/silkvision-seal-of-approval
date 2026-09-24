@@ -78,7 +78,7 @@ strong, b { font-weight: 700; }
   --heading: var(--white);
   --hairline: var(--hairline-dark);
 }
-.band--deep { background: var(--grad-deep); }
+.band--deep { background: var(--fill-deep); }
 
 .band--deep :is(h1, h2, h3),
 .hero :is(h1, h2, h3) { color: var(--white); }
@@ -110,20 +110,6 @@ strong, b { font-weight: 700; }
   max-width: 34ch;
 }
 .lead strong { color: var(--heading); }
-
-/* Small tracked label above a heading. */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  font-size: var(--t-xs);
-  font-weight: 800;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--plum-600);
-}
-.band--deep .eyebrow,
-.hero .eyebrow { color: var(--cyan-300); }
 
 /* --------------------------------------------------------------------------
    Accessibility

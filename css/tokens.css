@@ -45,12 +45,19 @@
   --hairline: rgb(1 53 89 / .12);
   --hairline-dark: rgb(255 255 255 / .16);
 
-  /* ---------- Gradients ---------- */
-  --grad-action: linear-gradient(135deg, var(--plum-400) 0%, var(--plum-600) 100%);
-  --grad-cool: linear-gradient(135deg, var(--cyan-400) 0%, var(--blue-500) 100%);
-  --grad-deep: linear-gradient(165deg, var(--ink-900) 0%, var(--ink-700) 52%, var(--ink-600) 100%);
-  --grad-sheen: linear-gradient(100deg, transparent 20%, rgb(255 255 255 / .38) 50%, transparent 80%);
-  --grad-rule: linear-gradient(90deg, var(--cyan-400), var(--plum-400));
+  /* ---------- Fills ----------
+     Flat, no gradients anywhere on the page. Each of these replaces one that
+     used to ramp; the value chosen is roughly where the old ramp sat at its
+     midpoint, so nothing shifts hue. */
+  --fill-action: var(--plum-500);   /* buttons, ticks, the OBS table column */
+  --fill-cool: var(--blue-500);     /* icon wells                          */
+  --fill-deep: var(--ink-700);      /* the dark bands                      */
+  --fill-accent: var(--plum-500);   /* nav underline, reading progress     */
+  /* The scrim is even, so its alpha is set by the worst case rather than by
+     how it looks over the dark half: at .78, white on the photograph's very
+     brightest pixel still measures 8.1:1, and the 80%-white body copy 5.9:1.
+     Anything heavier buries the operating room behind it. */
+  --fill-scrim: rgb(1 34 58 / .78); /* over the hero photograph            */
 
   /* ---------- Depth ---------- */
   --shadow-sm: 0 1px 2px rgb(1 53 89 / .06), 0 2px 8px rgb(1 53 89 / .06);
@@ -64,8 +71,8 @@
 
   /* The reader is usually past sixty and about to have eye surgery. The floor
      is 17px, not 16, and the ladder is generous the whole way up. */
-  /* --t-xs is for tracked uppercase labels only — eyebrows, the stat
-     captions, the table's group rows. Never for a sentence. */
+  /* --t-xs is for tracked uppercase labels only — the stat captions, the
+     scroll cue, the table's group rows. Never for a sentence. */
   --t-xs:    clamp(.8125rem, .1vw + .79rem, .875rem);    /* 13 → 14 */
   /* --t-sm carries real copy (card text, table cells, nav), so its floor is
      16px, not 15. */

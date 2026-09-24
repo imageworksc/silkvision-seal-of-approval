@@ -4,10 +4,9 @@
 
 /* --------------------------------------------------------------------------
    Hero
-   Four layers: the photograph, a navy scrim, a drifting aurora, and a
-   Placido disc — the concentric rings a corneal topographer projects onto
-   an eye to read its shape. The rings are the one motif taken from the
-   instrument room rather than from a mood board.
+   Two layers: the photograph, and one flat navy scrim over the whole of it.
+   The scrim is even rather than ramped, so the headline sits on the same
+   contrast wherever the photograph happens to be light.
    -------------------------------------------------------------------------- */
 
 .hero {
@@ -18,48 +17,20 @@
   /* The extra block-end clears the scroll cue, which is absolutely
      positioned and would otherwise sit on top of the last stat pill. */
   padding-block: var(--s-10) var(--s-11);
-  background:
-    linear-gradient(104deg,
-      rgb(0 19 37 / .97) 0%,
-      rgb(1 42 71 / .93) 40%,
-      rgb(1 53 89 / .68) 72%,
-      rgb(0 73 123 / .46) 100%),
-    url('../images/obs-bg2.jpg') 50% 50% / cover no-repeat;
+  background: url('../images/obs-bg2.jpg') 50% 50% / cover no-repeat;
   color: var(--on-dark-soft);
   overflow: hidden;
   isolation: isolate;
 }
 
-/* The aurora. Two soft pools of brand light that drift very slowly. */
+/* isolation on the parent keeps this pseudo above the photograph and below
+   the copy without any of the content needing a stacking context. */
 .hero::before {
   content: '';
   position: absolute;
-  inset: -25%;
-  z-index: -2;
-  background:
-    radial-gradient(38rem circle at 22% 18%, rgb(53 167 224 / .3), transparent 60%),
-    radial-gradient(34rem circle at 78% 82%, rgb(166 38 166 / .26), transparent 62%);
-  animation: drift 26s var(--ease) infinite alternate;
-}
-
-/* The Placido disc. Drawn in CSS, so it costs nothing and stays sharp at 4K. */
-.hero::after {
-  content: '';
-  position: absolute;
-  inset-block-start: 50%;
-  inset-inline-start: 74%;
+  inset: 0;
   z-index: -1;
-  inline-size: 80rem;
-  block-size: 80rem;
-  translate: -50% -50%;
-  border-radius: var(--r-pill);
-  background: repeating-radial-gradient(
-    circle at center,
-    rgb(204 222 234 / .13) 0 1px,
-    transparent 1px 2.75rem);
-  mask-image: radial-gradient(circle at center, #000 38%, transparent 72%);
-  animation: breathe 9s ease-in-out infinite;
-  pointer-events: none;
+  background: var(--fill-scrim);
 }
 
 /* No measure cap on either: both are short enough to set on one line, and a
@@ -150,18 +121,6 @@
 /* Wider than the default 34ch so the sentence sets in two lines. */
 .closing .lead { max-width: 56ch; }
 
-.closing { position: relative; overflow: hidden; isolation: isolate; }
-.closing::before {
-  content: '';
-  position: absolute;
-  inset: -30%;
-  z-index: -1;
-  background:
-    radial-gradient(32rem circle at 18% 25%, rgb(166 38 166 / .32), transparent 60%),
-    radial-gradient(32rem circle at 82% 78%, rgb(53 167 224 / .28), transparent 60%);
-  animation: drift 24s var(--ease) infinite alternate-reverse;
-}
-
 /* --------------------------------------------------------------------------
    Contact strip, offices, footer
    -------------------------------------------------------------------------- */
@@ -190,8 +149,8 @@
    -------------------------------------------------------------------------- */
 
 .site-footer {
-  /* Flat, not the gradient the dark bands use — a footer that glows
-     competes with the closing call directly above it. */
+  /* Darker than the dark bands, so the footer reads as the end of the page
+     rather than as one more band. */
   background: var(--ink-900);
   color: rgb(255 255 255 / .6);
   font-size: .875rem;                /* 14px */

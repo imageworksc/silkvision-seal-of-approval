@@ -41,6 +41,7 @@ building the Office-Based Surgery page and apply only to it.
 | [11](11-visually-hidden-needs-a-containing-block.md) | A scroller holding `.visually-hidden` needs `position: relative` | Settled |
 | [12](12-top-level-navigation-only.md) | The header carries top-level navigation only | **Open** — needs the client's agreement |
 | [13](13-one-motion-idea-the-resolve.md) | One motion idea: the headline resolves | Settled |
+| [14](14-flat-fills-no-gradients.md) | Flat fills, no gradients | Settled |
 
 ## The template
 
