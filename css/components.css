@@ -65,7 +65,11 @@
   font-size: var(--t-sm);
   font-weight: 700;
   letter-spacing: .01em;
-  line-height: 1;
+  /* Not 1. Most buttons here are one line and min-block-size sets their
+     height anyway, but "Learn about cataract surgery" wraps in a card on a
+     phone, and at a leading of 1 the two lines touch. */
+  line-height: 1.25;
+  text-wrap: balance;
   text-decoration: none;
   cursor: pointer;
   overflow: hidden;
@@ -96,9 +100,11 @@
 .btn--ghost:hover { border-color: var(--blue-400); background: var(--pale-100); }
 
 .band--deep .btn--ghost,
-.hero .btn--ghost { border-color: rgb(255 255 255 / .45); color: var(--white); }
+.hero .btn--ghost,
+.card--photo .btn--ghost { border-color: rgb(255 255 255 / .45); color: var(--white); }
 .band--deep .btn--ghost:hover,
-.hero .btn--ghost:hover { background: rgb(255 255 255 / .12); border-color: var(--white); }
+.hero .btn--ghost:hover,
+.card--photo .btn--ghost:hover { background: rgb(255 255 255 / .12); border-color: var(--white); }
 
 /* The arrow slides on hover — the one micro-interaction every CTA shares. */
 .btn .ico--arrow { transition: transform var(--t-mid) var(--ease-spring); }
@@ -134,7 +140,7 @@
    leaving snaps straight back. A staggered exit reads as lag. */
 .card:hover {
   transform: translateY(-10px);
-  background: var(--paper);
+  background-color: var(--paper);
   border-color: var(--blue-400);
   box-shadow: var(--shadow-lg);
 }
@@ -165,15 +171,45 @@
 .cards--sm .ico--lg { inline-size: 1.4rem; block-size: 1.4rem; }
 .cards--sm .card h3 { font-size: var(--t-lead); }
 
+/* A card that carries a photograph. The image is the card's own background
+   and the scrim is a pseudo above it, so the two can be tuned apart and the
+   copy sits on a ground of one flat colour — the same construction as the
+   hero, and for the same reason (14: nothing on this page ramps).
+
+   min-block-size is what makes it a photograph rather than a texture: at the
+   card's natural height the image would be a 90px band behind the heading.
+   The content goes to the foot of the frame so the picture has the top. */
+.card--photo {
+  background-image: url('../images/patients-walking.jpg');
+  background-size: cover;
+  background-position: 50% 28%;   /* their faces, not the pavement */
+  box-shadow: var(--shadow-md);
+  isolation: isolate;
+  min-block-size: 24rem;
+  justify-content: flex-end;
+
+  /* The dark contract hands this card --on-dark-faint for soft text, which is
+     62% white. Measured against the photograph's brightest pixel through the
+     scrim that is 3.6:1 — under AA. 80% white takes it to 4.9:1. */
+  --text-soft: var(--on-dark-soft);
+}
+.card--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fill-scrim-card);
+}
+
 /* Cards on a dark band. */
 .band--deep .card {
-  background: rgb(255 255 255 / .05);
+  background-color: rgb(255 255 255 / .05);
   border-color: var(--hairline-dark);
   box-shadow: none;
   backdrop-filter: blur(6px);
 }
 .band--deep .card:hover {
-  background: rgb(255 255 255 / .09);
+  background-color: rgb(255 255 255 / .09);
   border-color: rgb(108 197 240 / .5);
 }
 

@@ -45,6 +45,7 @@ building the Office-Based Surgery page and apply only to it.
 | [15](15-one-closing-band-not-two.md) | One closing band, not two | Settled |
 | [16](16-icons-drawn-for-this-page.md) | Icons drawn for this page | Settled |
 | [17](17-the-hero-stops-performing.md) | The hero stops performing | Settled |
+| [18](18-the-photograph-comes-back.md) | The photograph comes back, as a card | Settled |
 
 ## The template
 
