@@ -36,6 +36,31 @@ Both clear AA. The card overrides `--text-soft` to 80% white for that second
 number: the dark contract's default is `--on-dark-faint` at 62%, which over
 this ground measures 3.6:1 and fails.
 
+### The two things sitting on the scrim
+
+The icon well and the ghost button were both blue on a blue ground. Measured
+against the same photograph, the well at `rgb(0 88 148)` came out at **1.00:1
+against the card behind it** — identical luminance, so at its worst point the
+container was not faint, it was absent.
+
+Both are glass now: a little white, a white hairline, and the backdrop
+blurred. It gives each a body without introducing a second colour, which is
+the point — the card already has one and it is the scrim's.
+
+The blur is the finish, not the legibility. Both figures hold on the
+translucent fill alone, so a browser that drops `backdrop-filter` loses the
+frosting and nothing else:
+
+| | | |
+| --- | --- | --- |
+| white icon on the well | 4.31:1 | graphics need 3.0 |
+| white label on the button | 4.72:1 | text needs 4.5 |
+
+This is the one place on the page where frosted glass is right, and it is
+worth saying why, given 17 took it out of the hero. There it was decoration
+on a flat ground and read as generated. Here it is the only way to float a
+control over a photograph without painting a second colour on top.
+
 ## What we gave up
 
 85KB on a page that had been carrying one photograph and is now carrying two,

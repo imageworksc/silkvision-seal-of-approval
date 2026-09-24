@@ -188,7 +188,8 @@
   background-position: 50% 28%;   /* their faces, not the pavement */
   box-shadow: var(--shadow-md);
   isolation: isolate;
-  min-block-size: 24rem;
+  min-block-size: 30rem;
+  padding: var(--s-8);
   justify-content: flex-end;
 
   /* The dark contract hands this card --on-dark-faint for soft text, which is
@@ -202,6 +203,38 @@
   inset: 0;
   z-index: -1;
   background: var(--fill-scrim-card);
+}
+
+/* Glass, for the two things that sit on top of the scrim.
+
+   The well and the ghost button both used to be blue on a blue ground and
+   neither had an edge to find. Filling them with a little white and blurring
+   what is behind gives each a body without introducing a second colour —
+   which is the point: the card already has one, and it is the scrim's.
+
+   The blur is the finish, not the legibility. Every figure below holds on the
+   translucent fill alone, so a browser that drops backdrop-filter loses the
+   frosting and nothing else. Measured, as always, against the photograph's
+   brightest pixel:
+
+     white icon on the well     4.3:1   (graphics need 3)
+     white label on the button  4.7:1   (text needs 4.5) */
+.card--photo .ico-well {
+  background: rgb(255 255 255 / .18);
+  border: 1px solid rgb(255 255 255 / .4);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.card--photo .btn--ghost {
+  background: rgb(255 255 255 / .14);
+  border-color: rgb(255 255 255 / .38);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.card--photo .btn--ghost:hover {
+  background: rgb(255 255 255 / .26);
+  border-color: var(--white);
 }
 
 /* Cards on a dark band. */

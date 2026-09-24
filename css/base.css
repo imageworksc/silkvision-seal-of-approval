@@ -106,7 +106,13 @@ strong, b { font-weight: 700; }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(17.5rem, 100%), 1fr)); }
 
 .split { display: grid; gap: var(--s-8); align-items: start; }
-@media (min-width: 60rem) { .split { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 60rem) {
+  .split { grid-template-columns: 1fr 1fr; }
+  /* The end column takes the extra. Where one side is a heading and the other
+     is the thing the heading introduces, an even split hands the heading room
+     it does not use and leaves it sitting in white space. */
+  .split--wide-end { grid-template-columns: 1fr 1.35fr; }
+}
 
 .full { width: 100%; }
 
