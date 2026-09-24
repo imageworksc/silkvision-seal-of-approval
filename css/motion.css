@@ -106,8 +106,7 @@
   [data-anim="on"] [data-reveal] { opacity: 1; transform: none; }
 
   .btn:hover,
-  .card:hover,
-  .feature:hover,
+  a.card:hover,
   .social a:hover,
   .reach a:hover,
   .seal.is-in:hover { transform: none; }
@@ -119,12 +118,11 @@
      Audited by listing every `transform` under a `:hover` in the stylesheets
      against this block. Four were escaping — the logo, the feature's icon
      well, the button's arrow, and the card's three children. */
-  .card:hover .ico-well,
-  .card:hover h3,
-  .card:hover p,
+  a.card:hover .ico-well,
+  a.card:hover h3,
+  a.card:hover p,
   .card--photo:hover::before,
   .brand:hover img,
-  .feature:hover .ico-well,
   .btn:hover .ico--arrow { transform: none; }
 
   /* The nav underline is deliberately NOT here. It is a reveal, not travel:

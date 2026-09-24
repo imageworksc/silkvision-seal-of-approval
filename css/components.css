@@ -157,34 +157,42 @@
               background-color var(--t-fast) var(--ease);
 }
 
-/* Hover moves four things in sequence rather than sliding the whole card as
-   one block: the card rises on a spring, then the icon swings up behind it,
-   then the heading and the copy follow. Nothing is painted on top — no
-   gradient, no line along the edge.
+/* a.card, not .card. A card that rises under the cursor says "click me", and
+   eighteen of the twenty-one blocks that were saying it had nothing inside to
+   click — the six benefit cards, the four accreditation rows and the eight
+   timeline steps are all <article>, <div> or <li>. decisions/13 called this
+   before any of it was built: "a card that rises under the cursor promises a
+   click that is not there."
 
-   The delays live on the :hover rule only, so entering is orchestrated and
-   leaving snaps straight back. A staggered exit reads as lag. */
-/* --shadow-md, not --shadow-lg. The large one is 0 28px 60px at 17%, which
-   on a six-card grid pooled a halo wide enough that the two rows smudged into
-   each other. The medium one is 0 12px 28px at 10%: the lift still reads as a
-   lift, and the card casts a shadow rather than an atmosphere. */
-.card:hover {
+   Keyed on the element rather than listed as exceptions, so it enforces
+   itself. Make a card an anchor and it gets the hover back; leave it as an
+   article and it never gets it by accident.
+
+   What it does when it applies: four things in sequence rather than sliding
+   the card as one block — the card rises on a spring, the icon swings up
+   behind it, then the heading and the copy follow. The delays live on :hover
+   only, so entering is orchestrated and leaving snaps straight back; a
+   staggered exit reads as lag.
+
+   --shadow-md, not --shadow-lg: the large one is 0 28px 60px at 17%, which on
+   a grid of cards pools a halo wide enough that rows smudge into each other. */
+a.card:hover {
   transform: translateY(-10px);
   background-color: var(--paper);
   border-color: var(--blue-400);
   box-shadow: var(--shadow-md);
 }
 
-.card .ico-well,
-.card h3,
-.card p { transition: transform .45s var(--ease-spring); }
+a.card .ico-well,
+a.card h3,
+a.card p { transition: transform .45s var(--ease-spring); }
 
-.card:hover .ico-well {
+a.card:hover .ico-well {
   transform: translateY(-6px) scale(1.12);
   transition-delay: 40ms;
 }
-.card:hover h3 { transform: translateX(6px); transition-delay: 90ms; }
-.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
+a.card:hover h3 { transform: translateX(6px); transition-delay: 90ms; }
+a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 
 .card h3 { color: var(--heading); }
 .card p { color: var(--text-soft); font-size: var(--t-sm); }
@@ -297,7 +305,7 @@
   box-shadow: none;
   backdrop-filter: blur(6px);
 }
-.band--deep .card:hover {
+.band--deep a.card:hover {
   background-color: rgb(255 255 255 / .09);
   border-color: rgb(108 197 240 / .5);
   /* These carry none at rest and .card:hover was handing them one on the way
@@ -317,13 +325,8 @@
   padding: var(--s-4);
   margin-inline: calc(var(--s-4) * -1);
   border-radius: var(--r-md);
-  transition: background-color var(--t-mid) var(--ease),
-              transform var(--t-mid) var(--ease);
 }
 .feature + .feature { margin-block-start: var(--s-2); }
-.feature:hover { background: var(--pale-100); transform: translateX(4px); }
-.band--deep .feature:hover { background: rgb(255 255 255 / .07); }
-.feature:hover .ico-well { transform: scale(1.08); }
 .feature p { font-size: var(--t-sm); color: var(--text-soft); margin-block-start: var(--s-1); }
 .feature h3 { font-size: var(--t-body); color: var(--heading); }
 
