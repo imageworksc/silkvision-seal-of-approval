@@ -432,6 +432,49 @@
 }
 .nav-toggle:hover { background: var(--pale-100); }
 
+/* The trigger shows which state it is in. One mark and one word at a time,
+   swapped off aria-expanded — so the attribute that already carried this for
+   a screen reader now drives the visible half too, and the two can never
+   disagree. */
+.nav-toggle .ico--close,
+.nav-toggle .nav-toggle__open { display: none; }
+.nav-toggle[aria-expanded="true"] .ico--menu,
+.nav-toggle[aria-expanded="true"] .nav-toggle__shut { display: none; }
+.nav-toggle[aria-expanded="true"] .ico--close,
+.nav-toggle[aria-expanded="true"] .nav-toggle__open { display: inline-flex; }
+
+/* The table is 46rem wide and a phone is 24, so it scrolls sideways — and a
+   swipe is an invisible trigger with nothing to discover it by. This is the
+   visible alternative the gesture needs.
+
+   It is a closed loop: it appears once, and the first scroll of the region
+   ends it for good. Scaffolding that stays after the user has shown they do
+   not need it is clutter, not help.
+
+   No edge fade here, which is the usual answer, because that answer is a
+   gradient and this page has none (decision 14). A line of type says the
+   same thing and says it in words. */
+.scroll-hint {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  /* The parent stack is align-items:flex-start, so without this the box
+     shrinks to its content and justify-content has nothing to centre in. */
+  inline-size: 100%;
+  max-width: none;
+  gap: var(--s-2);
+  margin-block-start: var(--s-3);
+  font-size: var(--t-xs);
+  color: var(--text-faint);
+  transition: opacity var(--t-mid) var(--ease);
+}
+.scroll-hint .ico { inline-size: 1rem; block-size: 1rem; }
+@media (max-width: 49.99rem) {
+  .scroll-hint { display: flex; }
+}
+/* Used it once — it has done its job. */
+.table-scroll[data-used="true"] + .scroll-hint { opacity: 0; visibility: hidden; }
+
 @media (max-width: 61.99rem) {
   .nav-toggle { display: inline-flex; }
   .site-header { position: relative; }

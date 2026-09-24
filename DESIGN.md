@@ -172,6 +172,21 @@ The page's one authored idea is the hero headline resolving from blur —
 "coming into focus" is what the procedure does (decision 13). Everything else
 earns its motion by signalling interaction.
 
+### Triggers
+
+Two rules from the microinteractions framework that a states audit does not
+reach, because they are about the trigger rather than the state:
+
+- **A trigger shows which state it is in.** The menu button carries both a
+  hamburger + "Menu" and a cross + "Close", swapped off  — so
+  the attribute that already told a screen reader now drives the visible half
+  too, and the two cannot disagree.
+- **An invisible trigger needs a visible alternative.** The comparison table
+  scrolls sideways on a phone and a swipe has nothing to discover it by, so a
+  line of type says so. It is a closed loop: the first scroll of the region
+  retires it, and the listener with it. Scaffolding that outlasts its purpose
+  is clutter.
+
 ### Reduced motion
 
 `css/motion.css`, loaded last so it can switch everything off in one place.

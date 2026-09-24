@@ -117,7 +117,24 @@ const setupReveals = () => {
 };
 
 /* --------------------------------------------------------------------------
-   4 · The floating seal
+   4 · The comparison table's swipe hint
+   A closed loop: it runs once and ends. The hint exists because a horizontal
+   swipe is an invisible trigger; the moment the region is actually scrolled
+   the user has discovered it, so the hint retires and the listener with it.
+   -------------------------------------------------------------------------- */
+const setupScrollHint = () => {
+  const region = document.getElementById('compareScroll');
+  if (!region) return;
+
+  const used = () => {
+    region.dataset.used = 'true';
+    region.removeEventListener('scroll', used);
+  };
+  region.addEventListener('scroll', used, { passive: true, once: true });
+};
+
+/* --------------------------------------------------------------------------
+   5 · The floating seal
    In on the first scroll and held — it is an accreditation mark, not an
    alert, so it should not flicker with the scroll direction. Out again over
    the footer so it never covers the legal text.
@@ -151,4 +168,5 @@ const setupSeal = () => {
 setupMenu();
 setupScroll();
 setupReveals();
+setupScrollHint();
 setupSeal();
