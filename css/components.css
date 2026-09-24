@@ -543,7 +543,18 @@
   align-items: center;
   gap: var(--s-3);
 }
-.group-label .ico { color: var(--plum-600); }
+/* No colour of its own: currentColor takes the label's --heading, so the mark
+   and the words read as one thing. The brand blue measures 6.3:1 on this pale
+   ground, where a graphic needs 3. The cyan does not — it is 2.3:1 — so if
+   this ever wants to be lighter, it has to darken the ground first.
+
+   Sized in rem, not em. At 1.375em it was a tenth of a 13px label and came
+   out at 18px; the label is the smallest type on the page and the icon should
+   not inherit that. */
+.group-label .ico {
+  inline-size: 1.375rem;
+  block-size: 1.375rem;
+}
 
 .tick {
   display: inline-grid;
