@@ -124,4 +124,10 @@
   --t-slow: .7s;
 
   --tap: 44px;   /* never scales — it is the size of a fingertip */
+
+  /* The height of the Cherry widget's floating badge, which is third-party
+     and sits bottom-left. The seal clears it by this much. Named rather than
+     inlined because it is a measurement of someone else's element, not a
+     step on our spacing scale — the one value here that is allowed off it. */
+  --cherry-badge: 3.75rem;
 }

@@ -310,8 +310,13 @@
   padding-block: var(--s-5) var(--s-6);
   text-align: center;
 }
+/* The bar stays full width — border, padding and centring are unchanged —
+   but the text inside it stops at 75ch. It was setting 97 characters to the
+   line, which is past the point where the eye reliably finds the start of
+   the next one. Full width was the ask; 97ch was a side effect of it. */
 .footer-disclaimer {
-  max-width: none;
+  max-width: 75ch;
+  margin-inline: auto;
   font-size: .75rem;                 /* 12px */
   line-height: 1.65;
   color: rgb(255 255 255 / .38);

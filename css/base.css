@@ -63,7 +63,6 @@ strong, b { font-weight: 700; }
 }
 
 .band { padding-block: var(--band-y); position: relative; }
-.band--snug { padding-block: clamp(2.25rem, 5vw, 3.5rem); }
 .band--paper { background: var(--paper); }
 
 /* Dark context re-points the semantic colours and every child follows. The

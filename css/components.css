@@ -615,5 +615,5 @@
 /* The financing widget is fixed bottom-left and about 250px wide; below
    640px the two stop clearing each other on a 360px phone. */
 @media (max-width: 39.99rem) {
-  .seal { inset-block-end: calc(var(--s-3) + 3.75rem); }
+  .seal { inset-block-end: calc(var(--s-3) + var(--cherry-badge)); }
 }

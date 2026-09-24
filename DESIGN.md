@@ -67,7 +67,9 @@ reading.
 
 ### Space, shape, motion
 
-Space `--s-1` .25rem → `--s-11` 7rem. `--gutter` `--band-y` `--shell 78rem`
+Space `--s-1` .25rem → `--s-11` 7rem. One value is allowed off the ladder and
+is named for it: `--cherry-badge 3.75rem`, the height of the third-party
+widget the seal has to clear. `--gutter` `--band-y` `--shell 78rem`
 `--measure 62ch`.
 
 Radius ladder `--r-sm 6px` · `--r-md 10px` · `--r-lg 14px` · `--r-pill 999px`.
@@ -200,6 +202,7 @@ once, not a bug to fix unilaterally.
 - **16px** for anything that is a sentence.
 - **44px** for every touch target. Inline links inside running prose are
   exempt (WCAG 2.5.8) and the audit harness knows the difference.
+- **45–75 characters** to the line. Measured at 68ch at every width ≥ 960px.
 - **4.5:1** for text, **3:1** for graphics — measured against real pixels, not
   estimated. The hero and card scrims were both set by that measurement.
 - A scroller reachable by keyboard needs `tabindex` and a `role`.
