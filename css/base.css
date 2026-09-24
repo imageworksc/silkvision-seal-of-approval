@@ -114,6 +114,15 @@ strong, b { font-weight: 700; }
   .split--wide-end { grid-template-columns: 1fr 1.35fr; }
 }
 
+/* A split sits its columns at the top, which is right when both sides are
+   reading matter. When one side is a short heading and the other is a tall
+   object, top alignment leaves the heading stranded against the object's
+   whole height. This centres it against that height instead.
+
+   Outside the two-column media query on purpose: stacked on a phone each row
+   is its own height, so it changes nothing there and does not need undoing. */
+.split--middle { align-items: center; }
+
 .full { width: 100%; }
 
 /* --------------------------------------------------------------------------
