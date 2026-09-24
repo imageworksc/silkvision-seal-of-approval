@@ -104,12 +104,17 @@
   --shell: 78rem;
   --measure: 62ch;
 
-  /* ---------- Shape ---------- */
-  --r-sm: .5rem;
-  --r-md: .875rem;
-  --r-lg: 1.25rem;
-  --r-xl: 1.75rem;
-  --r-pill: 999px;
+  /* ---------- Shape ----------
+     The ladder came down about a third: 8/14/20 to 6/10/14. Every rounded
+     box on the page reads off it, so the one edit moves the cards, the
+     buttons, the icon wells, the feature rows, the table's frame and the
+     focus ring together and they stay in proportion to each other.
+
+     --r-xl was on the ladder and nothing used it. */
+  --r-sm: .375rem;   /*  6px — small wells, the focus ring, the skip link */
+  --r-md: .625rem;   /* 10px — buttons, icon wells, feature rows          */
+  --r-lg: .875rem;   /* 14px — cards, the comparison table's frame        */
+  --r-pill: 999px;   /*        circles only: the tick, the seal, the rule */
 
   /* ---------- Motion ---------- */
   --ease: cubic-bezier(.22, .9, .3, 1);

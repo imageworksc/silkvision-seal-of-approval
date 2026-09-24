@@ -36,14 +36,17 @@
               box-shadow var(--t-mid) var(--ease),
               border-radius var(--t-mid) var(--ease);
 }
-.ico-well--plum { background: var(--fill-action); box-shadow: var(--glow-plum); }
+/* One colour across a whole set, declared on the set rather than on each of
+   its six wells. The decision is "the benefits are plum", and stated per-well
+   it is six places for a seventh card to be forgotten. */
+.wells--plum .ico-well { background: var(--fill-action); box-shadow: var(--glow-plum); }
 .ico-well--sm { inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--r-sm); }
 
 /* --------------------------------------------------------------------------
    Buttons
    --r-md, not --r-pill. A fully rounded button is the default of every page
    builder and every generated layout, and at 64px tall it was reading as one.
-   14px is off the pill and still soft, and it is the radius the icon wells
+   10px is off the pill and still soft, and it is the radius the icon wells
    already use, so the two agree.
 
    The pill radius is still right for a circle — the tick badge, the seal —
@@ -150,7 +153,7 @@
 .card p { transition: transform .45s var(--ease-spring); }
 
 .card:hover .ico-well {
-  transform: translateY(-6px) rotate(-10deg) scale(1.12);
+  transform: translateY(-6px) scale(1.12);
   transition-delay: 40ms;
 }
 .card:hover h3 { transform: translateX(6px); transition-delay: 90ms; }
@@ -230,7 +233,7 @@
 .feature + .feature { margin-block-start: var(--s-2); }
 .feature:hover { background: var(--pale-100); transform: translateX(4px); }
 .band--deep .feature:hover { background: rgb(255 255 255 / .07); }
-.feature:hover .ico-well { transform: scale(1.08) rotate(-6deg); }
+.feature:hover .ico-well { transform: scale(1.08); }
 .feature p { font-size: var(--t-sm); color: var(--text-soft); margin-block-start: var(--s-1); }
 .feature h3 { font-size: var(--t-body); color: var(--heading); }
 
