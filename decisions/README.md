@@ -43,6 +43,7 @@ building the Office-Based Surgery page and apply only to it.
 | [13](13-one-motion-idea-the-resolve.md) | One motion idea: the headline resolves | Settled |
 | [14](14-flat-fills-no-gradients.md) | Flat fills, no gradients | Settled |
 | [15](15-one-closing-band-not-two.md) | One closing band, not two | Settled |
+| [16](16-icons-drawn-for-this-page.md) | Icons drawn for this page | Settled |
 
 ## The template
 
