@@ -223,6 +223,13 @@ once, not a bug to fix unilaterally.
 - **4.5:1** for text, **3:1** for graphics — measured against real pixels, not
   estimated. The hero and card scrims were both set by that measurement.
 - A scroller reachable by keyboard needs `tabindex` and a `role`.
+- **Two links that read the same go to the same place.** The two "Review us on
+  Google" links name their office in `aria-label`; the visible text is
+  unchanged.
+- **Escape closes the menu and returns focus to the button.** Bound on the
+  document, not on the panel: the toggle is the panel's sibling, so a listener
+  on the panel misses the moment focus is still on the button — which is the
+  moment right after it opens.
 - `.sr-only` clips to 1×1px rather than `display: none`, which would drop the
   content out of the accessibility tree.
 - `position: relative` on any scroller containing `.sr-only` — without a
