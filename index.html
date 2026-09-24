@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=19">
-<link rel="stylesheet" href="css/tokens.css?v=19">
-<link rel="stylesheet" href="css/base.css?v=19">
-<link rel="stylesheet" href="css/components.css?v=19">
-<link rel="stylesheet" href="css/sections.css?v=19">
-<link rel="stylesheet" href="css/motion.css?v=19">
+<link rel="stylesheet" href="css/fonts.css?v=20">
+<link rel="stylesheet" href="css/tokens.css?v=20">
+<link rel="stylesheet" href="css/base.css?v=20">
+<link rel="stylesheet" href="css/components.css?v=20">
+<link rel="stylesheet" href="css/sections.css?v=20">
+<link rel="stylesheet" href="css/motion.css?v=20">
 
-<script src="js/main.js?v=19" defer></script>
-<script src="js/cherry-widget.js?v=19" defer></script>
+<script src="js/main.js?v=20" defer></script>
+<script src="js/cherry-widget.js?v=20" defer></script>
 </head>
 <body>
 
@@ -394,7 +394,12 @@
     </div>
   </section>
 
-  <!-- ===== CLOSING CALL ==================================================== -->
+  <!-- ===== CLOSING CALL ====================================================
+       The contact strip used to be a white section of its own between this
+       band and the footer, and three of its five links were the two buttons
+       below repeated. It is now the foot of this band: the two it duplicated
+       stay as the buttons, the three it did not are the row under the rule.
+       ======================================================================= -->
   <section class="band band--deep closing" id="contact" aria-labelledby="next-title">
     <div class="wrap stack stack--loose stack--center" data-reveal>
       <h2 id="next-title">Ready to take the next step?</h2>
@@ -425,22 +430,17 @@
         <a class="btn btn--ghost btn--lg" href="tel:+17038769700">
           <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Or call (703)&nbsp;876-9700</a>
       </div>
+
+      <div class="reach full">
+        <h3 class="sr-only">Other ways to reach us</h3>
+        <a href="tel:+17038769701"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Fax: (703)&nbsp;876-9701</a>
+        <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm"><svg class="ico" aria-hidden="true"><use href="#i-notes"/></svg>Ask a question</a>
+        <a href="https://www.silkvision.net/financing"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Financing</a>
+      </div>
     </div>
   </section>
 
 </main>
-
-<!-- ===== CONTACT STRIP ===================================================== -->
-<section class="band band--snug strip" aria-labelledby="reach-title">
-  <div class="wrap cluster cluster--between">
-    <h2 class="sr-only" id="reach-title">Ways to reach us</h2>
-    <a href="tel:+17038769700"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Call: (703)&nbsp;876-9700</a>
-    <a href="tel:+17038769701"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Fax: (703)&nbsp;876-9701</a>
-    <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Request an appointment</a>
-    <a href="https://w31qe7s2lq5.typeform.com/SilkVisionForm"><svg class="ico" aria-hidden="true"><use href="#i-notes"/></svg>Ask a question</a>
-    <a href="https://www.silkvision.net/financing"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Financing</a>
-  </div>
-</section>
 
 <!-- ===== FOOTER ============================================================
      The offices used to be a separate <section> above the footer; they are

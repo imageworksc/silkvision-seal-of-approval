@@ -110,7 +110,7 @@
   .stat:hover,
   .feature:hover,
   .social a:hover,
-  .strip a:hover,
+  .reach a:hover,
   .seal.is-in:hover { transform: none; }
 
   /* The card's hover moves its icon, heading and copy as well as itself. */

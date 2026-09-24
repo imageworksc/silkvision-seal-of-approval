@@ -42,6 +42,7 @@ building the Office-Based Surgery page and apply only to it.
 | [12](12-top-level-navigation-only.md) | The header carries top-level navigation only | **Open** — needs the client's agreement |
 | [13](13-one-motion-idea-the-resolve.md) | One motion idea: the headline resolves | Settled |
 | [14](14-flat-fills-no-gradients.md) | Flat fills, no gradients | Settled |
+| [15](15-one-closing-band-not-two.md) | One closing band, not two | Settled |
 
 ## The template
 

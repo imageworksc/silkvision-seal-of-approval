@@ -121,22 +121,30 @@
 /* Wider than the default 34ch so the sentence sets in two lines. */
 .closing .lead { max-width: 56ch; }
 
-/* --------------------------------------------------------------------------
-   Contact strip, offices, footer
-   -------------------------------------------------------------------------- */
-
-.strip a {
+/* The remains of the old contact strip, now the foot of this band. A rule
+   above it and a step down in weight keep it secondary to the two buttons —
+   these are the ways to get in touch that the buttons do not already offer,
+   not a second set of calls to action. */
+.reach {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--s-2) var(--s-8);
+  padding-block-start: var(--s-6);
+  border-block-start: 1px solid var(--hairline);
+}
+.reach a {
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
   min-block-size: var(--tap);
   font-size: var(--t-sm);
   font-weight: 600;
-  color: var(--heading);
+  color: var(--on-dark-soft);
   transition: color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
-.strip a:hover { color: var(--plum-600); transform: translateY(-2px); }
-.strip .ico { color: var(--cyan-400); }
+.reach a:hover { color: var(--white); transform: translateY(-2px); }
+.reach .ico { color: var(--cyan-400); }
 
 /* --------------------------------------------------------------------------
    Footer
