@@ -157,6 +157,23 @@ strong, b { font-weight: 700; }
    every p already has, is the cheap one: it only guards against orphans. */
 .balance { text-wrap: balance; }
 
+/* A break that exists only where the column is wide enough for the line it
+   was measured against.
+
+   76rem, not the 60rem where the layout becomes two columns. At 960px each
+   column is 401px and the longest hand-set line is 507px, so the break would
+   land mid-line and the first "line" would be two. From 1216px up the column
+   is 524–540px and every line clears it; above 1336 the shell caps and it is
+   540px exactly.
+
+   display:none takes the break out of the box tree rather than hiding it, so
+   below 76rem there is no forced break at all. That matters twice: the words
+   either side close up into one space, and `balance` starts working again —
+   Chromium gives up on balancing any block that contains a forced break, so
+   the two can never apply at the same width. */
+.br-wide { display: none; }
+@media (min-width: 76rem) { .br-wide { display: inline; } }
+
 /* --------------------------------------------------------------------------
    Accessibility
    -------------------------------------------------------------------------- */

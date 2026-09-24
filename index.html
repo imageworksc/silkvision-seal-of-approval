@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=34">
-<link rel="stylesheet" href="css/tokens.css?v=34">
-<link rel="stylesheet" href="css/base.css?v=34">
-<link rel="stylesheet" href="css/components.css?v=34">
-<link rel="stylesheet" href="css/sections.css?v=34">
-<link rel="stylesheet" href="css/motion.css?v=34">
+<link rel="stylesheet" href="css/fonts.css?v=35">
+<link rel="stylesheet" href="css/tokens.css?v=35">
+<link rel="stylesheet" href="css/base.css?v=35">
+<link rel="stylesheet" href="css/components.css?v=35">
+<link rel="stylesheet" href="css/sections.css?v=35">
+<link rel="stylesheet" href="css/motion.css?v=35">
 
-<script src="js/main.js?v=34" defer></script>
-<script src="js/cherry-widget.js?v=34" defer></script>
+<script src="js/main.js?v=35" defer></script>
+<script src="js/cherry-widget.js?v=35" defer></script>
 </head>
 <body>
 
@@ -250,9 +250,13 @@
     <div class="wrap split split--middle split--wide-gutter">
       <div class="stack" data-reveal>
         <h2 id="difference-title">Accredited for Quality &amp; Patient Safety</h2>
-        <p class="balance">Silk Vision &amp; Surgical Center is proud to be accredited by The Joint Commission,
-          reflecting our commitment to rigorous standards for patient safety, quality of care,
-          and continuous improvement.</p>
+        <!-- The four breaks are set by hand, and only apply from 76rem up —
+             see .br-wide. Below that the column is too narrow to hold the
+             first line and `balance` takes over. -->
+        <p class="balance">Silk Vision &amp; Surgical Center is proud to be accredited<br class="br-wide">
+          by The Joint Commission, reflecting our commitment<br class="br-wide">
+          to rigorous standards for patient safety,<br class="br-wide">
+          quality of care, and continuous improvement.</p>
         <a class="btn btn--ghost" href="#compare">See how it compares
           <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
