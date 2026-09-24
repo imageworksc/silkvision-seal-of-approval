@@ -32,10 +32,16 @@ const setupMenu = () => {
     setOpen(toggle.getAttribute('aria-expanded') !== 'true');
   });
 
-  // Escape closes it and returns focus to the control that opened it,
-  // otherwise focus is stranded in a panel that is no longer on screen.
-  nav.addEventListener('keydown', (e) => {
+  /* Escape closes it and returns focus to the control that opened it,
+     otherwise focus is stranded in a panel that is no longer on screen.
+
+     Bound to the document, not to nav. The toggle is nav's sibling, so right
+     after you open the menu — when focus is still sitting on the button —
+     a keydown on nav never fires and Escape did nothing at the one moment
+     you are most likely to press it. */
+  document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
+    if (toggle.getAttribute('aria-expanded') !== 'true') return;
     setOpen(false);
     toggle.focus();
   });
