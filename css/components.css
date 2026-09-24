@@ -40,6 +40,23 @@
    its six wells. The decision is "the benefits are plum", and stated per-well
    it is six places for a seventh card to be forgotten. */
 .wells--plum .ico-well { background: var(--fill-action); box-shadow: var(--glow-plum); }
+
+/* A well on a dark band cannot be blue, and plum does not rescue it. Measured
+   against --ink-700:
+
+     blue  --blue-500   1.71:1
+     plum  --plum-500   1.35:1   darker than the blue, so it hides further
+     plum  --plum-400   2.08:1
+     white             12.69:1
+
+   A container needs 3:1 to read as a container at all, and only one of those
+   clears it. The icon then takes the band's own navy, so the chip reads as
+   the band showing through a hole rather than as a fourth colour. */
+.band--deep .ico-well {
+  background: var(--white);
+  color: var(--ink-700);
+  box-shadow: none;
+}
 .ico-well--sm { inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--r-sm); }
 
 /* --------------------------------------------------------------------------
