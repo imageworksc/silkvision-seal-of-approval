@@ -332,6 +332,11 @@
 }
 .nav a:not(.btn):hover::after { transform: scaleX(1); }
 
+/* No glow on the header's button. It sits in a 60px-tall sticky bar over a
+   blurred backdrop, where the shadow reads as a smudge rather than as depth. */
+.nav .btn--solid,
+.nav .btn--solid:hover { box-shadow: none; }
+
 .nav-toggle {
   display: none;
   align-items: center;
