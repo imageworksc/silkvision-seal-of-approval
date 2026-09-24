@@ -15,7 +15,7 @@
   align-items: center;
   min-block-size: min(46rem, 100svh);
   /* The extra block-end clears the scroll cue, which is absolutely
-     positioned and would otherwise sit on top of the last stat pill. */
+     positioned and would otherwise sit on top of the last line of facts. */
   padding-block: var(--s-10) var(--s-11);
   background: url('../images/obs-bg2.jpg') 50% 50% / cover no-repeat;
   color: var(--on-dark-soft);
@@ -45,13 +45,38 @@
    90-character line, which is well past readable. */
 .hero-intro { color: var(--on-dark-soft); max-width: 68ch; }
 
-.hero-stats {
-  display: grid;
-  gap: var(--s-4);
-  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
-  inline-size: 100%;
-  max-inline-size: 52rem;
+/* Three facts, as small text. They used to be frosted cards — translucent
+   fill, backdrop blur, an icon in a rounded well, a number that counted up,
+   a lift on hover — which is the house style of every generated landing page
+   there is, and on a page whose job is to settle somebody's nerves it was
+   working against itself. They are a line of type now.
+
+   The label takes --t-xs, which is the step that exists for labels; the value
+   holds --t-sm's 16px floor, because the value is the information. */
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4) var(--s-6);
   margin: 0;
+}
+.hero-facts dt {
+  font-size: var(--t-xs);
+  color: var(--on-dark-faint);
+}
+.hero-facts dd {
+  margin: 0;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* A hairline between them, but only once there is room for the three to sit
+   on one line — stacked on a phone it would read as a table of one column. */
+@media (min-width: 34rem) {
+  .hero-facts > div + div {
+    border-inline-start: 1px solid var(--hairline-dark);
+    padding-inline-start: var(--s-6);
+  }
 }
 
 /* The scroll cue. Hidden once the visitor has scrolled — it has done its job. */

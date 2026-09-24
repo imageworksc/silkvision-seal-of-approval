@@ -71,8 +71,8 @@
 
   /* The reader is usually past sixty and about to have eye surgery. The floor
      is 17px, not 16, and the ladder is generous the whole way up. */
-  /* --t-xs is for tracked uppercase labels only — the stat captions, the
-     scroll cue, the table's group rows. Never for a sentence. */
+  /* --t-xs is for labels only — the hero's fact labels, the scroll cue,
+     the table's group rows. Never for a sentence. */
   --t-xs:    clamp(.8125rem, .1vw + .79rem, .875rem);    /* 13 → 14 */
   /* --t-sm carries real copy (card text, table cells, nav), so its floor is
      16px, not 15. */

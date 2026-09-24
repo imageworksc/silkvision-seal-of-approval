@@ -38,15 +38,16 @@
 }
 .ico-well--plum { background: var(--fill-action); box-shadow: var(--glow-plum); }
 .ico-well--sm { inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--r-sm); }
-.ico-well--ghost {
-  background: rgb(255 255 255 / .1);
-  border: 1px solid var(--hairline-dark);
-  box-shadow: none;
-  color: var(--cyan-300);
-}
 
 /* --------------------------------------------------------------------------
    Buttons
+   --r-md, not --r-pill. A fully rounded button is the default of every page
+   builder and every generated layout, and at 64px tall it was reading as one.
+   14px is off the pill and still soft, and it is the radius the icon wells
+   already use, so the two agree.
+
+   The pill radius is still right for a circle — the tick badge, the seal —
+   and for the nav underline's caps. It is not right for a rectangle.
    -------------------------------------------------------------------------- */
 
 .btn {
@@ -59,7 +60,7 @@
   min-inline-size: var(--tap);
   padding-inline: var(--s-7);
   border: 2px solid transparent;
-  border-radius: var(--r-pill);
+  border-radius: var(--r-md);
   font: inherit;
   font-size: var(--t-sm);
   font-weight: 700;
@@ -198,44 +199,6 @@
 .feature h3 { font-size: var(--t-body); color: var(--heading); }
 
 /* --------------------------------------------------------------------------
-   Stat / fact pills in the hero
-   -------------------------------------------------------------------------- */
-
-.stat {
-  display: flex;
-  align-items: center;
-  gap: var(--s-4);
-  padding: var(--s-4) var(--s-5);
-  border-radius: var(--r-md);
-  background: rgb(255 255 255 / .07);
-  border: 1px solid rgb(255 255 255 / .16);
-  backdrop-filter: blur(10px);
-  transition: transform var(--t-mid) var(--ease),
-              background-color var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease);
-}
-.stat:hover {
-  transform: translateY(-4px);
-  background: rgb(255 255 255 / .12);
-  border-color: rgb(108 197 240 / .55);
-}
-.stat:hover .ico-well { transform: rotate(-8deg) scale(1.08); }
-.stat dt {
-  font-size: var(--t-xs);
-  font-weight: 800;
-  letter-spacing: var(--ls-wide);
-  text-transform: uppercase;
-  color: var(--cyan-300);
-}
-.stat dd {
-  margin: 0;
-  font-size: var(--t-body);
-  font-weight: 700;
-  color: var(--white);
-  font-variant-numeric: tabular-nums;
-}
-
-/* --------------------------------------------------------------------------
    Header and navigation
    -------------------------------------------------------------------------- */
 
@@ -330,7 +293,7 @@
   min-inline-size: var(--tap);
   padding-inline: var(--s-4);
   border: 1px solid var(--hairline);
-  border-radius: var(--r-pill);
+  border-radius: var(--r-md);
   background: transparent;
   color: var(--heading);
   font: inherit;

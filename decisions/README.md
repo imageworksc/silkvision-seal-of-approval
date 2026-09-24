@@ -44,6 +44,7 @@ building the Office-Based Surgery page and apply only to it.
 | [14](14-flat-fills-no-gradients.md) | Flat fills, no gradients | Settled |
 | [15](15-one-closing-band-not-two.md) | One closing band, not two | Settled |
 | [16](16-icons-drawn-for-this-page.md) | Icons drawn for this page | Settled |
+| [17](17-the-hero-stops-performing.md) | The hero stops performing | Settled |
 
 ## The template
 

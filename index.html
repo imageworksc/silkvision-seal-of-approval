@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=21">
-<link rel="stylesheet" href="css/tokens.css?v=21">
-<link rel="stylesheet" href="css/base.css?v=21">
-<link rel="stylesheet" href="css/components.css?v=21">
-<link rel="stylesheet" href="css/sections.css?v=21">
-<link rel="stylesheet" href="css/motion.css?v=21">
+<link rel="stylesheet" href="css/fonts.css?v=22">
+<link rel="stylesheet" href="css/tokens.css?v=22">
+<link rel="stylesheet" href="css/base.css?v=22">
+<link rel="stylesheet" href="css/components.css?v=22">
+<link rel="stylesheet" href="css/sections.css?v=22">
+<link rel="stylesheet" href="css/motion.css?v=22">
 
-<script src="js/main.js?v=21" defer></script>
-<script src="js/cherry-widget.js?v=21" defer></script>
+<script src="js/main.js?v=22" defer></script>
+<script src="js/cherry-widget.js?v=22" defer></script>
 </head>
 <body>
 
@@ -127,10 +127,6 @@
   <symbol id="i-noiv" viewBox="0 0 24 24"><path d="M12 2v1.6"/><rect x="7.4" y="3.6" width="9.2" height="9.2" rx="1.6"/><path d="M12 12.8V18M10.2 18h3.6"/><path d="M4.2 4.2l15.6 15.6"/></symbol>
 
   <symbol id="i-meal" viewBox="0 0 24 24"><path d="M6.6 3v5.4a2.1 2.1 0 004.2 0V3M8.7 10.5V21"/><path d="M17.2 3c-1.7 1.4-2.3 3.6-2.3 5.6 0 1.3 1 2.2 2.3 2.2s2.3-.9 2.3-2.2c0-2-.6-4.2-2.3-5.6zM17.2 11V21"/></symbol>
-
-  <!-- Ticked at the quarters, so "90 minutes" has something to be a quarter
-       of. The hand sits at that quarter. -->
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><circle cx="12" cy="12" r="1"/><path d="M12 7.2v4.8l3.4 2"/><path d="M12 3.4v1.4M20.6 12h-1.4M12 20.6v-1.4M3.4 12h1.4"/></symbol>
 
   <!-- "All services in one location — our office." A map pin says a place
        exists; a building says it is ours and everything is inside it. -->
@@ -233,20 +229,13 @@
       </div>
 
       <!-- The three facts a nervous reader wants, all of them the practice's
-           own claims from further down the page. -->
-      <dl class="hero-stats" data-seq="4">
-        <div class="stat">
-          <span class="ico-well ico-well--sm ico-well--ghost"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span>
-          <div><dt>Your visit</dt><dd><span data-count="90">90</span> minutes</dd></div>
-        </div>
-        <div class="stat">
-          <span class="ico-well ico-well--sm ico-well--ghost"><svg class="ico" aria-hidden="true"><use href="#i-noiv"/></svg></span>
-          <div><dt>Anesthetic</dt><dd>Oral, no IV</dd></div>
-        </div>
-        <div class="stat">
-          <span class="ico-well ico-well--sm ico-well--ghost"><svg class="ico" aria-hidden="true"><use href="#i-meal"/></svg></span>
-          <div><dt>Beforehand</dt><dd>No fasting</dd></div>
-        </div>
+           own claims from further down the page. Small text and nothing else:
+           as frosted cards with icon wells, a counting number and a hover
+           lift, they were the most generated-looking thing on the page. -->
+      <dl class="hero-facts" data-seq="4">
+        <div><dt>Your visit</dt><dd>90 minutes</dd></div>
+        <div><dt>Anesthetic</dt><dd>Oral, no IV</dd></div>
+        <div><dt>Beforehand</dt><dd>No fasting</dd></div>
       </dl>
     </div>
 

@@ -117,43 +117,7 @@ const setupReveals = () => {
 };
 
 /* --------------------------------------------------------------------------
-   4 · Counters
-   The number is already in the markup, so it reads correctly with no script
-   and never animates from a wrong value.
-   -------------------------------------------------------------------------- */
-const setupCounters = () => {
-  const nums = [...document.querySelectorAll('[data-count]')];
-  if (!nums.length || reduced.matches || !('IntersectionObserver' in window)) return;
-
-  const run = (el) => {
-    const target = Number(el.dataset.count);
-    if (!Number.isFinite(target)) return;
-    const duration = 1100;
-    const start = performance.now();
-
-    const tick = (now) => {
-      const t = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (t < 1) requestAnimationFrame(tick);
-      else el.textContent = String(target);
-    };
-    requestAnimationFrame(tick);
-  };
-
-  const io = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      run(entry.target);
-      io.unobserve(entry.target);
-    }
-  }, { threshold: .6 });
-
-  for (const el of nums) io.observe(el);
-};
-
-/* --------------------------------------------------------------------------
-   5 · The floating seal
+   4 · The floating seal
    In on the first scroll and held — it is an accreditation mark, not an
    alert, so it should not flicker with the scroll direction. Out again over
    the footer so it never covers the legal text.
@@ -187,5 +151,4 @@ const setupSeal = () => {
 setupMenu();
 setupScroll();
 setupReveals();
-setupCounters();
 setupSeal();
