@@ -187,6 +187,23 @@ strong, b { font-weight: 700; }
 .hero :where(a, button, [tabindex]):focus-visible,
 .card--photo :where(a, button, [tabindex]):focus-visible { outline-color: var(--white); }
 
+/* Pressed.
+   Hover does not exist on a touch screen, and until this rule every link on
+   the page — the nav, the logo, the social marks, the contact row, the office
+   links, the seal — answered a finger with nothing at all between the tap and
+   the page changing. `.btn` was the only element with an :active state.
+
+   Two treatments, by what the element already does on hover. Anything that
+   lifts seats back down: pressing a thing should settle it, not launch it
+   further. Anything that only recolours dips instead, because there is no
+   travel to undo. Both are transform/opacity, so both composite. */
+:where(.nav a, .brand, .social a, .reach a, .seal.is-in, .strip a):active {
+  transform: none;
+}
+:where(.topbar a, .site-footer a, .compare a, .nav a:not(.btn)):active {
+  opacity: .62;
+}
+
 .sr-only {
   position: absolute;
   inline-size: 1px; block-size: 1px;
