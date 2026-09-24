@@ -112,6 +112,17 @@ strong, b { font-weight: 700; }
      is the thing the heading introduces, an even split hands the heading room
      it does not use and leaves it sitting in white space. */
   .split--wide-end { grid-template-columns: 1fr 1.35fr; }
+
+  /* A wider gutter, for the pairing whose second column is a list of icon
+     rows rather than one object. Those rows bleed 16px outward so their hover
+     background can run past the text, which eats a third of a 48px gutter and
+     left the two columns looking pushed together.
+
+     Scoped, not raised on .split, because in an even split the columns absorb
+     half of whatever the gutter takes — and the other split's start column is
+     already the narrow one, where taking 16px more turned a three-line
+     heading into four. */
+  .split--wide-gutter { gap: var(--s-10); }
 }
 
 /* A split sits its columns at the top, which is right when both sides are
@@ -136,6 +147,15 @@ strong, b { font-weight: 700; }
   max-width: 34ch;
 }
 .lead strong { color: var(--heading); }
+
+/* Even the ragged edge out, so a short paragraph sets in lines of roughly one
+   length instead of three full ones and a stub.
+
+   A utility rather than the default, because `balance` costs a layout pass
+   per candidate break and browsers only apply it up to a handful of lines —
+   on running copy it does nothing and is paid for anyway. `pretty`, which
+   every p already has, is the cheap one: it only guards against orphans. */
+.balance { text-wrap: balance; }
 
 /* --------------------------------------------------------------------------
    Accessibility
