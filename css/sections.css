@@ -94,7 +94,7 @@
   text-transform: uppercase;
   transition: opacity var(--t-mid) var(--ease);
 }
-.scroll-cue .ico { animation: nudge 2.2s ease-in-out infinite; }
+.scroll-cue .ico { animation: nudge 2.2s var(--ease-soft) infinite; }
 [data-scrolled="true"] .scroll-cue { opacity: 0; }
 @media (max-width: 61.99rem) { .scroll-cue { display: none; } }
 

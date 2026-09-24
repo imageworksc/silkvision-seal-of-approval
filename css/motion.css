@@ -82,7 +82,7 @@
 .stagger > *:nth-child(7) { --d: 420ms; }
 .stagger > *:nth-child(8) { --d: 490ms; }
 
-.seal.is-in { animation: float 5s ease-in-out infinite; }
+.seal.is-in { animation: float 5s var(--ease-soft) infinite; }
 
 /* --------------------------------------------------------------------------
    Reduced motion

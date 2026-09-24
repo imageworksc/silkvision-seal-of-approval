@@ -77,7 +77,9 @@ Radius ladder `--r-sm 6px` · `--r-md 10px` · `--r-lg 14px` · `--r-pill 999px`
 underline's caps. A rectangle never takes it.
 
 Motion `--ease cubic-bezier(.22,.9,.3,1)` · `--ease-spring
-cubic-bezier(.34,1.4,.5,1)` · `--t-fast .2s` · `--t-mid .38s` · `--t-slow .7s`.
+cubic-bezier(.34,1.4,.5,1)` · `--ease-soft cubic-bezier(.37,0,.63,1)` for the two
+ambient loops · `--t-fast .2s` · `--t-mid .38s` · `--t-slow .7s`. No curve on the
+page is a browser keyword.
 
 `--tap: 44px` never scales. It is the size of a fingertip.
 
@@ -178,7 +180,7 @@ Two rules from the microinteractions framework that a states audit does not
 reach, because they are about the trigger rather than the state:
 
 - **A trigger shows which state it is in.** The menu button carries both a
-  hamburger + "Menu" and a cross + "Close", swapped off  — so
+  hamburger + "Menu" and a cross + "Close", swapped off `aria-expanded` — so
   the attribute that already told a screen reader now drives the visible half
   too, and the two cannot disagree.
 - **An invisible trigger needs a visible alternative.** The comparison table
