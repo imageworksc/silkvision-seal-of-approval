@@ -9,8 +9,8 @@
    -------------------------------------------------------------------------- */
 
 .ico {
-  inline-size: 1.25em;
-  block-size: 1.25em;
+  inline-size: 1.375em;
+  block-size: 1.375em;
   flex: none;
   fill: none;
   stroke: currentColor;
@@ -18,15 +18,15 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.ico--lg { inline-size: 1.75rem; block-size: 1.75rem; }
+.ico--lg { inline-size: 1.925rem; block-size: 1.925rem; }
 
 /* The well an icon sits in. Flat ground, and it reacts to hover on the card
    around it. */
 .ico-well {
   display: grid;
   place-items: center;
-  inline-size: 3.5rem;
-  block-size: 3.5rem;
+  inline-size: 3.85rem;
+  block-size: 3.85rem;
   border-radius: var(--r-md);
   background: var(--fill-cool);
   color: var(--white);
@@ -57,7 +57,7 @@
   color: var(--ink-700);
   box-shadow: none;
 }
-.ico-well--sm { inline-size: 2.5rem; block-size: 2.5rem; border-radius: var(--r-sm); }
+.ico-well--sm { inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--r-sm); }
 
 /* --------------------------------------------------------------------------
    Buttons
@@ -187,8 +187,8 @@
    out of padding, the icon well and the heading — never the copy, which
    holds its 16px floor. */
 .cards--sm .card { padding: var(--s-6); gap: var(--s-3); }
-.cards--sm .ico-well { inline-size: 3rem; block-size: 3rem; }
-.cards--sm .ico--lg { inline-size: 1.4rem; block-size: 1.4rem; }
+.cards--sm .ico-well { inline-size: 3.3rem; block-size: 3.3rem; }
+.cards--sm .ico--lg { inline-size: 1.54rem; block-size: 1.54rem; }
 .cards--sm .card h3 { font-size: var(--t-lead); }
 
 /* A card that carries a photograph. Three layers, each on its own element so
@@ -518,8 +518,8 @@
 .tick {
   display: inline-grid;
   place-items: center;
-  inline-size: 1.75rem;
-  block-size: 1.75rem;
+  inline-size: 1.925rem;
+  block-size: 1.925rem;
   border-radius: var(--r-pill);
   background: var(--fill-action);
   color: var(--white);
