@@ -174,18 +174,15 @@
 .cards--sm .ico--lg { inline-size: 1.4rem; block-size: 1.4rem; }
 .cards--sm .card h3 { font-size: var(--t-lead); }
 
-/* A card that carries a photograph. The image is the card's own background
-   and the scrim is a pseudo above it, so the two can be tuned apart and the
-   copy sits on a ground of one flat colour — the same construction as the
-   hero, and for the same reason (14: nothing on this page ramps).
+/* A card that carries a photograph. Three layers, each on its own element so
+   each can be tuned and moved apart from the others: the picture on ::before,
+   one flat scrim on ::after, the copy on top. Same construction as the hero,
+   and for the same reason (14: nothing on this page ramps).
 
    min-block-size is what makes it a photograph rather than a texture: at the
    card's natural height the image would be a 90px band behind the heading.
    The content goes to the foot of the frame so the picture has the top. */
 .card--photo {
-  background-image: url('../images/patients-walking.jpg');
-  background-size: cover;
-  background-position: 50% 28%;   /* their faces, not the pavement */
   box-shadow: var(--shadow-md);
   isolation: isolate;
   min-block-size: 30rem;
@@ -201,9 +198,38 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: -2;
+  background: url('../images/patients-walking.jpg') 50% 28% / cover no-repeat;
+  transition: transform 1.1s var(--ease);
+}
+.card--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   z-index: -1;
   background: var(--fill-scrim-card);
 }
+
+/* One movement, not four.
+
+   The standard card hover is orchestrated — the card rises, then the icon,
+   then the heading, then the copy, each on its own delay. That reads well on
+   a card whose parts are the content. Here the content sits on a picture, and
+   sliding the heading and the copy sideways across a photograph that is
+   holding still makes the card look like a stack of loose parts.
+
+   So this one card hovers as a single object: it lifts, and the photograph
+   pushes in slowly behind it. Nothing on top of the picture moves relative to
+   the frame. The scrim does not change either — the contrast figures above
+   are measured at one value and stay true at every moment of the hover. */
+.card--photo:hover {
+  transform: translateY(-10px);
+  border-color: rgb(255 255 255 / .34);
+}
+.card--photo:hover::before { transform: scale(1.06); }
+.card--photo:hover .ico-well,
+.card--photo:hover h3,
+.card--photo:hover p { transform: none; }
 
 /* Glass, for the two things that sit on top of the scrim.
 

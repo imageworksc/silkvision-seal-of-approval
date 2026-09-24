@@ -112,8 +112,10 @@
   .reach a:hover,
   .seal.is-in:hover { transform: none; }
 
-  /* The card's hover moves its icon, heading and copy as well as itself. */
+  /* The card's hover moves its icon, heading and copy as well as itself, and
+     the photo card's moves the photograph behind all of them. */
   .card:hover .ico-well,
   .card:hover h3,
-  .card:hover p { transform: none; }
+  .card:hover p,
+  .card--photo:hover::before { transform: none; }
 }
