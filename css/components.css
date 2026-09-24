@@ -20,6 +20,12 @@
 }
 .ico--lg { inline-size: 1.925rem; block-size: 1.925rem; }
 
+/* Brand marks are the exception to everything above. They arrive as filled
+   shapes from the companies that own them and are reproduced as issued, so
+   the fill goes back on and the stroke off — restyling a logo into this
+   page's 1.8 stroke would be redrawing somebody else's trademark. */
+.ico--brand { fill: currentColor; stroke: none; }
+
 /* The well an icon sits in. Flat ground, and it reacts to hover on the card
    around it. */
 .ico-well {

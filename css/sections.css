@@ -214,16 +214,6 @@
 }
 .footer-brand img { inline-size: 9.5rem; block-size: auto; }
 
-.footer-phone {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  min-block-size: var(--tap);
-  font-size: .9375rem;               /* 15px */
-  font-weight: 600;
-  color: var(--white);
-}
-.footer-phone .ico { inline-size: 1rem; block-size: 1rem; color: rgb(255 255 255 / .45); }
 
 .footer-offices {
   display: grid;
@@ -260,45 +250,80 @@
 }
 .office a:not(.btn):hover { color: var(--white); }
 
-/* Plain text links with a hairline above, not bordered pills. Five pills
-   across a footer read as five buttons competing with the page's real one. */
-.social { display: flex; flex-wrap: wrap; gap: 0 var(--s-5); }
-.footer-main .social {
-  grid-column: 1 / -1;
-  padding-block-start: var(--s-5);
-  border-block-start: 1px solid var(--hairline);
+/* Now the last line of the opening-hours block rather than a thing under the
+   logo: when you can reach them is the question the number answers.
+
+   Written as .office a.footer-phone, and placed after the rule it has to
+   beat. `.office a:not(.btn)` is (0,2,1); a lone class is (0,2,0) and loses,
+   which handed the number the office links' 13px, 55% white and underline.
+   It is the one thing in this footer somebody might need in a hurry, so it
+   keeps its own treatment. */
+.office a.footer-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-block-size: var(--tap);
+  margin-block-start: var(--s-1);
+  font-size: .9375rem;               /* 15px */
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+}
+.footer-phone .ico { inline-size: 1rem; block-size: 1rem; color: rgb(255 255 255 / .45); }
+
+/* The marks sit under the logo, in the brand column. No hairline and no row
+   of their own: five names spelled out needed the separation, five marks read
+   as one object and belong with the mark above them.
+
+   The names are still there as .sr-only, so the accessible name of each link
+   is the network rather than "link". */
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1);
+  margin-inline-start: calc(var(--s-3) * -1);
 }
 .social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  /* Both, because the mark inside is 20px square: without them the target is
+     20px in each direction, well under the fingertip floor. */
   min-block-size: var(--tap);
-  /* The pills used to supply this. Without it "X" is a 10px-wide target and
-     "TikTok" a 40px one; centring the label keeps it invisible. */
   min-inline-size: var(--tap);
-  font-size: .8125rem;
-  color: rgb(255 255 255 / .6);
-  transition: color var(--t-fast) var(--ease);
+  color: var(--white);
+  transition: color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
 }
-.social a:hover { color: var(--white); }
+.social .ico { inline-size: 1.25rem; block-size: 1.25rem; }
+.social a:hover { color: var(--cyan-300); transform: translateY(-2px); }
 
-/* The legal bar. max-width:none is the point of it: p carries the 62ch
-   measure by default, which left the disclaimer stopping halfway across.
-   It still stops at the shell's gutters like everything else. */
+/* The legal bar, centred. It is the one block on the page with no reading
+   order to protect — a disclaimer, a copyright line and two links — so
+   ranging it left only made it look like the start of a column that never
+   arrived.
+
+   max-width:none is still the point of the disclaimer: p carries the 62ch
+   measure by default, which left it stopping halfway across. It stops at the
+   shell's gutters like everything else. */
 .footer-legal {
   border-block-start: 1px solid var(--hairline);
   padding-block: var(--s-5) var(--s-6);
+  text-align: center;
 }
 .footer-disclaimer {
   max-width: none;
   font-size: .75rem;                 /* 12px */
   line-height: 1.65;
   color: rgb(255 255 255 / .38);
+  text-wrap: pretty;
 }
+/* justify-content, not just text-align: these are flex items, and text-align
+   on the parent does not place them. */
 .footer-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 0 var(--s-5);
   margin-block-start: var(--s-2);
 }
