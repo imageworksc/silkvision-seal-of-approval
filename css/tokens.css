@@ -70,8 +70,14 @@
   /* For a white chip on a white card. --shadow-sm is 6%, tuned for a card
      lifting off the paper band — on white-over-white it is invisible. Two
      layers, per the depth rule: a tight dark one for the edge and a softer
-     one for the air under it. Sized for a 53px object, not a 500px one. */
-  --shadow-well: 0 1px 2px rgb(1 53 89 / .08), 0 4px 12px rgb(1 53 89 / .12);
+     one for the air under it. Sized for a 53px object, not a 500px one.
+
+     Neutral, and the only shadow here that is. The other three are tinted
+     rgb(1 53 89) — a navy tint is usually the better shadow, but this one
+     sits at close range against pure white and read as blue rather than as
+     shade. Blur pulled in from 12px to 5px and opacity from .12 to .07: on a
+     53px object a 12px blur is a quarter of the thing casting it. */
+  --shadow-well: 0 1px 2px rgb(0 0 0 / .05), 0 2px 5px rgb(0 0 0 / .07);
   --glow-plum: 0 18px 46px -14px rgb(166 38 166 / .55);
 
   /* ---------- Type ---------- */

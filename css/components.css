@@ -45,6 +45,11 @@
 
 .ico-well--sm { inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--r-sm); }
 
+/* One set that keeps the brand blue instead of the plum every other well
+   takes. Declared on the set, like the plum was, so a fifth claim inherits it
+   rather than being remembered. --blue-500 on white is 7.4:1. */
+.icons--blue .ico-well { color: var(--blue-500); }
+
 /* --------------------------------------------------------------------------
    Buttons
    --r-md, not --r-pill. A fully rounded button is the default of every page
