@@ -50,7 +50,6 @@
      used to ramp; the value chosen is roughly where the old ramp sat at its
      midpoint, so nothing shifts hue. */
   --fill-action: var(--plum-500);   /* buttons, ticks, the OBS table column */
-  --fill-cool: var(--blue-500);     /* icon wells                          */
   --fill-deep: var(--ink-700);      /* the dark bands                      */
   --fill-accent: var(--plum-500);   /* nav underline, reading progress     */
   /* The scrim is even, so its alpha is set by the worst case rather than by
@@ -68,7 +67,11 @@
   --shadow-sm: 0 1px 2px rgb(1 53 89 / .06), 0 2px 8px rgb(1 53 89 / .06);
   --shadow-md: 0 2px 6px rgb(1 53 89 / .07), 0 12px 28px rgb(1 53 89 / .1);
   --shadow-lg: 0 6px 16px rgb(1 53 89 / .1), 0 28px 60px rgb(1 53 89 / .17);
-  --glow-cyan: 0 18px 46px -14px rgb(53 167 224 / .6);
+  /* For a white chip on a white card. --shadow-sm is 6%, tuned for a card
+     lifting off the paper band — on white-over-white it is invisible. Two
+     layers, per the depth rule: a tight dark one for the edge and a softer
+     one for the air under it. Sized for a 53px object, not a 500px one. */
+  --shadow-well: 0 1px 2px rgb(1 53 89 / .08), 0 4px 12px rgb(1 53 89 / .12);
   --glow-plum: 0 18px 46px -14px rgb(166 38 166 / .55);
 
   /* ---------- Type ---------- */

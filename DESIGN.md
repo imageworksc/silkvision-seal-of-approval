@@ -120,7 +120,7 @@ browser, with `:hover` rewritten to a class where headless could not hover.
 | `.btn--ghost` | hairline border | border + tint | ” | ” |
 | `.card` | white, `--shadow-sm` | see §5 — **open question** | — | ” |
 | `.card--photo` | photo + scrim + copy, 3 layers | lifts; photo pushes in 1.06 over 1.1s | — | ” |
-| `.ico-well` | 61.6px, `--fill-cool` | scales with its card | — | — |
+| `.ico-well` | 61.6px, white, `--shadow-well`, plum-600 glyph | scales with its card | — | — |
 | `.feature` | icon, claim, hairline | see §5 — **open question** | — | ” |
 | `.nav a` | — | underline scales 0→1 from centre | opacity .62 | ” |
 | `.compare tr` | column tints | each column deepens its own tint | — | — |

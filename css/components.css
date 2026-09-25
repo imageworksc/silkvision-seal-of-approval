@@ -19,11 +19,6 @@
   stroke-linejoin: round;
 }
 .ico--lg { inline-size: 1.925rem; block-size: 1.925rem; }
-/* For an icon with no container behind it. It has to carry on its own the
-   weight the well used to carry, so it is roughly the size of the well it
-   replaced — 48px against that 52.8px — rather than the size of the glyph
-   that sat inside it. */
-.ico--xl { inline-size: 3rem; block-size: 3rem; }
 
 /* Brand marks are the exception to everything above. They arrive as filled
    shapes from the companies that own them and are reproduced as issued, so
@@ -39,44 +34,15 @@
   inline-size: 3.85rem;
   block-size: 3.85rem;
   border-radius: var(--r-md);
-  background: var(--fill-cool);
-  color: var(--white);
+  background: var(--white);
+  color: var(--plum-600);
   flex: none;
-  box-shadow: var(--glow-cyan);
+  box-shadow: var(--shadow-well);
   transition: transform var(--t-mid) var(--ease-spring),
               box-shadow var(--t-mid) var(--ease),
               border-radius var(--t-mid) var(--ease);
 }
-/* One colour across a whole set, declared on the set rather than on each of
-   its six icons. The decision is "the benefits are plum", and stated per-icon
-   it is six places for a seventh card to be forgotten.
 
-   No well behind these any more. A filled chip is a container, and a
-   container implies something contained and actionable; these six cards are
-   description. The mark alone says the same thing with less furniture.
-   plum-600 on the card's white: 11.5:1. */
-.icons--plum .ico { color: var(--plum-600); }
-
-/* A well on a dark band cannot be blue, and plum does not rescue it. Measured
-   against --ink-700:
-
-     blue  --blue-500   1.71:1
-     plum  --plum-500   1.35:1   darker than the blue, so it hides further
-     plum  --plum-400   2.08:1
-     white             12.69:1
-
-   A container needs 3:1 to read as a container at all, and only one of those
-   clears it. So the well is white, and the glyph inside it carries the brand.
-
-   plum-600, not plum-500: the tokens file keeps 600 as the tone dark enough
-   to carry on white, and it measures 11.5:1 there against the 500's 9.4:1.
-   Both clear the 3:1 a graphic needs — the darker one is simply easier to
-   resolve at a 1.8 stroke on a 22px mark. */
-.band--deep .ico-well {
-  background: var(--white);
-  color: var(--plum-600);
-  box-shadow: none;
-}
 .ico-well--sm { inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--r-sm); }
 
 /* --------------------------------------------------------------------------
@@ -219,6 +185,8 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
    out of padding, the icon well and the heading — never the copy, which
    holds its 16px floor. */
 .cards--sm .card { padding: var(--s-6); gap: var(--s-3); }
+.cards--sm .ico-well { inline-size: 3.3rem; block-size: 3.3rem; }
+.cards--sm .ico--lg { inline-size: 1.54rem; block-size: 1.54rem; }
 .cards--sm .card h3 { font-size: var(--t-lead); }
 
 /* A card that carries a photograph. Three layers, each on its own element so
@@ -298,6 +266,12 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   box-shadow: none;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  /* The glyph stays white here, against the plum every other well now takes.
+     This well is glass over a scrim over a photograph, not white: measured at
+     the photograph's brightest pixel the glass reads rgb(93 126 149), where a
+     white mark is 4.3:1 and a plum-600 one is 2.67:1 — under the 3:1 a
+     graphic needs. The colour follows the ground, not the convention. */
+  color: var(--white);
 }
 .card--photo .btn--ghost {
   background: rgb(255 255 255 / .14);
