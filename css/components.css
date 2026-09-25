@@ -19,6 +19,11 @@
   stroke-linejoin: round;
 }
 .ico--lg { inline-size: 1.925rem; block-size: 1.925rem; }
+/* For an icon with no container behind it. It has to carry on its own the
+   weight the well used to carry, so it is roughly the size of the well it
+   replaced — 48px against that 52.8px — rather than the size of the glyph
+   that sat inside it. */
+.ico--xl { inline-size: 3rem; block-size: 3rem; }
 
 /* Brand marks are the exception to everything above. They arrive as filled
    shapes from the companies that own them and are reproduced as issued, so
@@ -43,9 +48,14 @@
               border-radius var(--t-mid) var(--ease);
 }
 /* One colour across a whole set, declared on the set rather than on each of
-   its six wells. The decision is "the benefits are plum", and stated per-well
-   it is six places for a seventh card to be forgotten. */
-.wells--plum .ico-well { background: var(--fill-action); box-shadow: var(--glow-plum); }
+   its six icons. The decision is "the benefits are plum", and stated per-icon
+   it is six places for a seventh card to be forgotten.
+
+   No well behind these any more. A filled chip is a container, and a
+   container implies something contained and actionable; these six cards are
+   description. The mark alone says the same thing with less furniture.
+   plum-600 on the card's white: 11.5:1. */
+.icons--plum .ico { color: var(--plum-600); }
 
 /* A well on a dark band cannot be blue, and plum does not rescue it. Measured
    against --ink-700:
@@ -56,11 +66,15 @@
      white             12.69:1
 
    A container needs 3:1 to read as a container at all, and only one of those
-   clears it. The icon then takes the band's own navy, so the chip reads as
-   the band showing through a hole rather than as a fourth colour. */
+   clears it. So the well is white, and the glyph inside it carries the brand.
+
+   plum-600, not plum-500: the tokens file keeps 600 as the tone dark enough
+   to carry on white, and it measures 11.5:1 there against the 500's 9.4:1.
+   Both clear the 3:1 a graphic needs — the darker one is simply easier to
+   resolve at a 1.8 stroke on a 22px mark. */
 .band--deep .ico-well {
   background: var(--white);
-  color: var(--ink-700);
+  color: var(--plum-600);
   box-shadow: none;
 }
 .ico-well--sm { inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--r-sm); }
@@ -205,8 +219,6 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
    out of padding, the icon well and the heading — never the copy, which
    holds its 16px floor. */
 .cards--sm .card { padding: var(--s-6); gap: var(--s-3); }
-.cards--sm .ico-well { inline-size: 3.3rem; block-size: 3.3rem; }
-.cards--sm .ico--lg { inline-size: 1.54rem; block-size: 1.54rem; }
 .cards--sm .card h3 { font-size: var(--t-lead); }
 
 /* A card that carries a photograph. Three layers, each on its own element so

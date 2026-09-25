@@ -25,9 +25,14 @@ or a magic pixel number.
 | Plum | `--plum-700 #5c005c` · `--plum-600 #6a006a` · `--plum-500 #800080` · `--plum-400 #a626a6` · `--plum-100 #f5e4f5` |
 | Neutral | `--white` · `--paper #f5f8fb` · `--grey-100` · `--grey-300` · `--grey-500` · `--grey-700` · `--grey-900` |
 
-`--blue-500` is the brand blue and `--plum-500` the action colour. **Plum means
-"do this."** It is the buttons, the benefit wells and the OBS column of the
-comparison table, and nothing else may spend it.
+`--blue-500` is the brand blue and `--plum-500` the action colour. Plum carries
+the buttons, the OBS column of the comparison table, the benefit icons and the
+step icons. It is the brand accent, not a strict "this is clickable" signal —
+an earlier draft of this file claimed the stricter rule and the page never
+actually practised it.
+
+`--plum-600` is the tone that carries on white: 11.5:1, against the 500’s 9.4:1.
+Every plum glyph on a white ground uses 600.
 
 Semantic tokens re-point per context: `--text` `--text-soft` `--text-faint`
 `--heading` `--hairline`. A dark ground re-points all five at once — see §4.
