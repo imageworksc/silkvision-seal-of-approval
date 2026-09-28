@@ -142,33 +142,21 @@ const setupScrollHint = () => {
 /* --------------------------------------------------------------------------
    5 · The floating seal
    In on the first scroll and held — it is an accreditation mark, not an
-   alert, so it should not flicker with the scroll direction. Out again over
-   the footer so it never covers the legal text.
+   alert, so it should not flicker with the scroll direction. It stays in
+   over the footer too: once shown, it never leaves.
    -------------------------------------------------------------------------- */
 const setupSeal = () => {
   const seal = document.getElementById('seal');
   if (!seal) return;
 
-  const footer = document.querySelector('footer');
-  let footerVisible = false;
-  let scrolled = window.scrollY > 0;
+  const show = () => seal.classList.add('is-in');
 
-  const sync = () => seal.classList.toggle('is-in', scrolled && !footerVisible);
-
-  if (footer && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([entry]) => {
-      footerVisible = entry.isIntersecting;
-      sync();
-    }, { threshold: 0 }).observe(footer);
+  if (window.scrollY > 0) {
+    show();
+    return;
   }
 
-  window.addEventListener('scroll', () => {
-    if (scrolled) return;
-    scrolled = true;
-    sync();
-  }, { passive: true });
-
-  sync();
+  window.addEventListener('scroll', show, { passive: true, once: true });
 };
 
 setupMenu();
