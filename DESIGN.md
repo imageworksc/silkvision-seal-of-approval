@@ -123,7 +123,7 @@ browser, with `:hover` rewritten to a class where headless could not hover.
 | `.nav a` | — | underline scales 0→1 from centre | opacity .62 | ” |
 | `.compare tr` | column tints | each column deepens its own tint | — | — |
 | `.social a` | white brand mark, 44×44 | cyan + `translateY(-2px)` | `transform: none` | ” |
-| `.seal` | static, in the accreditation band only | — | — | — |
+| `.seal` | static, in the accreditation band only | floats (up and down .4rem) | — | ” |
 
 Links that lift seat back down when pressed; links that only recolour dip to
 `opacity: .62`. **Hover does not exist on a touch screen** — without `:active`
