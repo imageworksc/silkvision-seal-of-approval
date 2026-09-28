@@ -64,6 +64,8 @@ strong, b { font-weight: 700; }
 
 .band { padding-block: var(--band-y); position: relative; }
 .band--paper { background: var(--paper); }
+/* A band that backs up a claim rather than making one: about half the air. */
+.band--slim { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 /* Dark context re-points the semantic colours and every child follows. The
    hero is on this list even though it brings its own background: without it
@@ -156,23 +158,6 @@ strong, b { font-weight: 700; }
    every p already has, is the cheap one: it only guards against orphans. */
 .balance { text-wrap: balance; }
 
-/* A break that exists only where the column is wide enough for the line it
-   was measured against.
-
-   76rem, not the 60rem where the layout becomes two columns. At 960px each
-   column is 401px and the longest hand-set line is 507px, so the break would
-   land mid-line and the first "line" would be two. From 1216px up the column
-   is 524–540px and every line clears it; above 1336 the shell caps and it is
-   540px exactly.
-
-   display:none takes the break out of the box tree rather than hiding it, so
-   below 76rem there is no forced break at all. That matters twice: the words
-   either side close up into one space, and `balance` starts working again —
-   Chromium gives up on balancing any block that contains a forced break, so
-   the two can never apply at the same width. */
-.br-wide { display: none; }
-@media (min-width: 76rem) { .br-wide { display: inline; } }
-
 /* --------------------------------------------------------------------------
    Accessibility
    -------------------------------------------------------------------------- */
@@ -189,14 +174,14 @@ strong, b { font-weight: 700; }
 /* Pressed.
    Hover does not exist on a touch screen, and until this rule every link on
    the page — the nav, the logo, the social marks, the contact row, the office
-   links, the seal — answered a finger with nothing at all between the tap and
+   links — answered a finger with nothing at all between the tap and
    the page changing. `.btn` was the only element with an :active state.
 
    Two treatments, by what the element already does on hover. Anything that
    lifts seats back down: pressing a thing should settle it, not launch it
    further. Anything that only recolours dips instead, because there is no
    travel to undo. Both are transform/opacity, so both composite. */
-:where(.nav a, .brand, .social a, .reach a, .seal.is-in, .strip a):active {
+:where(.nav a, .brand, .social a, .reach a, .strip a):active {
   transform: none;
 }
 :where(.topbar a, .site-footer a, .compare a, .nav a:not(.btn)):active {

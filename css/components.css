@@ -617,40 +617,36 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 .dash { color: var(--text-faint); font-weight: 600; }
 
 /* --------------------------------------------------------------------------
-   Floating accreditation seal
+   Accreditation seal
+   Lives in the accreditation band only, beside the claim it backs up. It is
+   not a link and does not move: it is evidence, not a control.
    -------------------------------------------------------------------------- */
 
-.seal {
-  position: fixed;
-  inset-inline-end: var(--s-5);
-  inset-block-end: var(--s-5);
-  z-index: 90;
-  inline-size: 8.5rem;
-  block-size: 8.5rem;
-  border-radius: var(--r-pill);
-  opacity: 0;
-  transform: translateY(.75rem) scale(.9);
-  pointer-events: none;
-  transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease-spring);
+.accredit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-5) var(--s-6);
 }
-.seal img { inline-size: 100%; block-size: 100%; border-radius: var(--r-pill); }
-.seal.is-in { opacity: 1; transform: none; pointer-events: auto; }
-.seal.is-in:hover { transform: translateY(-4px) scale(1.05) rotate(4deg); }
-.seal.is-in::after {
-  content: '';
-  position: absolute;
-  inset: -6px;
-  border-radius: var(--r-pill);
-  border: 2px solid rgb(53 167 224 / 0);
-  transition: border-color var(--t-mid) var(--ease);
-}
-.seal.is-in:hover::after { border-color: rgb(53 167 224 / .6); }
+.accredit > .stack { flex: 1 1 18rem; gap: var(--s-4); }
+/* A step under the page's h2: the band is meant to be slim, and the heading
+   shares its column with the seal. */
+.accredit h2 { font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem); }
 
-@media (max-width: 47.99rem) {
-  .seal { inline-size: 6.5rem; block-size: 6.5rem; inset-inline-end: var(--s-3); }
+.seal {
+  flex: none;
+  inline-size: 6rem;
+  block-size: 6rem;
+  border-radius: var(--r-pill);
 }
-/* The financing widget is fixed bottom-left and about 250px wide; below
-   640px the two stop clearing each other on a 360px phone. */
-@media (max-width: 39.99rem) {
-  .seal { inset-block-end: calc(var(--s-3) + var(--cherry-badge)); }
+@media (min-width: 48rem) {
+  .seal { inline-size: 8rem; block-size: 8rem; }
+}
+
+/* The four claims as a two-by-two grid wherever the column can hold two, so
+   the band is two rows tall instead of four. */
+.feature-grid { display: grid; gap: var(--s-2) var(--s-5); }
+.feature-grid .feature + .feature { margin-block-start: 0; }
+@media (min-width: 40rem) and (max-width: 59.99rem), (min-width: 76rem) {
+  .feature-grid { grid-template-columns: 1fr 1fr; }
 }

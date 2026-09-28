@@ -72,9 +72,7 @@ reading.
 
 ### Space, shape, motion
 
-Space `--s-1` .25rem → `--s-11` 7rem. One value is allowed off the ladder and
-is named for it: `--cherry-badge 3.75rem`, the height of the third-party
-widget the seal has to clear. `--gutter` `--band-y` `--shell 78rem`
+Space `--s-1` .25rem → `--s-11` 7rem. `--gutter` `--band-y` `--shell 78rem`
 `--measure 62ch`.
 
 Radius ladder `--r-sm 6px` · `--r-md 10px` · `--r-lg 14px` · `--r-pill 999px`.
@@ -126,7 +124,7 @@ browser, with `:hover` rewritten to a class where headless could not hover.
 | `.nav a` | — | underline scales 0→1 from centre | opacity .62 | ” |
 | `.compare tr` | column tints | each column deepens its own tint | — | — |
 | `.social a` | white brand mark, 44×44 | cyan + `translateY(-2px)` | `transform: none` | ” |
-| `.seal` | floating, in on first scroll | lift + 1.05 + 4° | `transform: none` | ” |
+| `.seal` | static, in the accreditation band only | — | — | — |
 
 Links that lift seat back down when pressed; links that only recolour dip to
 `opacity: .62`. **Hover does not exist on a touch screen** — without `:active`

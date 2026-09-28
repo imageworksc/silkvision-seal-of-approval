@@ -21,7 +21,7 @@ Linked in that order. `motion.css` is last on purpose: it can switch off
 everything above it in one place.
 
 ```
-js/main.js           menu, scroll state, reveals, counters, pointer glow, seal
+js/main.js           menu, scroll state, reveals, counters, pointer glow
 js/cherry-widget.js  loader and configuration for the "Pay over time" estimator
 ```
 
@@ -53,7 +53,7 @@ which is what the procedure does), scroll reveals that stagger across a row,
 counters that count, a reading-progress hairline, a sticky header that gains a
 shadow, and hover states on everything that can be clicked: cards lift while a
 pool of light follows the pointer, buttons sweep a sheen and slide their arrow, nav underlines
-grow from the centre, table rows highlight, the seal floats. All of it is off
+grow from the centre, table rows highlight. All of it is off
 under `prefers-reduced-motion`, handled in one block at the foot of
 `motion.css`.
 

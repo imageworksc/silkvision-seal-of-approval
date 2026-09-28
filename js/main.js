@@ -139,28 +139,7 @@ const setupScrollHint = () => {
   region.addEventListener('scroll', used, { passive: true, once: true });
 };
 
-/* --------------------------------------------------------------------------
-   5 · The floating seal
-   In on the first scroll and held — it is an accreditation mark, not an
-   alert, so it should not flicker with the scroll direction. It stays in
-   over the footer too: once shown, it never leaves.
-   -------------------------------------------------------------------------- */
-const setupSeal = () => {
-  const seal = document.getElementById('seal');
-  if (!seal) return;
-
-  const show = () => seal.classList.add('is-in');
-
-  if (window.scrollY > 0) {
-    show();
-    return;
-  }
-
-  window.addEventListener('scroll', show, { passive: true, once: true });
-};
-
 setupMenu();
 setupScroll();
 setupReveals();
 setupScrollHint();
-setupSeal();

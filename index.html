@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=52">
-<link rel="stylesheet" href="css/tokens.css?v=52">
-<link rel="stylesheet" href="css/base.css?v=52">
-<link rel="stylesheet" href="css/components.css?v=52">
-<link rel="stylesheet" href="css/sections.css?v=52">
-<link rel="stylesheet" href="css/motion.css?v=52">
+<link rel="stylesheet" href="css/fonts.css?v=53">
+<link rel="stylesheet" href="css/tokens.css?v=53">
+<link rel="stylesheet" href="css/base.css?v=53">
+<link rel="stylesheet" href="css/components.css?v=53">
+<link rel="stylesheet" href="css/sections.css?v=53">
+<link rel="stylesheet" href="css/motion.css?v=53">
 
-<script src="js/main.js?v=52" defer></script>
-<script src="js/cherry-widget.js?v=52" defer></script>
+<script src="js/main.js?v=53" defer></script>
+<script src="js/cherry-widget.js?v=53" defer></script>
 </head>
 <body>
 
@@ -263,24 +263,24 @@
   </section>
 
   <!-- ===== THE DIFFERENCE ================================================== -->
-  <section class="band" id="difference" aria-labelledby="difference-title">
+  <section class="band band--slim" id="difference" aria-labelledby="difference-title">
     <div class="wrap split split--middle split--wide-gutter">
-      <div class="stack" data-reveal>
-        <h2 id="difference-title">Accredited for Quality &amp; Patient Safety</h2>
-        <!-- The four breaks are set by hand, and only apply from 76rem up —
-             see .br-wide. Below that the column is too narrow to hold the
-             first line and `balance` takes over. -->
-        <p class="balance">Silk Vision &amp; Surgical Center is proud to be accredited<br class="br-wide">
-          by The Joint Commission, reflecting our commitment<br class="br-wide">
-          to rigorous standards for patient safety, quality<br class="br-wide">
-          of care, and continuous improvement.</p>
-        <a class="btn btn--ghost" href="#compare">See how it compares
-          <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="accredit" data-reveal>
+        <img class="seal" src="images/seal-badge.png" width="340" height="340"
+             alt="The Joint Commission National Quality Approval seal">
+        <div class="stack">
+          <h2 id="difference-title">Accredited for Quality &amp; Patient Safety</h2>
+          <p class="balance">Silk Vision &amp; Surgical Center is proud to be accredited
+            by The Joint Commission, reflecting our commitment to rigorous standards
+            for patient safety, quality of care, and continuous improvement.</p>
+          <a class="btn btn--ghost" href="#compare">See how it compares
+            <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
 
       <!-- The three commitments the paragraph names, plus the one claim the
            comparison table already makes about the team. -->
-      <div class="stack stagger full icons--blue" data-reveal>
+      <div class="feature-grid stagger full icons--blue" data-reveal>
         <h3 class="sr-only">What the accreditation covers</h3>
         <div class="feature">
           <span class="ico-well ico-well--sm"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
@@ -610,10 +610,6 @@
     </div>
   </div>
 </footer>
-
-<a class="seal" id="seal" href="#top" aria-label="The Joint Commission National Quality Approval — back to top">
-  <img src="images/seal-badge.png" width="340" height="340" alt="">
-</a>
 
 <!-- Not carried over from the live page: Google Tag Manager, Google Analytics,
      the Meta and TikTok pixels, Microsoft Clarity, Mailchimp and the Cloudflare
