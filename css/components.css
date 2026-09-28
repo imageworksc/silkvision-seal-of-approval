@@ -614,22 +614,44 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 /* --------------------------------------------------------------------------
    Accreditation seal
    Lives in the accreditation band only, beside the claim it backs up. It is
-   not a link and does not move: it is evidence, not a control.
+   not a link: it is evidence, not a control. It floats only on hover.
    -------------------------------------------------------------------------- */
+
+/* The band is pale blue and the claim sits on a white panel in it, so the
+   section reads as a set-apart credential rather than one more white band. */
+.band--accredit {
+  background: var(--pale-100);
+  padding-block: clamp(1.5rem, 3.5vw, 3rem);
+}
 
 .accredit {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--s-5) var(--s-8);
+  gap: var(--s-5) var(--s-7);
+  padding: var(--s-6) var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 48rem) {
+  .accredit { padding: var(--s-6) var(--s-7); }
 }
 .accredit > .stack { flex: 1 1 22rem; max-inline-size: 58rem; gap: var(--s-4); }
+.accredit .eyebrow {
+  color: var(--plum-600);
+  font-size: var(--t-xs);
+  font-weight: 800;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  margin-block-end: calc(var(--s-4) * -1 + var(--s-1));
+}
 /* A step under the page's h2: the band is meant to be slim. */
 .accredit h2 { font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem); }
 /* Off the measure and a step down, so the paragraph sets in two lines on a
    wide screen. At body size it measured 1870px against a 928px column — one
-   word too many for two lines. */
+   word too many for two lines. The panel's padding is sized to keep it there. */
 .accredit p { max-width: none; font-size: var(--t-sm); }
 
 .seal {
@@ -637,6 +659,8 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   inline-size: 8rem;
   block-size: 8rem;
   border-radius: var(--r-pill);
+  /* A pale ring and a lift, so it sits on the panel like a medal. */
+  box-shadow: 0 0 0 .5rem var(--pale-100), var(--shadow-lg);
 }
 @media (min-width: 48rem) {
   .seal { inline-size: 11rem; block-size: 11rem; }
