@@ -621,19 +621,28 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s-5) var(--s-7);
+  justify-content: space-between;
+  gap: var(--s-5) var(--s-8);
 }
-.accredit > .stack { flex: 1 1 22rem; gap: var(--s-3); }
-.accredit > .btn { flex: none; }
-/* A step under the page's h2: the band is meant to be slim. */
-.accredit h2 { font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem); }
+.accredit > .stack { flex: 1 1 22rem; max-inline-size: 44rem; gap: var(--s-4); }
+/* A step under the page's h2: the band is meant to be slim. Plum, because
+   this heading introduces the one mark on the page that is not ours. */
+.accredit h2 {
+  font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem);
+  color: var(--plum-600);
+}
 
 .seal {
   flex: none;
-  inline-size: 6rem;
-  block-size: 6rem;
+  inline-size: 8rem;
+  block-size: 8rem;
   border-radius: var(--r-pill);
 }
 @media (min-width: 48rem) {
-  .seal { inline-size: 7.5rem; block-size: 7.5rem; }
+  .seal { inline-size: 11rem; block-size: 11rem; }
+}
+/* Once the row wraps, the seal would trail under the button. Above the
+   heading it reads as the thing the heading is about. */
+@media (max-width: 35.99rem) {
+  .seal { order: -1; }
 }
