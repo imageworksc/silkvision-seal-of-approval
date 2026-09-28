@@ -45,11 +45,6 @@
 
 .ico-well--sm { inline-size: 2.75rem; block-size: 2.75rem; border-radius: var(--r-sm); }
 
-/* One set that keeps the brand blue instead of the plum every other well
-   takes. Declared on the set, like the plum was, so a fifth claim inherits it
-   rather than being remembered. --blue-500 on white is 7.4:1. */
-.icons--blue .ico-well { color: var(--blue-500); }
-
 /* --------------------------------------------------------------------------
    Buttons
    --r-md, not --r-pill. A fully rounded button is the default of every page
@@ -626,11 +621,11 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s-5) var(--s-6);
+  gap: var(--s-5) var(--s-7);
 }
-.accredit > .stack { flex: 1 1 18rem; gap: var(--s-4); }
-/* A step under the page's h2: the band is meant to be slim, and the heading
-   shares its column with the seal. */
+.accredit > .stack { flex: 1 1 22rem; gap: var(--s-3); }
+.accredit > .btn { flex: none; }
+/* A step under the page's h2: the band is meant to be slim. */
 .accredit h2 { font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem); }
 
 .seal {
@@ -640,13 +635,5 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   border-radius: var(--r-pill);
 }
 @media (min-width: 48rem) {
-  .seal { inline-size: 8rem; block-size: 8rem; }
-}
-
-/* The four claims as a two-by-two grid wherever the column can hold two, so
-   the band is two rows tall instead of four. */
-.feature-grid { display: grid; gap: var(--s-2) var(--s-5); }
-.feature-grid .feature + .feature { margin-block-start: 0; }
-@media (min-width: 40rem) and (max-width: 59.99rem), (min-width: 76rem) {
-  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .seal { inline-size: 7.5rem; block-size: 7.5rem; }
 }
