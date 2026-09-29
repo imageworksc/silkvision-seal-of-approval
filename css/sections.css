@@ -100,70 +100,12 @@
 
 /* --------------------------------------------------------------------------
    Surgical options
-   The photograph in full colour, on its own layer (::after) so it can be
-   placed independently of the copy, with a white wash (::before) over its
-   near edge. The only gradient on the page, asked for — decision 14.
-
-   From 76rem the photo takes the right 62% of the band and the wash runs in
-   from the left: solid under the copy, clear by the time it reaches the
-   couple, who stand right of centre. Below 76rem there is not room for both
-   side by side without the wash crossing the couple, so the photo becomes a
-   strip across the foot of the band and the wash only softens its top edge.
+   One slim column: heading, lead, then the procedure as loose type.
    -------------------------------------------------------------------------- */
 
-.options-band {
-  --photo-h: 22rem;
-  background: var(--white);
-  isolation: isolate;
-  overflow: hidden;
-  padding-block-end: calc(var(--photo-h) + var(--s-6));
-}
-.options-band::before,
-.options-band::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 0 0;
-  block-size: var(--photo-h);
-}
-.options-band::after {
-  z-index: -2;
-  background: url('../images/patients-walking.jpg') 70% 8% / cover no-repeat;
-}
-.options-band::before {
-  z-index: -1;
-  background: linear-gradient(to bottom,
-    var(--white),
-    rgb(255 255 255 / .6) 1.75rem,
-    rgb(255 255 255 / 0) 4rem);
-}
-@media (min-width: 76rem) {
-  .options-band { padding-block-end: var(--band-y); }
-  .options-band::before,
-  .options-band::after {
-    inset: 0 0 0 auto;
-    inline-size: 62%;
-    block-size: auto;
-  }
-  .options-band::after { background-position: 85% 20%; }
-  .options-band::before {
-    /* Long and eased: solid under the copy, then a slow fall-off that is
-       nearly spent by the time it reaches the woman's shoulder (~36% of this
-       layer at 1440, ~27% at 1216). */
-    background: linear-gradient(to right,
-      var(--white) 0%,
-      var(--white) 14%,
-      rgb(255 255 255 / .88) 20%,
-      rgb(255 255 255 / .6) 27%,
-      rgb(255 255 255 / .3) 34%,
-      rgb(255 255 255 / .1) 40%,
-      rgb(255 255 255 / 0) 46%);
-  }
-}
+.options-copy .lead { max-width: 60ch; }
 
-.options-copy { max-inline-size: 35rem; }
-.options-copy .lead { max-width: none; }
-
-/* The procedure, loose: set off from the lead by a hairline, no box. */
+/* Set off from the lead by a hairline, no box. */
 .procedure {
   display: grid;
   gap: var(--s-4);

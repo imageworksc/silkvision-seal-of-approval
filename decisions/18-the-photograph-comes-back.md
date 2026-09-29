@@ -1,9 +1,8 @@
 # 18 · The photograph comes back, as a card
 
-**Status** Superseded 2026-09-29. The photograph is now in full colour on
-the right of the surgical-options band, with a white wash under the copy
-(see 14's exception); the navy scrim and `--fill-scrim-card` are gone, so the
-measurements below no longer apply to anything on the page.
+**Status** Superseded 2026-09-29. The surgical-options section is now one
+slim column of type with no photograph; the card, its scrim and
+`--fill-scrim-card` are gone. `images/patients-walking.jpg` is no longer used.
 **Date** 2026-09-24
 **Touches** `images/patients-walking.jpg`, `.card--photo` in
 `css/components.css`, `--fill-scrim-card` in `css/tokens.css`, the dark-context

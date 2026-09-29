@@ -42,10 +42,8 @@ Semantic tokens re-point per context: `--text` `--text-soft` `--text-faint`
 `--fill-action` · `--fill-cool` · `--fill-deep` · `--fill-accent` ·
 `--fill-scrim`
 
-**Nothing on this page is a gradient** (decision 14), with one exception: the
-white wash over the surgical-options photograph, asked for, which fades from
-solid under the copy to clear over the couple. The hero scrim is the only
-other translucent fill; its alpha was set by measuring white and 80%-white
+**Nothing on this page is a gradient** (decision 14). The hero scrim is the
+only translucent fill; its alpha was set by measuring white and 80%-white
 against the brightest pixel of the photograph under it:
 
 | | white | 80% white |
@@ -97,8 +95,7 @@ section; `.band--paper` and `.band--deep` are its two grounds.
 `.split` is the two-column primitive, with two composable modifiers:
 `--middle` (centres a short column against a tall one) and `--wide-gutter`
 (80px instead of 48). The surgical-options section is deliberately not a
-split: loose left-aligned copy on white, the photograph in full colour on the
-right with a white wash between them (a strip at the foot below 76rem).
+split: one slim column — heading, lead, then the procedure as loose type.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop
