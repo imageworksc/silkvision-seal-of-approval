@@ -109,10 +109,6 @@ strong, b { font-weight: 700; }
 .split { display: grid; gap: var(--s-8); align-items: start; }
 @media (min-width: 60rem) {
   .split { grid-template-columns: 1fr 1fr; }
-  /* The end column takes the extra. Where one side is a heading and the other
-     is the thing the heading introduces, an even split hands the heading room
-     it does not use and leaves it sitting in white space. */
-  .split--wide-end { grid-template-columns: 1fr 1.35fr; }
 
   /* A wider gutter, for the pairing whose second column is a list of icon
      rows rather than one object. Those rows bleed 16px outward so their hover

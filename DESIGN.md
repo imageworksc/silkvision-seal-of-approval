@@ -93,11 +93,10 @@ page is a browser keyword.
 `.wrap` caps at `--shell` and pads by `--gutter`. `.band` is a full-width
 section; `.band--paper` and `.band--deep` are its two grounds.
 
-`.split` is the two-column primitive, with three composable modifiers:
-`--wide-end` (1fr 1.35fr), `--middle` (centres a short column against a tall
-one), `--wide-gutter` (80px instead of 48). They are modifiers and not changes
-to `.split` because both current pairings happen to want them and a future one
-may not.
+`.split` is the two-column primitive, with two composable modifiers:
+`--middle` (centres a short column against a tall one) and `--wide-gutter`
+(80px instead of 48). The surgical-options pairing is an even split so its
+heading sets in two lines at 42px.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop
