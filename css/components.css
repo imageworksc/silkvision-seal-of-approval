@@ -640,7 +640,7 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 }
 .accredit > .stack { flex: 1 1 22rem; max-inline-size: 58rem; gap: var(--s-4); }
 /* A step under the page's h2: the band is meant to be slim. */
-.accredit h2 { font-size: clamp(1.625rem, 1.2vw + 1.2rem, 2.25rem); }
+.accredit h2 { font-size: clamp(1.5rem, 1.2vw + 1.075rem, 2.125rem); }   /* 24 → 34 */
 /* Off the measure and a step down, so the paragraph sets in two lines on a
    wide screen. At body size it measured 1870px against a 928px column — one
    word too many for two lines. The panel's padding is sized to keep it there. */
