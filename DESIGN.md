@@ -63,8 +63,8 @@ Poppins, four weights, base64-embedded in `css/fonts.css` (~42KB, SIL OFL in
 | `--t-body` | 17 → 19px | running copy |
 | `--t-lead` | 17 → 21px | section leads |
 | `--t-h3` | 21 → 26px | |
-| `--t-h2` | 26 → 46px | |
-| `--t-h1` | 32 → 64px | |
+| `--t-h2` | 26 → 42px | |
+| `--t-h1` | 32 → 62px | |
 
 **16px is the floor for anything that is a sentence.** The footer runs its own
 smaller scale (14px body, 11px labels) because it is reference material, not
