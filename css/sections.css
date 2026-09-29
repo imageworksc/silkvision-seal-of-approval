@@ -131,7 +131,10 @@
 }
 .options-band::before {
   z-index: -1;
-  background: linear-gradient(to bottom, var(--white), rgb(255 255 255 / 0) 2.5rem);
+  background: linear-gradient(to bottom,
+    var(--white),
+    rgb(255 255 255 / .6) 1.75rem,
+    rgb(255 255 255 / 0) 4rem);
 }
 @media (min-width: 76rem) {
   .options-band { padding-block-end: var(--band-y); }
@@ -143,10 +146,17 @@
   }
   .options-band::after { background-position: 85% 20%; }
   .options-band::before {
+    /* Long and eased: solid under the copy, then a slow fall-off that is
+       nearly spent by the time it reaches the woman's shoulder (~36% of this
+       layer at 1440, ~27% at 1216). */
     background: linear-gradient(to right,
       var(--white) 0%,
-      var(--white) 19%,
-      rgb(255 255 255 / 0) 28%);
+      var(--white) 14%,
+      rgb(255 255 255 / .88) 20%,
+      rgb(255 255 255 / .6) 27%,
+      rgb(255 255 255 / .3) 34%,
+      rgb(255 255 255 / .1) 40%,
+      rgb(255 255 255 / 0) 46%);
   }
 }
 
