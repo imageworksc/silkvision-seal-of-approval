@@ -128,9 +128,6 @@
 .procedure h3 { font-size: var(--t-h3); }
 .procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; margin-inline: auto; }
 .procedure .btn { margin-block-start: var(--s-2); }
-/* No plum glow here: on a white panel it read as a second shadow. */
-.procedure .btn--solid,
-.procedure .btn--solid:hover { box-shadow: none; }
 
 
 /* --------------------------------------------------------------------------

@@ -111,8 +111,8 @@ browser, with `:hover` rewritten to a class where headless could not hover.
 
 | Primitive | Default | Hover | Active | Focus |
 | --- | --- | --- | --- | --- |
-| `.btn` | `--r-md`, 56px min | `translateY(-3px)` + shadow | `translateY(-1px)` | global ring |
-| `.btn--solid` | plum, `--glow-plum` | deepens the glow | ” | ” |
+| `.btn` | `--r-md`, 56px min | `translateY(-3px)` | `translateY(-1px)` | global ring |
+| `.btn--solid` | flat plum, no shadow | lifts only | ” | ” |
 | `.btn--ghost` | hairline border | border + tint | ” | ” |
 | `.card` | white, `--shadow-sm` | see §5 — **open question** | — | ” |
 | `.ico-well` | 61.6px, white, `--shadow-well`, plum-600 glyph | scales with its card | — | — |

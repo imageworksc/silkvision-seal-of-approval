@@ -81,7 +81,6 @@
   overflow: hidden;
   isolation: isolate;
   transition: transform var(--t-fast) var(--ease),
-              box-shadow var(--t-mid) var(--ease),
               background-color var(--t-fast) var(--ease),
               border-color var(--t-fast) var(--ease),
               color var(--t-fast) var(--ease);
@@ -91,12 +90,11 @@
 .btn:hover { transform: translateY(-3px); }
 .btn:active { transform: translateY(-1px); }
 
+/* Flat: no plum glow, at rest or on hover. */
 .btn--solid {
   background: var(--fill-action);
   color: var(--white);
-  box-shadow: var(--glow-plum);
 }
-.btn--solid:hover { box-shadow: 0 24px 54px -12px rgb(166 38 166 / .7); }
 
 .btn--ghost {
   background: transparent;
@@ -301,11 +299,6 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
   transition: transform var(--t-mid) var(--ease);
 }
 .nav a:not(.btn):hover::after { transform: scaleX(1); }
-
-/* No glow on the header's button. It sits in a 60px-tall sticky bar over a
-   blurred backdrop, where the shadow reads as a smudge rather than as depth. */
-.nav .btn--solid,
-.nav .btn--solid:hover { box-shadow: none; }
 
 .nav-toggle {
   display: none;
