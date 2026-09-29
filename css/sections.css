@@ -162,18 +162,29 @@
   }
 }
 
-.options-copy { gap: var(--s-4); }
-.options-copy .lead { max-width: 52ch; }
+/* A little more air than the other slim band: this one carries two blocks
+   of copy, and at the accreditation band's spacing it read as squeezed. */
+.options-band { padding-block: clamp(3rem, 6vw, 5rem); }
+.options-copy { gap: var(--s-5); }
+
+/* The lead and the procedure's copy are one size and one colour, so the
+   two descriptions read as a pair. */
+.options-copy .lead,
+.procedure p {
+  font-size: var(--t-body);
+  line-height: 1.6;
+  color: var(--text-soft);
+  max-width: 54ch;
+}
 
 .procedure {
   display: grid;
   gap: var(--s-3);
   justify-items: start;
-  padding-block-start: var(--s-2);
+  padding-block-start: var(--s-4);
 }
 .procedure h3 { font-size: var(--t-h3); font-weight: 600; }
-.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 58ch; }
-.procedure .btn { margin-block-start: var(--s-2); }
+.procedure .btn { margin-block-start: var(--s-3); }
 
 /* --------------------------------------------------------------------------
    Surgery day
