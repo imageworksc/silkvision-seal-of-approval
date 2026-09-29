@@ -106,29 +106,20 @@
 .options-copy .lead { max-width: 60ch; }
 
 /* Set off from the lead by a hairline, no box. */
+.options-copy { gap: var(--s-4); }
 .procedure {
   display: grid;
-  gap: var(--s-4);
+  gap: var(--s-3);
   justify-items: start;
   inline-size: 100%;
-  padding-block-start: var(--s-5);
+  padding-block-start: var(--s-4);
   border-block-start: 1px solid var(--hairline);
 }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
 .procedure h3 { font-size: var(--t-h3); }
-.procedure p { font-size: var(--t-sm); color: var(--text-soft); }
+.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; }
+.procedure .btn { margin-block-start: var(--s-2); }
 
-.checks { display: grid; gap: var(--s-3); margin: 0; padding: 0; list-style: none; }
-.checks li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--s-3);
-  font-size: var(--t-sm);
-  color: var(--text);
-}
-/* Nudged down to sit on the first line's x-height when the text wraps. */
-.checks .tick { flex: none; inline-size: 1.5rem; block-size: 1.5rem; margin-block-start: .1em; }
-.checks .tick .ico { inline-size: .875rem; block-size: .875rem; }
 
 /* --------------------------------------------------------------------------
    Surgery day
