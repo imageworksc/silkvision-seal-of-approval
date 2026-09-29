@@ -125,6 +125,8 @@
   .procedure { padding: var(--s-6) var(--s-7); }
 }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
+/* The glyph bare, no well, in the plum every icon on white takes. */
+.procedure-ico { inline-size: 2rem; block-size: 2rem; color: var(--plum-600); }
 .procedure h3 { font-size: var(--t-h3); }
 .procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; margin-inline: auto; }
 .procedure .btn { margin-block-start: var(--s-2); }
