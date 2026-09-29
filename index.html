@@ -55,15 +55,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
-<link rel="stylesheet" href="css/fonts.css?v=85">
-<link rel="stylesheet" href="css/tokens.css?v=85">
-<link rel="stylesheet" href="css/base.css?v=85">
-<link rel="stylesheet" href="css/components.css?v=85">
-<link rel="stylesheet" href="css/sections.css?v=85">
-<link rel="stylesheet" href="css/motion.css?v=85">
+<link rel="stylesheet" href="css/fonts.css?v=86">
+<link rel="stylesheet" href="css/tokens.css?v=86">
+<link rel="stylesheet" href="css/base.css?v=86">
+<link rel="stylesheet" href="css/components.css?v=86">
+<link rel="stylesheet" href="css/sections.css?v=86">
+<link rel="stylesheet" href="css/motion.css?v=86">
 
-<script src="js/main.js?v=85" defer></script>
-<script src="js/cherry-widget.js?v=85" defer></script>
+<script src="js/main.js?v=86" defer></script>
+<script src="js/cherry-widget.js?v=86" defer></script>
 </head>
 <body>
 
@@ -322,11 +322,14 @@
   </section>
 
   <!-- ===== WHAT WE PERFORM =================================================
-       One slim column, centred: the heading, the lead, then the procedure
-       as loose type — no panel, no rule.
+       One slim column, left-aligned, on the pale ground the accreditation
+       band uses. The oversized eye on the right is decoration only — the
+       page's own eye icon, the one that carries the topographer's rings —
+       so it is aria-hidden and sits behind the copy.
        ======================================================================= -->
-  <section class="band band--slim" aria-labelledby="options-title">
-    <div class="wrap stack stack--center options-copy" data-reveal>
+  <section class="band band--slim options-band" aria-labelledby="options-title">
+    <svg class="ico options-mark" aria-hidden="true"><use href="#i-eye"/></svg>
+    <div class="wrap stack options-copy" data-reveal>
       <h2 id="options-title">Advanced surgical options<br> available at Silk Vision</h2>
       <p class="lead">We offer a range of advanced eye surgeries, with a focus on
         delivering exceptional results for your vision.</p>

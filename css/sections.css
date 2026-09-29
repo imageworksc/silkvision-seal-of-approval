@@ -100,26 +100,48 @@
 
 /* --------------------------------------------------------------------------
    Surgical options
-   One slim centred column: heading, lead, then the procedure as loose type.
+   One slim column, left-aligned, on the accreditation band's pale ground.
+   What makes it stand out without making it taller is the mark: the page's
+   eye icon at 28rem, faint, bleeding off the right edge behind the copy.
+   It is decoration, so it never carries meaning and never moves.
    -------------------------------------------------------------------------- */
 
-.options-copy .lead { max-width: 60ch; }
+.options-band {
+  background: var(--pale-100);
+  overflow: hidden;
+  isolation: isolate;
+}
+.options-mark {
+  position: absolute;
+  z-index: -1;
+  inset-block-start: 50%;
+  inset-inline-end: -4rem;
+  inline-size: 28rem;
+  block-size: 28rem;
+  translate: 0 -50%;
+  color: var(--blue-500);
+  opacity: .09;
+  stroke-width: .8;
+}
+@media (max-width: 47.99rem) {
+  .options-mark { inline-size: 16rem; block-size: 16rem; inset-inline-end: -5rem; opacity: .07; }
+}
 
-/* The procedure as loose type under the lead: no panel, no rule. */
+.options-copy { gap: var(--s-4); }
+.options-copy .lead { max-width: 52ch; }
+
 .procedure {
   display: grid;
   gap: var(--s-3);
-  justify-items: center;
-  inline-size: 100%;
+  justify-items: start;
   padding-block-start: var(--s-2);
 }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
 /* The glyph bare, no well, in the heading's blue so the two read as one. */
 .procedure-ico { inline-size: 2rem; block-size: 2rem; color: var(--heading); }
 .procedure h3 { font-size: var(--t-h3); }
-.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; margin-inline: auto; }
+.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 58ch; }
 .procedure .btn { margin-block-start: var(--s-2); }
-
 
 /* --------------------------------------------------------------------------
    Surgery day
