@@ -105,12 +105,24 @@
 
 .options-copy .lead { max-width: 60ch; }
 
+/* The procedure on a white panel, built like the accreditation panel: the
+   same radius, shadow and padding. On a white band it takes a hairline too,
+   which the accreditation panel does not need on its pale ground. */
 .procedure {
   display: grid;
   gap: var(--s-3);
   justify-items: center;
   inline-size: 100%;
-  padding-block-start: var(--s-2);
+  max-inline-size: 48rem;
+  margin-block-start: var(--s-2);
+  padding: var(--s-6) var(--s-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 48rem) {
+  .procedure { padding: var(--s-6) var(--s-7); }
 }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
 .procedure h3 { font-size: var(--t-h3); }
