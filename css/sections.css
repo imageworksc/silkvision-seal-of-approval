@@ -108,7 +108,8 @@
    -------------------------------------------------------------------------- */
 
 .options-band {
-  background: url('../images/patients-walking.jpg') 70% 25% / cover no-repeat;
+  /* Anchored at the top so the couple's heads stay in frame. */
+  background: url('../images/patients-walking.jpg') 70% 0% / cover no-repeat;
   overflow: hidden;
   isolation: isolate;
 }
@@ -129,9 +130,6 @@
   justify-items: start;
   padding-block-start: var(--s-2);
 }
-.procedure-head { display: flex; align-items: center; gap: var(--s-3); }
-/* The glyph bare, no well, in the heading's blue so the two read as one. */
-.procedure-ico { inline-size: 2rem; block-size: 2rem; color: var(--heading); }
 .procedure h3 { font-size: var(--t-h3); font-weight: 600; }
 .procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 58ch; }
 .procedure .btn { margin-block-start: var(--s-2); }
