@@ -106,11 +106,9 @@
 .btn--ghost:hover { border-color: var(--blue-400); background: var(--pale-100); }
 
 .band--deep .btn--ghost,
-.hero .btn--ghost,
-.card--photo .btn--ghost { border-color: rgb(255 255 255 / .45); color: var(--white); }
+.hero .btn--ghost { border-color: rgb(255 255 255 / .45); color: var(--white); }
 .band--deep .btn--ghost:hover,
-.hero .btn--ghost:hover,
-.card--photo .btn--ghost:hover { background: rgb(255 255 255 / .12); border-color: var(--white); }
+.hero .btn--ghost:hover { background: rgb(255 255 255 / .12); border-color: var(--white); }
 
 /* The arrow slides on hover — the one micro-interaction every CTA shares. */
 .btn .ico--arrow { transition: transform var(--t-mid) var(--ease-spring); }
@@ -189,101 +187,6 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 .cards--sm .ico-well { inline-size: 2.75rem; block-size: 2.75rem; }
 .cards--sm .ico--lg { inline-size: 1.3rem; block-size: 1.3rem; }
 .cards--sm .card h3 { font-size: var(--t-body); }
-
-/* A card that carries a photograph. Three layers, each on its own element so
-   each can be tuned and moved apart from the others: the picture on ::before,
-   one flat scrim on ::after, the copy on top. Same construction as the hero,
-   and for the same reason (14: nothing on this page ramps).
-
-   min-block-size is what makes it a photograph rather than a texture: at the
-   card's natural height the image would be a 90px band behind the heading.
-   The content goes to the foot of the frame so the picture has the top. */
-.card--photo {
-  box-shadow: var(--shadow-md);
-  isolation: isolate;
-  min-block-size: 30rem;
-  padding: var(--s-8);
-  justify-content: flex-end;
-
-  /* The dark contract hands this card --on-dark-faint for soft text, which is
-     62% white. Measured against the photograph's brightest pixel through the
-     scrim that is 3.6:1 — under AA. 80% white takes it to 4.9:1. */
-  --text-soft: var(--on-dark-soft);
-}
-.card--photo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: url('../images/patients-walking.jpg') 50% 28% / cover no-repeat;
-  transition: transform 1.1s var(--ease);
-}
-.card--photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--fill-scrim-card);
-}
-
-/* One movement, not four.
-
-   The standard card hover is orchestrated — the card rises, then the icon,
-   then the heading, then the copy, each on its own delay. That reads well on
-   a card whose parts are the content. Here the content sits on a picture, and
-   sliding the heading and the copy sideways across a photograph that is
-   holding still makes the card look like a stack of loose parts.
-
-   So this one card hovers as a single object: it lifts, and the photograph
-   pushes in slowly behind it. Nothing on top of the picture moves relative to
-   the frame. The scrim does not change either — the contrast figures above
-   are measured at one value and stay true at every moment of the hover. */
-.card--photo:hover {
-  transform: translateY(-10px);
-  border-color: rgb(255 255 255 / .34);
-}
-.card--photo:hover::before { transform: scale(1.06); }
-.card--photo:hover .ico-well,
-.card--photo:hover h3,
-.card--photo:hover p { transform: none; }
-
-/* Glass, for the two things that sit on top of the scrim.
-
-   The well and the ghost button both used to be blue on a blue ground and
-   neither had an edge to find. Filling them with a little white and blurring
-   what is behind gives each a body without introducing a second colour —
-   which is the point: the card already has one, and it is the scrim's.
-
-   The blur is the finish, not the legibility. Every figure below holds on the
-   translucent fill alone, so a browser that drops backdrop-filter loses the
-   frosting and nothing else. Measured, as always, against the photograph's
-   brightest pixel:
-
-     white icon on the well     4.3:1   (graphics need 3)
-     white label on the button  4.7:1   (text needs 4.5) */
-.card--photo .ico-well {
-  background: rgb(255 255 255 / .18);
-  border: 1px solid rgb(255 255 255 / .4);
-  box-shadow: none;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  /* The glyph stays white here, against the plum every other well now takes.
-     This well is glass over a scrim over a photograph, not white: measured at
-     the photograph's brightest pixel the glass reads rgb(93 126 149), where a
-     white mark is 4.3:1 and a plum-600 one is 2.67:1 — under the 3:1 a
-     graphic needs. The colour follows the ground, not the convention. */
-  color: var(--white);
-}
-.card--photo .btn--ghost {
-  background: rgb(255 255 255 / .14);
-  border-color: rgb(255 255 255 / .38);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-.card--photo .btn--ghost:hover {
-  background: rgb(255 255 255 / .26);
-  border-color: var(--white);
-}
 
 /* Cards on a dark band. */
 .band--deep .card {

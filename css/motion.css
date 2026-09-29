@@ -121,7 +121,6 @@
   a.card:hover .ico-well,
   a.card:hover h3,
   a.card:hover p,
-  .card--photo:hover::before,
   .brand:hover img,
   .btn:hover .ico--arrow { transform: none; }
 

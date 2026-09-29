@@ -49,7 +49,7 @@ only translucent fills, and each one's alpha was set by measuring white and
 | | white | 80% white |
 | --- | --- | --- |
 | `--fill-scrim` `rgb(1 34 58 / .78)` — hero | 8.1:1 | 5.9:1 |
-| `--fill-scrim-card` `rgb(1 53 89 / .78)` — cataract card | 6.6:1 | 4.9:1 |
+| `--fill-scrim-card` `rgb(1 53 89 / .78)` — surgical-options band | 6.6:1 | 4.9:1 |
 
 ### Type
 
@@ -96,7 +96,8 @@ section; `.band--paper` and `.band--deep` are its two grounds.
 `.split` is the two-column primitive, with two composable modifiers:
 `--middle` (centres a short column against a tall one) and `--wide-gutter`
 (80px instead of 48). The surgical-options section is deliberately not a
-split: one column, the photograph as a banner and the procedure card over it.
+split: one column, left-aligned, over the photograph under a navy scrim, with
+the procedure on a white card.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop
@@ -116,7 +117,6 @@ browser, with `:hover` rewritten to a class where headless could not hover.
 | `.btn--solid` | plum, `--glow-plum` | deepens the glow | ” | ” |
 | `.btn--ghost` | hairline border | border + tint | ” | ” |
 | `.card` | white, `--shadow-sm` | see §5 — **open question** | — | ” |
-| `.card--photo` | photo + scrim + copy, 3 layers | lifts; photo pushes in 1.06 over 1.1s | — | ” |
 | `.ico-well` | 61.6px, white, `--shadow-well`, plum-600 glyph | scales with its card | — | — |
 | `.feature` | icon, claim, hairline | see §5 — **open question** | — | ” |
 | `.nav a` | — | underline scales 0→1 from centre | opacity .62 | ” |
@@ -147,7 +147,7 @@ reproduced as its owner issues it.
 One selector list in `css/base.css` re-points five tokens at once:
 
 ```
-.band--deep, .hero, .card--photo
+.band--deep, .hero, .options-band
 ```
 
 Anything that puts content on a dark ground joins that list rather than

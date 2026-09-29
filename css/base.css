@@ -70,14 +70,14 @@ strong, b { font-weight: 700; }
 /* Dark context re-points the semantic colours and every child follows. The
    hero is on this list even though it brings its own background: without it
    a ghost button inside it keeps the light theme's navy label and all but
-   disappears against the photograph. The photo card is on it for the same
-   reason — it is a dark island inside a light band.
+   disappears against the photograph. The surgical-options band is on it for
+   the same reason: its ground is a photograph under a navy scrim.
 
    This list is the contract. Anything that puts content on a dark ground
    joins it rather than restating the five declarations. */
 .band--deep,
 .hero,
-.card--photo {
+.options-band {
   color: var(--on-dark-soft);
   --text: var(--on-dark-soft);
   --text-soft: var(--on-dark-faint);
@@ -88,12 +88,7 @@ strong, b { font-weight: 700; }
 
 .band--deep :is(h1, h2, h3),
 .hero :is(h1, h2, h3),
-.card--photo :is(h1, h2, h3) { color: var(--white); }
-
-/* A heading that is also a link keeps the heading's colour. On a light card
-   the two agree by accident — `a` takes --blue-500 and --heading resolves to
-   the same value — so this only shows up on a dark ground. */
-.card--photo :is(h1, h2, h3) a { color: inherit; }
+.options-band :is(h1, h2, h3) { color: var(--white); }
 
 .stack { display: flex; flex-direction: column; gap: var(--s-5); align-items: flex-start; }
 .stack--loose { gap: var(--s-7); }
@@ -168,7 +163,7 @@ strong, b { font-weight: 700; }
 }
 .band--deep :where(a, button, [tabindex]):focus-visible,
 .hero :where(a, button, [tabindex]):focus-visible,
-.card--photo :where(a, button, [tabindex]):focus-visible { outline-color: var(--white); }
+.options-band :where(a, button, [tabindex]):focus-visible { outline-color: var(--white); }
 
 /* Pressed.
    Hover does not exist on a touch screen, and until this rule every link on
