@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sections — hero, steps, closing call, footer
+   Sections — hero, surgical options, steps, closing call, footer
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -97,6 +97,67 @@
 .scroll-cue .ico { animation: nudge 2.2s var(--ease-soft) infinite; }
 [data-scrolled="true"] .scroll-cue { opacity: 0; }
 @media (max-width: 61.99rem) { .scroll-cue { display: none; } }
+
+/* --------------------------------------------------------------------------
+   Surgical options
+   One column. The photograph is a wide banner and the procedure card rides
+   up over its foot, so the two read as one object without splitting the
+   section into columns. The couple stand right of centre; the crop keeps
+   them in frame at every banner shape.
+   -------------------------------------------------------------------------- */
+
+.options-head { margin-inline: auto; }
+.options-head .lead { max-width: 56ch; }
+
+.options { display: grid; justify-items: center; }
+
+.options-photo {
+  margin: 0;
+  inline-size: 100%;
+  overflow: hidden;
+  border-radius: var(--r-lg);
+  aspect-ratio: 16 / 10;
+}
+@media (min-width: 48rem) { .options-photo { aspect-ratio: 21 / 8; } }
+.options-photo img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: 72% 8%;
+}
+
+/* The procedure: an icon and its name on one line, the description, three
+   points with ticks, the button. */
+.procedure {
+  position: relative;
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+  inline-size: calc(100% - 2 * var(--s-4));
+  max-inline-size: 48rem;
+  margin-block-start: calc(var(--s-8) * -1);
+  padding: var(--s-6) var(--s-5);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+@media (min-width: 48rem) {
+  .procedure { margin-block-start: calc(var(--s-11) * -1); padding: var(--s-7) var(--s-8); }
+}
+.procedure-head { display: flex; align-items: center; gap: var(--s-3); }
+.procedure h3 { font-size: var(--t-h3); }
+.procedure p { font-size: var(--t-sm); color: var(--text-soft); }
+
+.checks { display: grid; gap: var(--s-3); margin: 0; padding: 0; list-style: none; }
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-size: var(--t-sm);
+  color: var(--text);
+}
+.checks .tick { flex: none; inline-size: 1.5rem; block-size: 1.5rem; }
+.checks .tick .ico { inline-size: .875rem; block-size: .875rem; }
 
 /* --------------------------------------------------------------------------
    Surgery day
