@@ -1,8 +1,9 @@
 # 18 · The photograph comes back, as a card
 
 **Status** Superseded 2026-09-29. The photograph is now the surgical-options
-band's ground under a flat white veil at .9 (see that rule in
-`css/sections.css`); the card, its navy scrim and `--fill-scrim-card` are gone.
+band's ground: full colour on the right behind a white fade from 76rem, under
+a flat white veil at .9 below (see `css/sections.css`). The card, its navy
+scrim and `--fill-scrim-card` are gone.
 **Date** 2026-09-24
 **Touches** `images/patients-walking.jpg`, `.card--photo` in
 `css/components.css`, `--fill-scrim-card` in `css/tokens.css`, the dark-context

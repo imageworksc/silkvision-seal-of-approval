@@ -100,25 +100,54 @@
 
 /* --------------------------------------------------------------------------
    Surgical options
-   One slim column, left-aligned, over the photograph under one flat white
-   veil — even, not ramped (14). At .9 the darkest pixel the photograph
-   could have comes through as rgb(230 230 230); the grey-700 copy and the
-   blue-500 headings both hold 6:1 against that, so every line clears AA
-   wherever it lands on the picture.
+   One slim column, left-aligned.
+
+   From 76rem: solid white on the left under the copy, fading out across the
+   photograph, which sits in full colour on the right 62% of the band on its
+   own layer (::after). The fade (::before) is the page's one gradient, asked
+   for — see decision 14. It is spent before it reaches the woman's shoulder
+   (~48% of the photo layer at 1216, ~53% at 1440), so the couple stay in
+   full colour.
+
+   Below 76rem the couple cannot sit beside the copy, so the photograph goes
+   behind all of it under one flat white veil at .9 instead — the darkest
+   pixel comes through as rgb(230 230 230), and grey-700 and blue-500 type
+   both hold 6:1 against that.
    -------------------------------------------------------------------------- */
 
 .options-band {
-  /* Anchored at the top so the couple's heads stay in frame. */
-  background: url('../images/patients-walking.jpg') 70% 0% / cover no-repeat;
   overflow: hidden;
   isolation: isolate;
 }
-.options-band::before {
+.options-band::before,
+.options-band::after {
   content: '';
   position: absolute;
   inset: 0;
+}
+.options-band::after {
+  z-index: -2;
+  /* Anchored at the top so the couple's heads stay in frame. */
+  background: url('../images/patients-walking.jpg') 70% 0% / cover no-repeat;
+}
+.options-band::before {
   z-index: -1;
   background: rgb(255 255 255 / .9);
+}
+@media (min-width: 76rem) {
+  .options-band { background: var(--white); }
+  .options-band::before,
+  .options-band::after { inset: 0 0 0 auto; inline-size: 62%; }
+  .options-band::after { background-position: 85% 0%; }
+  .options-band::before {
+    background: linear-gradient(to right,
+      var(--white) 0%,
+      var(--white) 30%,
+      rgb(255 255 255 / .85) 35%,
+      rgb(255 255 255 / .55) 40%,
+      rgb(255 255 255 / .25) 44%,
+      rgb(255 255 255 / 0) 48%);
+  }
 }
 
 .options-copy { gap: var(--s-4); }
