@@ -1,6 +1,10 @@
 # 14 · Flat fills, no gradients
 
-**Status** Settled
+**Status** Settled, with one exception — 2026-09-29: the surgical-options
+band has a white wash over its photograph that fades from solid to clear,
+asked for directly (*que la transparencia sea solo en blanco … tipo degradado,
+más blanco a la izquierda*). It is a legibility layer, not decoration: the copy
+always sits on its solid part. Everything else stays flat.
 **Date** 2026-09-24
 **Touches** `css/tokens.css` (the `--fill-*` block), `.hero` and `.closing` in
 `css/sections.css`, `.btn`/`.ico-well`/`.tick`/`.compare`/`.progress` in

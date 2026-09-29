@@ -1,8 +1,9 @@
 # 18 · The photograph comes back, as a card
 
-**Status** Settled — amended 2026-09-29: the photograph is now the whole
-surgical-options band's ground rather than a card's, under the same scrim, and
-the procedure sits on a white card over it. The measurements below still hold.
+**Status** Superseded 2026-09-29. The photograph is now in full colour on
+the right of the surgical-options band, with a white wash under the copy
+(see 14's exception); the navy scrim and `--fill-scrim-card` are gone, so the
+measurements below no longer apply to anything on the page.
 **Date** 2026-09-24
 **Touches** `images/patients-walking.jpg`, `.card--photo` in
 `css/components.css`, `--fill-scrim-card` in `css/tokens.css`, the dark-context

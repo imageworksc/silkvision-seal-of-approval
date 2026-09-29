@@ -100,51 +100,71 @@
 
 /* --------------------------------------------------------------------------
    Surgical options
-   The photograph is the band's ground, under one flat navy scrim — the
-   hero's construction, with the card scrim's colour (decision 18 has the
-   measurement). Copy runs down the left; the couple stand right of centre
-   and stay in view. The procedure is a white card, so it re-points the
-   dark contract's tokens back to the light theme.
+   The photograph in full colour, on its own layer (::after) so it can be
+   placed independently of the copy, with a white wash (::before) over its
+   near edge. The only gradient on the page, asked for — decision 14.
+
+   From 76rem the photo takes the right 62% of the band and the wash runs in
+   from the left: solid under the copy, clear by the time it reaches the
+   couple, who stand right of centre. Below 76rem there is not room for both
+   side by side without the wash crossing the couple, so the photo becomes a
+   strip across the foot of the band and the wash only softens its top edge.
    -------------------------------------------------------------------------- */
 
 .options-band {
-  background: url('../images/patients-walking.jpg') 75% 20% / cover no-repeat;
+  --photo-h: 22rem;
+  background: var(--white);
   isolation: isolate;
   overflow: hidden;
-  /* The contract's soft text is 62% white: 3.6:1 over this photograph's
-     brightest pixel. 80% is 4.9:1. */
-  --text-soft: var(--on-dark-soft);
+  padding-block-end: calc(var(--photo-h) + var(--s-6));
 }
-.options-band::before {
+.options-band::before,
+.options-band::after {
   content: '';
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--fill-scrim-card);
+  inset: auto 0 0 0;
+  block-size: var(--photo-h);
 }
-.options-band .lead { color: var(--on-dark-soft); max-width: 44ch; }
+.options-band::after {
+  z-index: -2;
+  background: url('../images/patients-walking.jpg') 70% 8% / cover no-repeat;
+}
+.options-band::before {
+  z-index: -1;
+  background: linear-gradient(to bottom, var(--white), rgb(255 255 255 / 0) 2.5rem);
+}
+@media (min-width: 76rem) {
+  .options-band { padding-block-end: var(--band-y); }
+  .options-band::before,
+  .options-band::after {
+    inset: 0 0 0 auto;
+    inline-size: 62%;
+    block-size: auto;
+  }
+  .options-band::after { background-position: 85% 20%; }
+  .options-band::before {
+    background: linear-gradient(to right,
+      var(--white) 0%,
+      var(--white) 19%,
+      rgb(255 255 255 / 0) 28%);
+  }
+}
 
+.options-copy { max-inline-size: 35rem; }
+.options-copy .lead { max-width: none; }
+
+/* The procedure, loose: set off from the lead by a hairline, no box. */
 .procedure {
-  --text: var(--grey-900);
-  --text-soft: var(--grey-700);
-  --heading: var(--blue-500);
-  --hairline: rgb(1 53 89 / .12);
-  color: var(--text);
-
   display: grid;
   gap: var(--s-4);
   justify-items: start;
-  max-inline-size: 40rem;
-  padding: var(--s-6) var(--s-5);
-  border-radius: var(--r-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-lg);
+  inline-size: 100%;
+  padding-block-start: var(--s-5);
+  border-block-start: 1px solid var(--hairline);
 }
-@media (min-width: 48rem) { .procedure { padding: var(--s-7); } }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
-.procedure h3 { font-size: var(--t-h3); color: var(--heading); }
+.procedure h3 { font-size: var(--t-h3); }
 .procedure p { font-size: var(--t-sm); color: var(--text-soft); }
-.procedure :where(a):focus-visible { outline-color: var(--cyan-400); }
 
 .checks { display: grid; gap: var(--s-3); margin: 0; padding: 0; list-style: none; }
 .checks li {
