@@ -63,7 +63,7 @@ Poppins, four weights, base64-embedded in `css/fonts.css` (~42KB, SIL OFL in
 | `--t-body` | 17 → 19px | running copy |
 | `--t-lead` | 17 → 21px | section leads |
 | `--t-h3` | 21 → 26px | |
-| `--t-h2` | 30 → 50px | |
+| `--t-h2` | 28 → 48px | |
 | `--t-h1` | 36 → 68px | |
 
 **16px is the floor for anything that is a sentence.** The footer runs its own
