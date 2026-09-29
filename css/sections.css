@@ -100,24 +100,21 @@
 
 /* --------------------------------------------------------------------------
    Surgical options
-   One slim column: heading, lead, then the procedure as loose type.
+   One slim centred column: heading, lead, then the procedure as loose type.
    -------------------------------------------------------------------------- */
 
 .options-copy .lead { max-width: 60ch; }
 
-/* Set off from the lead by a hairline, no box. */
-.options-copy { gap: var(--s-4); }
 .procedure {
   display: grid;
   gap: var(--s-3);
-  justify-items: start;
+  justify-items: center;
   inline-size: 100%;
-  padding-block-start: var(--s-4);
-  border-block-start: 1px solid var(--hairline);
+  padding-block-start: var(--s-2);
 }
 .procedure-head { display: flex; align-items: center; gap: var(--s-3); }
 .procedure h3 { font-size: var(--t-h3); }
-.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; }
+.procedure p { font-size: var(--t-sm); color: var(--text-soft); max-width: 62ch; margin-inline: auto; }
 .procedure .btn { margin-block-start: var(--s-2); }
 
 
