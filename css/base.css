@@ -148,6 +148,9 @@ strong, b { font-weight: 700; }
   max-width: 34ch;
 }
 .lead strong { color: var(--heading); }
+/* For a lead that is one short sentence: off the 34ch cap so it sets on one
+   line wherever the screen can hold it. Still inside the 75-character measure. */
+.lead--wide { max-width: none; }
 
 /* Even the ragged edge out, so a short paragraph sets in lines of roughly one
    length instead of three full ones and a stub.

@@ -184,10 +184,11 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 /* A compacter card, for a set that runs two rows deep. The reduction comes
    out of padding, the icon well and the heading — never the copy, which
    holds its 16px floor. */
-.cards--sm .card { padding: var(--s-6); gap: var(--s-3); }
-.cards--sm .ico-well { inline-size: 3.3rem; block-size: 3.3rem; }
-.cards--sm .ico--lg { inline-size: 1.54rem; block-size: 1.54rem; }
-.cards--sm .card h3 { font-size: var(--t-lead); }
+.cards--sm { gap: var(--s-4); }
+.cards--sm .card { padding: var(--s-5); gap: var(--s-2); }
+.cards--sm .ico-well { inline-size: 2.75rem; block-size: 2.75rem; }
+.cards--sm .ico--lg { inline-size: 1.3rem; block-size: 1.3rem; }
+.cards--sm .card h3 { font-size: var(--t-body); }
 
 /* A card that carries a photograph. Three layers, each on its own element so
    each can be tuned and moved apart from the others: the picture on ::before,
