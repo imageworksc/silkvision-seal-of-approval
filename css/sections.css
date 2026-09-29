@@ -102,17 +102,21 @@
    Surgical options
    One slim column, left-aligned.
 
-   From 76rem: solid white on the left under the copy, fading out across the
-   photograph, which sits in full colour on the right 62% of the band on its
-   own layer (::after). The fade (::before) is the page's one gradient, asked
-   for — see decision 14. Long on purpose: it runs out at 60% of the photo
-   layer, so it lightens the woman's near shoulder a little (she starts at
-   ~48% of the layer at 1216, ~53% at 1440); the faces stay in full colour.
+   From 76rem, three layers on the right 62% of the band, all sized and
+   placed identically so they register:
+     ::after          the photograph
+     ::before         a white veil: solid under the copy, easing to .55
+                      across the street — the page's one gradient, asked
+                      for (decision 14)
+     .options-couple  the couple cut out of the same photograph
+                      (patients-walking-couple.png, same 950x551 frame),
+                      in full colour above the veil
+   So the street goes pale and the people do not.
 
    Below 76rem the couple cannot sit beside the copy, so the photograph goes
-   behind all of it under one flat white veil at .9 instead — the darkest
-   pixel comes through as rgb(230 230 230), and grey-700 and blue-500 type
-   both hold 6:1 against that.
+   behind all of it under one flat white veil at .9 and the cut-out is not
+   shown — the darkest pixel comes through as rgb(230 230 230), and grey-700
+   and blue-500 type both hold 6:1 against that.
    -------------------------------------------------------------------------- */
 
 .options-band {
@@ -120,34 +124,41 @@
   isolation: isolate;
 }
 .options-band::before,
-.options-band::after {
+.options-band::after,
+.options-couple {
   content: '';
   position: absolute;
   inset: 0;
 }
 .options-band::after {
-  z-index: -2;
+  z-index: -3;
   /* Anchored at the top so the couple's heads stay in frame. */
   background: url('../images/patients-walking.jpg') 70% 0% / cover no-repeat;
 }
 .options-band::before {
-  z-index: -1;
+  z-index: -2;
   background: rgb(255 255 255 / .9);
 }
+.options-couple { display: none; }
+
 @media (min-width: 76rem) {
   .options-band { background: var(--white); }
   .options-band::before,
-  .options-band::after { inset: 0 0 0 auto; inline-size: 62%; }
+  .options-band::after,
+  .options-couple { inset: 0 0 0 auto; inline-size: 62%; }
   .options-band::after { background-position: 85% 0%; }
   .options-band::before {
     background: linear-gradient(to right,
       var(--white) 0%,
       var(--white) 28%,
-      rgb(255 255 255 / .9) 34%,
-      rgb(255 255 255 / .7) 40%,
-      rgb(255 255 255 / .45) 46%,
-      rgb(255 255 255 / .2) 52%,
-      rgb(255 255 255 / 0) 60%);
+      rgb(255 255 255 / .85) 38%,
+      rgb(255 255 255 / .7) 48%,
+      rgb(255 255 255 / .55) 60%);
+  }
+  .options-couple {
+    display: block;
+    z-index: -1;
+    background: url('../images/patients-walking-couple.png') 85% 0% / cover no-repeat;
   }
 }
 

@@ -43,8 +43,9 @@ Semantic tokens re-point per context: `--text` `--text-soft` `--text-faint`
 `--fill-scrim`
 
 **Nothing on this page is a gradient** (decision 14), with one exception: from
-76rem the surgical-options band fades from solid white under the copy into its
-photograph, full colour on the right. Below 76rem that band uses a flat white
+76rem the surgical-options band fades from solid white under the copy to a .55
+veil over its photograph's street; the couple, a cut-out laid over it, stay in
+full colour. Below 76rem that band uses a flat white
 veil (.9, which holds grey-700 and blue-500 type at 6:1 over any pixel). The
 hero scrim is the other translucent fill; its alpha was set by measuring white and 80%-white
 against the brightest pixel of the photograph under it:
@@ -98,8 +99,9 @@ section; `.band--paper` and `.band--deep` are its two grounds.
 `.split` is the two-column primitive, with two composable modifiers:
 `--middle` (centres a short column against a tall one) and `--wide-gutter`
 (80px instead of 48). The surgical-options section is deliberately not a
-split: one slim left-aligned column; white fading into the full-colour
-photograph on the right from 76rem, a flat white veil over it below.
+split: one slim left-aligned column; from 76rem, white fading into a veiled
+street with the couple cut out in full colour on the right; below, a flat
+white veil over the whole photograph.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop

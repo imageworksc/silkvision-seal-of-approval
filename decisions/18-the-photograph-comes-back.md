@@ -1,8 +1,9 @@
 # 18 · The photograph comes back, as a card
 
 **Status** Superseded 2026-09-29. The photograph is now the surgical-options
-band's ground: full colour on the right behind a white fade from 76rem, under
-a flat white veil at .9 below (see `css/sections.css`). The card, its navy
+band's ground: from 76rem its street is veiled and the couple, cut out into
+`images/patients-walking-couple.png`, sit over it in full colour; below that,
+a flat white veil at .9 (see `css/sections.css`). The card, its navy
 scrim and `--fill-scrim-card` are gone.
 **Date** 2026-09-24
 **Touches** `images/patients-walking.jpg`, `.card--photo` in

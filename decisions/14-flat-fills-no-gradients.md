@@ -1,8 +1,9 @@
 # 14 · Flat fills, no gradients
 
 **Status** Settled, with one exception — 2026-09-29: from 76rem the
-surgical-options band fades from solid white under the copy into its
-photograph, which stays in full colour on the right. Asked for directly
+surgical-options band fades from solid white under the copy to a .55 white
+veil over its photograph's street, while the couple — a cut-out laid over
+the photograph — stay in full colour. Asked for directly
 (*blanco total a la izquierda, ir difuminando, y full color la imagen a la
 derecha*). The copy always sits on the solid part. Everything else stays flat.
 **Date** 2026-09-24
