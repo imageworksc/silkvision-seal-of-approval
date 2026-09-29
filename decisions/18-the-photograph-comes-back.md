@@ -1,7 +1,7 @@
 # 18 · The photograph comes back, as a card
 
 **Status** Superseded 2026-09-29. The photograph is now the surgical-options
-band's ground under a flat white veil at .85 (see that rule in
+band's ground under a flat white veil at .9 (see that rule in
 `css/sections.css`); the card, its navy scrim and `--fill-scrim-card` are gone.
 **Date** 2026-09-24
 **Touches** `images/patients-walking.jpg`, `.card--photo` in

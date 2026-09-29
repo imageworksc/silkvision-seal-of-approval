@@ -101,9 +101,9 @@
 /* --------------------------------------------------------------------------
    Surgical options
    One slim column, left-aligned, over the photograph under one flat white
-   veil — even, not ramped (14). At .85 the darkest pixel the photograph
-   could have comes through as rgb(217 217 217); the grey-700 copy and the
-   blue-500 headings both hold 5.3:1 against that, so every line clears AA
+   veil — even, not ramped (14). At .9 the darkest pixel the photograph
+   could have comes through as rgb(230 230 230); the grey-700 copy and the
+   blue-500 headings both hold 6:1 against that, so every line clears AA
    wherever it lands on the picture.
    -------------------------------------------------------------------------- */
 
@@ -118,7 +118,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: rgb(255 255 255 / .85);
+  background: rgb(255 255 255 / .9);
 }
 
 .options-copy { gap: var(--s-4); }

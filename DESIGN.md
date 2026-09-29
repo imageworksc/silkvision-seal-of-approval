@@ -43,8 +43,8 @@ Semantic tokens re-point per context: `--text` `--text-soft` `--text-faint`
 `--fill-scrim`
 
 **Nothing on this page is a gradient** (decision 14). The translucent fills
-are the hero scrim and the surgical-options band's flat white veil (.85, which
-holds grey-700 and blue-500 type at 5.3:1 over any pixel). The hero's alpha was set by measuring white and 80%-white
+are the hero scrim and the surgical-options band's flat white veil (.9, which
+holds grey-700 and blue-500 type at 6:1 over any pixel). The hero's alpha was set by measuring white and 80%-white
 against the brightest pixel of the photograph under it:
 
 | | white | 80% white |
@@ -97,7 +97,7 @@ section; `.band--paper` and `.band--deep` are its two grounds.
 `--middle` (centres a short column against a tall one) and `--wide-gutter`
 (80px instead of 48). The surgical-options section is deliberately not a
 split: one slim left-aligned column over the photograph under a flat white
-veil at .85.
+veil at .9.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop
