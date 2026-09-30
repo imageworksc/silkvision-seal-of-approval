@@ -234,6 +234,15 @@
 /* Wider than the default 34ch so the sentence sets in two lines. */
 .closing .lead { max-width: 56ch; }
 
+/* Centred on wider screens; on a phone it aligns to the start like every
+   other band, so its buttons line up with the rest of the page's. */
+@media (max-width: 47.99rem) {
+  .closing .stack--center { align-items: flex-start; text-align: start; }
+  .closing .stack--center p { margin-inline: 0; }
+  .closing .stack--center .card { align-items: flex-start; text-align: start; }
+  .closing .reach { justify-content: flex-start; }
+}
+
 /* The remains of the old contact strip, now the foot of this band. A rule
    above it and a step down in weight keep it secondary to the two buttons —
    these are the ways to get in touch that the buttons do not already offer,

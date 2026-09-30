@@ -122,24 +122,6 @@ const setupReveals = () => {
   window.addEventListener('load', flush);
 };
 
-/* --------------------------------------------------------------------------
-   4 · The comparison table's swipe hint
-   A closed loop: it runs once and ends. The hint exists because a horizontal
-   swipe is an invisible trigger; the moment the region is actually scrolled
-   the user has discovered it, so the hint retires and the listener with it.
-   -------------------------------------------------------------------------- */
-const setupScrollHint = () => {
-  const region = document.getElementById('compareScroll');
-  if (!region) return;
-
-  const used = () => {
-    region.dataset.used = 'true';
-    region.removeEventListener('scroll', used);
-  };
-  region.addEventListener('scroll', used, { passive: true, once: true });
-};
-
 setupMenu();
 setupScroll();
 setupReveals();
-setupScrollHint();

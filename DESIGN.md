@@ -191,11 +191,17 @@ reach, because they are about the trigger rather than the state:
   hamburger + "Menu" and a cross + "Close", swapped off `aria-expanded` — so
   the attribute that already told a screen reader now drives the visible half
   too, and the two cannot disagree.
-- **An invisible trigger needs a visible alternative.** The comparison table
-  scrolls sideways on a phone and a swipe has nothing to discover it by, so a
-  line of type says so. It is a closed loop: the first scroll of the region
-  retires it, and the listener with it. Scaffolding that outlasts its purpose
-  is clutter.
+- **Don't hide content behind an invisible trigger.** The comparison table
+  used to scroll sideways on a phone behind a "Swipe to compare" hint. Below
+  50rem it now stacks instead — each feature on its own line with its two
+  values labelled side by side — so nothing needs a swipe to be found. Explicit
+  table roles in the markup keep it a table for screen readers after the
+  display change.
+
+Phones (below 48rem): every button sits at the start of its line at its own
+width and keeps its label on one line (from 360px; narrower, it may wrap
+rather than overflow). The closing band, centred on wider screens, aligns to
+the start there too, so its buttons line up with the rest of the page's.
 
 ### Reduced motion
 
