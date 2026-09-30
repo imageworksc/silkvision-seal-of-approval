@@ -267,15 +267,6 @@ a.card:hover p  { transform: translateX(4px); transition-delay: 130ms; }
 .brand img { inline-size: 11.5rem; block-size: auto; transition: transform var(--t-mid) var(--ease); }
 .brand:hover img { transform: scale(1.03); }
 
-/* A link that is a target on its own rather than a word inside a sentence.
-   An inline box ignores min-block-size, so it needs a box that does not.
-   (A link inside running prose is exempt from the 44px minimum.) */
-.tap {
-  display: inline-flex;
-  align-items: center;
-  min-block-size: var(--tap);
-}
-
 .nav { display: flex; align-items: center; gap: var(--s-5); }
 .nav a:not(.btn) {
   position: relative;

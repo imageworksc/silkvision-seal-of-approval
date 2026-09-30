@@ -5,10 +5,21 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
+  font-size: 100%;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--s-9);
 }
+
+/* The stepping root (decisions 1, 2 and 4). Everything structural is in rem,
+   so these three rules scale the column, the type, the gaps and the controls
+   together on large displays instead of leaving a narrow stripe of small
+   text. Percentages, not pixels, so a reader's own browser font size still
+   counts. Queries in px because an em/rem query does not follow the root.
+   5K gets no step of its own: it is served by the 3200px rule. */
+@media (min-width: 1800px) { html { font-size: 112.5%; } }  /* 18px */
+@media (min-width: 2400px) { html { font-size: 125%; } }    /* 20px */
+@media (min-width: 3200px) { html { font-size: 143.75%; } } /* 23px */
 
 body {
   margin: 0;
@@ -98,31 +109,6 @@ strong, b { font-weight: 700; }
 .grid { display: grid; gap: var(--s-5); }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(min(17.5rem, 100%), 1fr)); }
 
-.split { display: grid; gap: var(--s-8); align-items: start; }
-@media (min-width: 60rem) {
-  .split { grid-template-columns: 1fr 1fr; }
-
-  /* A wider gutter, for the pairing whose second column is a list of icon
-     rows rather than one object. Those rows bleed 16px outward so their hover
-     background can run past the text, which eats a third of a 48px gutter and
-     left the two columns looking pushed together.
-
-     Scoped, not raised on .split, because in an even split the columns absorb
-     half of whatever the gutter takes — and the other split's start column is
-     already the narrow one, where taking 16px more turned a three-line
-     heading into four. */
-  .split--wide-gutter { gap: var(--s-10); }
-}
-
-/* A split sits its columns at the top, which is right when both sides are
-   reading matter. When one side is a short heading and the other is a tall
-   object, top alignment leaves the heading stranded against the object's
-   whole height. This centres it against that height instead.
-
-   Outside the two-column media query on purpose: stacked on a phone each row
-   is its own height, so it changes nothing there and does not need undoing. */
-.split--middle { align-items: center; }
-
 .full { width: 100%; }
 
 /* --------------------------------------------------------------------------
@@ -171,7 +157,7 @@ strong, b { font-weight: 700; }
    lifts seats back down: pressing a thing should settle it, not launch it
    further. Anything that only recolours dips instead, because there is no
    travel to undo. Both are transform/opacity, so both composite. */
-:where(.nav a, .brand, .social a, .reach a, .strip a):active {
+:where(.nav a, .brand, .social a, .reach a):active {
   transform: none;
 }
 :where(.topbar a, .site-footer a, .compare a, .nav a:not(.btn)):active {

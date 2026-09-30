@@ -96,17 +96,19 @@ page is a browser keyword.
 `.wrap` caps at `--shell` and pads by `--gutter`. `.band` is a full-width
 section; `.band--paper` and `.band--deep` are its two grounds.
 
-`.split` is the two-column primitive, with two composable modifiers:
-`--middle` (centres a short column against a tall one) and `--wide-gutter`
-(80px instead of 48). The surgical-options section is deliberately not a
-split: one slim left-aligned column; from 76rem, white fading into a veiled
-street with the couple cut out in full colour on the right; below, a flat
-white veil over the whole photograph.
+No section uses a two-column split any more. Every band is one column; the
+surgical-options band is one slim left-aligned column with, from 76rem, white
+fading into a veiled street and the couple cut out in full colour on the
+right, and below that a flat white veil over the whole photograph.
 
 Breakpoints, and what each is for: **34rem** hero facts gain rules · **48rem**
 the timeline becomes two columns · **50rem** the comparison table would stop
-fitting · **60rem** `.split` becomes two columns · **76rem** the accreditation
-paragraph's hand-set line breaks switch on.
+fitting · **76rem** the surgical-options photograph moves beside the copy.
+
+Large displays scale rather than re-lay out (decisions 1, 2, 4): the root font
+size steps to 112.5% at 1800px, 125% at 2400px and 143.75% at 3200px, and
+because everything structural is in `rem` the column, type, gaps and controls
+grow together. 5K is served by the 3200px step.
 
 ---
 
